@@ -2,61 +2,59 @@
 import Base from '../layouts/Base.astro';
 const colors = [
   ['--color-bg', 'Background'],
-  ['--color-text', 'Text / headings'],
+  ['--color-text', 'Text'],
   ['--color-label', 'Eyebrow'],
   ['--color-frame', 'Frames & rules'],
 ];
-const styles = [
-  ['--text-script-hero', 'Script hero'],
-  ['--text-script-header', 'Script header'],
-  ['--text-lead', 'Lead'],
-  ['--text-subhead', 'Subhead'],
-  ['--text-body', 'Body (also nav, footer, small text)'],
-  ['--text-eyebrow', 'Eyebrow'],
+const specs = [
+  ['Script hero', '--text-script-hero', 'Pinyon Script'],
+  ['Script header', '--text-script-header', 'Pinyon Script'],
+  ['Lead', '--text-lead', 'EB Garamond'],
+  ['Subhead', '--text-subhead', 'EB Garamond 600'],
+  ['Eyebrow', '--text-eyebrow', 'Jost 500, caps, 2px'],
+  ['Body', '--text-body', 'EB Garamond (also nav, footer)'],
 ];
 ---
 <Base title="Style guide">
-  <div class="page guide stack">
-    <h1>Style guide</h1>
-    <p><em>Internal reference — not linked from the site. Tokens live in <code>src/styles/tokens.css</code>.</em></p>
+  <div class="page guide">
+    <p class="gh">Internal reference — not linked from the site</p>
 
-    <h2>Color</h2>
+    <p class="gh">Text styles</p>
+    <p class="script hero">Script hero</p>
+    <p class="script">Script header</p>
+    <p class="lead">Lead — intro paragraphs and the hero date.</p>
+    <p class="subhead">Subhead</p>
+    <p class="eyebrow">Eyebrow</p>
+    <p>Body — We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
+    <p><em>Body italic — an em inside body text, for notes like “details will be shared closer to the wedding.”</em></p>
+
+    <p class="gh">Color</p>
     <ul class="swatches">
       {colors.map(([v, name]) => (
-        <li><span class="chip" style={`background:var(${v})`}></span><b>{name}</b><code>{v}</code></li>
+        <li><span class="chip" style={`background:var(${v})`}></span>{name}</li>
       ))}
     </ul>
 
-    <h2>Text styles</h2>
-    <p class="eyebrow">Script hero</p>
-    <p class="script" style="font-size:var(--text-script-hero)">Breanna &amp; Eric</p>
-    <p class="eyebrow">Script header</p>
-    <p class="script">How We Met</p>
-    <p class="eyebrow">Lead</p>
-    <p class="lead">Getting to the Tuscan countryside takes a little planning.</p>
-    <p class="eyebrow">Subhead</p>
-    <p class="subhead">Sorrento</p>
-    <p class="eyebrow">Eyebrow (chapters, labels, dates)</p>
-    <p class="eyebrow">Saturday, September 18, 2027</p>
-    <p class="eyebrow">Body</p>
-    <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
-    <p><em>Italic is just body with &lt;em&gt;: Departure and transfer details will be shared closer to the wedding.</em></p>
-
-    <h2>Alignment</h2>
-    <div data-align="right"><p class="eyebrow">Chapter One</p><h2>How We Met</h2><p>Right-aligned section for alternating layouts.</p></div>
-
-    <h2>Sizes</h2>
+    <p class="gh">Tokens</p>
     <table>
-      {styles.map(([s, name]) => <tr><td><code>{s}</code></td><td>{name}</td></tr>)}
+      {specs.map(([name, token, font]) => <tr><td>{name}</td><td><code>{token}</code></td><td><code>{font}</code></td></tr>)}
+      {colors.map(([v, name]) => <tr><td>{name}</td><td><code>{v}</code></td><td></td></tr>)}
     </table>
+    <p><code>src/styles/tokens.css</code></p>
   </div>
 </Base>
 
 <style>
   .guide { padding-block: var(--space-4); max-width: var(--measure); margin-inline: auto; }
+  .guide > * + * { margin-top: var(--space-3); }
+  .guide .lead { text-align: left; }
+  .hero { font-size: var(--text-script-hero); }
+  .gh { margin-top: var(--space-5) !important; padding-top: var(--space-1); border-top: 1px solid var(--color-rule);
+    font: 0.75rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
   .swatches { list-style: none; padding: 0; display: grid; gap: var(--space-1); }
   .swatches li { display: flex; align-items: center; gap: var(--space-2); }
   .chip { width: 2.5rem; height: 2.5rem; border: 1px solid var(--color-rule); }
-  code { font-size: 0.8rem; opacity: 0.7; }
-  td { padding: 0.25rem 1rem 0.25rem 0; }
+  table { font-size: 0.85rem; border-collapse: collapse; width: 100%; }
+  td { padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; }
+  code { font-size: 0.78rem; opacity: 0.75; }
 </style>
