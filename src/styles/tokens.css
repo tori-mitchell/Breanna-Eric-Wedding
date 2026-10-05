@@ -33,13 +33,13 @@
   --text-eyebrow: 0.875rem;        /* 14px — grid-exempt, by design */
   --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
   --text-script-header: 2.5rem;   /* 40px — page titles, section titles, step titles, pull quotes */
-  --text-script-hero: 4.5rem;     /* home hero names */
+  --text-script-hero: 5.5rem;     /* 88px — home hero names */
 
   /* Line heights in px so every line box lands on the 4/8 grid */
   --leading-body: 24px;
   --leading-script: 48px;
   --leading-subhead: 40px;
-  --leading-hero: 56px;
+  --leading-hero: 72px;
   --tracking-body: 0.03em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
   --tracking-eyebrow: 3px;
