@@ -22,9 +22,10 @@ img[data-temp] { outline: var(--temp-outline); outline-offset: -3px; }
 
 a { color: inherit; }
 
-/* Home: nav + hero fill the first screen; footer sits below the fold */
-.screen.full { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-.screen.full > main { flex: 1; display: flex; flex-direction: column; }
+/* Home: exactly one screen, never scrolls. Nav pinned top, footer pinned bottom,
+   hero flexes to fill the space between. */
+.screen.full { height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
+.screen.full > main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .screen.full > footer { margin-top: 0; }
 
 /* Layout */

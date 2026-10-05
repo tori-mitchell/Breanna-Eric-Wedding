@@ -14,18 +14,25 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  /* Three chunks (eyebrow / names / date+location) fill the first screen:
-     --hero-pad of clearance below the nav and above the footer (pinned to the screen bottom), with
-     the chunks spread so the gaps look equal. The h1 margins nudge the two
-     gaps optically (the script's flourishes eat into the space above the names). */
-  .hero {
-    --hero-pad: 136px;
-    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
-    /* top is reduced by the nav's own bottom padding so the visible gap is --hero-pad */
-    padding: calc(var(--hero-pad) - 20px) var(--gutter) var(--hero-pad);
-  }
-  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: 0.5rem 0 -0.5rem; }
+  /* Home never scrolls: nav stays at the top, footer at the bottom, and the three
+     chunks (eyebrow / names / date+location) spread evenly between them, so every
+     gap flexes with the phone's height. The h1 margins nudge gaps optically (the
+     script's flourishes eat into the space around the names). */
+  .hero { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+  /* Optical offsets (flourishes, line-box padding) so the four visible gaps read as equal */
+  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: 20px 0 8px; }
+  .when { margin-bottom: 24px; }
   .date { font-size: var(--text-subhead); line-height: var(--leading-subhead); }
   sup { font-size: 0.5em; }
   .loc { margin-top: 1rem; }
+
+  /* Shorter screens: step the type down so everything still fits without scrolling */
+  @media (max-height: 720px) {
+    h1 { font-size: 3.5rem; line-height: 48px; }   /* 56px / 48px */
+    .date { font-size: 1.5rem; line-height: 32px; }  /* 24px / 32px */
+    .loc { margin-top: 0.5rem; }
+  }
+  @media (max-height: 600px) {
+    h1 { font-size: 3rem; line-height: 40px; }
+  }
 </style>
