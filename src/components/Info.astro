@@ -3,7 +3,7 @@
 interface Props { label: string; name?: string; }
 ---
 <div class="info">
-  <p class="label label--caps">{Astro.props.label}</p>
+  <p class="eyebrow">{Astro.props.label}</p>
   {Astro.props.name && <h3 class="subhead">{Astro.props.name}</h3>}
   <p><slot /></p>
 </div>

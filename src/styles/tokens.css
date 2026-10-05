@@ -22,22 +22,18 @@
   --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
   --font-serif: 'EB Garamond', Garamond, Georgia, serif;
 
-  /* Type scale — mobile first (est.) */
-  --text-body: 1.1875rem;         /* 19px */
-  --text-lead: 1.5rem;            /* intro paragraphs */
-  --text-label: 1.0625rem;
-  --text-nav: 1.125rem;
-  --text-subhead: 1.75rem;        /* "Sorrento", "The Dolomites" */
-  --text-script-md: 2.5rem;       /* section titles */
-  --text-script-lg: 3rem;         /* page titles */
-  --text-script-xl: 4.5rem;       /* hero names */
-  --text-script-quote: 2rem;      /* pull quotes */
+  /* Type scale — mobile first (est.). Six styles total:
+     script hero · script header · lead · subhead · eyebrow · body (+ <em> for italic) */
+  --text-body: 1.1875rem;         /* 19px — body, nav, footer, small text */
+  --text-lead: 1.5rem;            /* intro paragraphs, hero date */
+  --text-subhead: 1.75rem;        /* "Sorrento", "The Simple Version" */
+  --text-script-header: 2.75rem;  /* page titles, section titles, step titles, pull quotes */
+  --text-script-hero: 4.5rem;     /* home hero names */
 
   --leading-body: 1.45;
   --leading-script: 1.15;
   --tracking-body: 0.03em;
-  --tracking-label: 0.08em;
-  --tracking-caps: 0.1em;
+  --tracking-caps: 0.1em;         /* eyebrow, footer */
 
   /* Spacing */
   --space-1: 0.5rem;

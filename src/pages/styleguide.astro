@@ -3,18 +3,21 @@ import Base from '../layouts/Base.astro';
 const colors = [
   ['--color-bg', 'Background'],
   ['--color-text', 'Text / headings'],
-  ['--color-label', 'Labels'],
+  ['--color-label', 'Eyebrow'],
   ['--color-frame', 'Frames & rules'],
 ];
-const sizes = [
-  '--text-body', '--text-lead', '--text-label', '--text-nav', '--text-subhead',
-  '--text-script-md', '--text-script-lg', '--text-script-xl', '--text-script-quote',
+const styles = [
+  ['--text-script-hero', 'Script hero'],
+  ['--text-script-header', 'Script header'],
+  ['--text-lead', 'Lead'],
+  ['--text-subhead', 'Subhead'],
+  ['--text-body', 'Body (also nav, footer, small text)'],
 ];
 ---
 <Base title="Style guide">
   <div class="page guide stack">
     <h1>Style guide</h1>
-    <p class="note">Internal reference — not linked from the site. Tokens live in <code>src/styles/tokens.css</code>.</p>
+    <p><em>Internal reference — not linked from the site. Tokens live in <code>src/styles/tokens.css</code>.</em></p>
 
     <h2>Color</h2>
     <ul class="swatches">
@@ -23,24 +26,27 @@ const sizes = [
       ))}
     </ul>
 
-    <h2>Type</h2>
-    <p class="label">A Note From Us (label)</p>
-    <p class="label label--caps">A few favorites (caps label)</p>
-    <p class="label--date label">Saturday, September 18, 2027 (date label)</p>
-    <p class="subhead">Sorrento (subhead)</p>
-    <p>Body: We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
-    <p class="note">Italic note: Departure and transfer details will be shared closer to the wedding.</p>
-    <p class="lead">Lead: Getting to the Tuscan countryside takes a little planning.</p>
-    <h2>Section title (script)</h2>
-    <h1>Page title</h1>
-    <h3 style="font-size:var(--text-script-quote)">Pull quote: A last minute date that changed everything.</h3>
+    <h2>Text styles</h2>
+    <p class="eyebrow">Script hero</p>
+    <p class="script" style="font-size:var(--text-script-hero)">Breanna &amp; Eric</p>
+    <p class="eyebrow">Script header</p>
+    <p class="script">How We Met</p>
+    <p class="eyebrow">Lead</p>
+    <p class="lead">Getting to the Tuscan countryside takes a little planning.</p>
+    <p class="eyebrow">Subhead</p>
+    <p class="subhead">Sorrento</p>
+    <p class="eyebrow">Eyebrow (chapters, labels, dates)</p>
+    <p class="eyebrow">Saturday, September 18, 2027</p>
+    <p class="eyebrow">Body</p>
+    <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
+    <p><em>Italic is just body with &lt;em&gt;: Departure and transfer details will be shared closer to the wedding.</em></p>
 
     <h2>Alignment</h2>
-    <div data-align="right"><p class="label">Chapter One</p><h2>How We Met</h2><p>Right-aligned section for alternating layouts.</p></div>
+    <div data-align="right"><p class="eyebrow">Chapter One</p><h2>How We Met</h2><p>Right-aligned section for alternating layouts.</p></div>
 
-    <h2>Scale</h2>
+    <h2>Sizes</h2>
     <table>
-      {sizes.map((s) => <tr><td><code>{s}</code></td><td style={`font-size:var(${s});line-height:1.2;font-family:var(${s.includes("script") ? "--font-script" : "--font-serif"})`}>Aa</td></tr>)}
+      {styles.map(([s, name]) => <tr><td><code>{s}</code></td><td>{name}</td></tr>)}
     </table>
   </div>
 </Base>

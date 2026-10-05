@@ -27,41 +27,29 @@ a { color: inherit; }
 .stack > * + * { margin-top: var(--space-3); }
 
 /* Headings are script by default */
-h1, h2, h3 {
+h1, h2, h3, .script {
   font-family: var(--font-script);
   font-weight: 400;
   line-height: var(--leading-script);
   letter-spacing: 0;
   margin: 0;
 }
-h1 { font-size: var(--text-script-lg); }
-h2 { font-size: var(--text-script-md); }
+h1, h2, h3, .script { font-size: var(--text-script-header); }
 
 p { margin: 0; }
 p + p { margin-top: var(--space-3); }
-em, .note { font-style: italic; }
+em { font-style: italic; }
 
 /* Section alignment flips: <section data-align="right"> */
 [data-align='right'] { text-align: right; }
 [data-align='center'] { text-align: center; }
 
 /* Utility text styles */
-.label {                       /* "A Note From Us", "Chapter One" */
-  font-weight: 600;
-  font-size: var(--text-label);
-  letter-spacing: var(--tracking-label);
+.eyebrow {                     /* "CHAPTER ONE", "A FEW FAVORITES", "SATURDAY, SEPTEMBER 18, 2027" */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
   color: var(--color-label);
-}
-.label--caps {                 /* "A FEW FAVORITES" */
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-}
-.label--date {                 /* "SATURDAY, SEPTEMBER 18, 2027" */
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--color-text);
 }
 .subhead, h3.subhead {          /* "Sorrento" */
   font-family: var(--font-serif);

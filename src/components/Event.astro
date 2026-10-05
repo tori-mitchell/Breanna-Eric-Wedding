@@ -7,9 +7,9 @@ import Figure from './Figure.astro';
 ---
 <Section align={align}>
   {artPos === 'above' && <Figure art src={artSrc} ratio={artRatio} label={artLabel} />}
-  <p class="label--date label">{date}</p>
+  <p class="eyebrow">{date}</p>
   <h2>{title}</h2>
   <p><slot /></p>
-  <p class="note">{note}</p>
+  <p><em>{note}</em></p>
   {artPos === 'below' && <Figure art src={artSrc} ratio={artRatio} label={artLabel} />}
 </Section>
