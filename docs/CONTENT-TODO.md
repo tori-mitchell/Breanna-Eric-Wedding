@@ -114,6 +114,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Vertical rhythm:** `--flow` 16px between text blocks, `--block` 48px around sections and media, identical above and below; eyebrow-to-heading 8px; info blocks 32px apart. Defined once in `Section.astro` — don't add one-off margins.
 
+- **Hero (decided):** invitation style — "the wedding of" in script, BREANNA / & / ERIC in tracked caps serif with a script ampersand, date in tracked caps (written "September 16 – 19, 2027"), venue in script, "Tuscany, Italy" in small caps. Confirm date wording.
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |

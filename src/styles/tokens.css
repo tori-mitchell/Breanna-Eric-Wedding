@@ -40,16 +40,22 @@
   --text-eyebrow: 0.875rem;        /* 14px — grid-exempt, by design */
   --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
   --text-subhead-sm: 1.5rem;      /* 24px — itinerary titles, info-block titles */
+  /* Invitation-style hero: tracked caps serif for names and details; script only for small flourishes */
+  --text-caps-name: clamp(2rem, 11vw, 3rem);   /* hero names, 32–48px (fluid) */
+  --text-caps-lg: 1.125rem;       /* hero date — grid-exempt: type size */
+  --text-caps: 0.9375rem;         /* hero location line — grid-exempt: type size */
+  --text-script-sm: 2.5rem;       /* "the wedding of", venue name — 40px */
+  --text-script-amp: 5rem;        /* hero ampersand — 80px */
+  --tracking-name: 0.22em;
+  --tracking-caps-wide: 0.24em;
   --text-script-header: 2.5rem;   /* 40px — page titles, section titles, step titles, pull quotes */
-  --text-script-hero: 5.5rem;     /* 88px — home hero names */
 
   /* Line heights in px so every line box lands on the 4/8 grid */
   --leading-body: 24px;
   --leading-script: 48px;
   --leading-subhead: 40px;
   --leading-subhead-sm: 32px;
-  --leading-hero: 72px;
-  --tracking-body: 0.01em;
+    --tracking-body: 0.01em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
   --tracking-eyebrow: 3px;
 

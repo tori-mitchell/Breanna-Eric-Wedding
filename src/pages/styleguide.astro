@@ -17,7 +17,9 @@ const colors = [
   ['--color-rule', 'Dividers'],
 ];
 const specs = [
-  ['Script hero', '--text-script-hero', 'Pinyon Script'],
+  ['Hero names', '--text-caps-name', 'EB Garamond caps, tracked .22em'],
+  ['Caps detail', '--text-caps-lg / --text-caps', 'EB Garamond caps, tracked .24em'],
+  ['Script small', '--text-script-sm', 'Pinyon Script (intro, venue)'],
   ['Script header', '--text-script-header', 'Pinyon Script'],
   ['Subhead', '--text-subhead', 'EB Garamond 600'],
   ['Subhead small', '--text-subhead-sm', 'EB Garamond 600'],
@@ -30,10 +32,11 @@ const specs = [
     <p class="gh">Internal reference — not linked from the site</p>
 
     <p class="gh">Text styles</p>
-    <p class="script hero">Script hero</p>
+    <p class="hero-name">Hero names</p>
+    <p class="caps-d">September 16 – 19, 2027</p>
+    <p class="script small">the wedding of</p>
     <p class="script">Script header</p>
     <p><em>Script is special: page titles, hero names, signature, short chapter titles. Never for long sentences.</em></p>
-    <p>Lead — intro paragraphs and the hero date.</p>
     <p class="subhead">Subhead</p>
     <p class="subhead-sm">Subhead small</p>
     <p class="eyebrow">Eyebrow</p>
@@ -64,10 +67,10 @@ const specs = [
 
     <p class="gh sub">Home hero</p>
     <div class="demo" data-align="center">
-      <p class="eyebrow">The wedding of</p>
-      <p class="script hero">Breanna<br />&amp; Eric</p>
-      <p>September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
-      <p>Borgo Laticastelli, Tuscany, Italy</p>
+      <p class="script small">the wedding of</p>
+      <p class="hero-name">Breanna</p><p class="script amp">&amp;</p><p class="hero-name">Eric</p>
+      <p class="caps-d">September 16 – 19, 2027</p>
+      <p class="script small">Borgo Laticastelli</p>
     </div>
 
     <p class="gh sub">Chapter / text section</p>
@@ -136,7 +139,10 @@ const specs = [
 <style>
   .guide { padding-block: var(--space-4); max-width: var(--measure); margin-inline: auto; }
   .guide > * + * { margin-top: var(--space-3); }
-  .hero { font-size: var(--text-script-hero); line-height: var(--leading-hero); }
+  .hero-name { font-family: var(--font-serif); font-size: var(--text-caps-name); letter-spacing: var(--tracking-name); text-transform: uppercase; color: var(--color-text); }
+  .caps-d { font-family: var(--font-serif); font-size: var(--text-caps-lg); letter-spacing: var(--tracking-caps-wide); text-transform: uppercase; }
+  .script.small { font-size: var(--text-script-sm); color: var(--color-accent); }
+  .script.amp { font-size: var(--text-script-amp); color: var(--color-accent); line-height: 1; }
   .gh { margin-top: var(--space-5) !important; padding-top: var(--space-1); border-top: 1px solid var(--color-rule);
     font: 0.75rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
   .swatches { list-style: none; padding: 0; display: grid; gap: var(--space-1); }

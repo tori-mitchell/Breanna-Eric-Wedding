@@ -10,11 +10,12 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   <section class="page hero" data-align="center">
     <!-- Hero watercolor fills the first screen, behind the glass nav. Placeholder: Canva hero with the text erased (CONTENT-TODO §3). -->
     <img class="art" src={art('art-hero-full')} alt="" data-temp />
-    <p class="eyebrow">The wedding of</p>
-    <h1>Breanna<br />&amp; Eric</h1>
+    <p class="script-sm intro">the wedding of</p>
+    <h1 class="names"><span class="nm">Breanna</span> <span class="amp">&amp;</span> <span class="nm">Eric</span></h1>
     <div class="when">
-      <p class="date">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
-      <p class="loc"><em>Borgo Laticastelli, Tuscany, Italy</em></p>
+      <p class="caps-lg">September 16 – 19, 2027</p>
+      <p class="script-sm">Borgo Laticastelli</p>
+      <p class="caps">Tuscany, Italy</p>
     </div>
   </section>
 
@@ -53,11 +54,11 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 </Base>
 
 <style>
-  /* First screen: sticky glass nav + hero fill the phone. The hero's three chunks
-     (eyebrow / names / date+location) are one container, centered, 88px apart. Date+location is its
-     own container with a 4px gap and hugs its contents. */
+  /* First screen: sticky glass nav + hero fill the phone. The hero is one container (three chunks:
+     "the wedding of" / names / date + venue), centered, 88px apart. Style follows a letterpress
+     invitation: tracked caps serif, with script only for the ampersand, intro line and venue. */
   .hero {
-    position: relative; display: flex; flex-direction: column; justify-content: center; gap: 88px;
+    position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 88px;
     min-height: calc(100vh - var(--nav-h));
     min-height: calc(100svh - var(--nav-h));
   }
@@ -67,30 +68,34 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   .art { position: absolute; left: 0; right: 0; top: calc(-1 * var(--nav-h)); bottom: 0; width: 100%; height: calc(100% + var(--nav-h)); object-fit: cover; object-position: center bottom; z-index: 0;
     opacity: 0.6;
     -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); }
-  .when { display: flex; flex-direction: column; gap: 4px; height: fit-content; }
-  .when > p { margin: 0; }
 
-  /* Hero names: size is the smaller of a width limit (so "Breanna" never overflows) and a
-     height limit (so everything still fits the first screen). Sizes/line-heights are paired. */
-  .hero { --fs-w: 104px; --lh-w: 88px; --fs-h: 104px; --lh-h: 88px; }
-  h1 { color: var(--color-accent); font-size: min(var(--fs-w), var(--fs-h)); line-height: min(var(--lh-w), var(--lh-h)); }
-  .date { color: var(--color-text); font-size: var(--text-subhead); line-height: var(--leading-subhead); }
-  .loc { color: var(--color-text); }
-  .sig { color: var(--color-accent); }
-  sup { font-size: 0.5em; line-height: 0; vertical-align: baseline; position: relative; top: -0.6em; }
+  .hero p { margin: 0; }
+  .script-sm { font-family: var(--font-script); font-size: var(--text-script-sm); line-height: 1; color: var(--color-accent); }
+  .names { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0; line-height: 0; }
+  .nm {
+    font-family: var(--font-serif); font-weight: 400; font-size: var(--text-caps-name); line-height: 1.1;
+    letter-spacing: var(--tracking-name); margin-right: calc(-1 * var(--tracking-name)); text-transform: uppercase; color: var(--color-text);
+  }
+  .amp { font-family: var(--font-script); font-size: var(--text-script-amp); line-height: 0.8; color: var(--color-accent); }
+  .when { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .caps-lg, .caps {
+    font-family: var(--font-serif); text-transform: uppercase; letter-spacing: var(--tracking-caps-wide);
+    margin-right: calc(-1 * var(--tracking-caps-wide)); line-height: 1.4;
+  }
+  .caps-lg { font-size: var(--text-caps-lg); color: var(--color-text); }
+  .caps { font-size: var(--text-caps); color: var(--color-body); }
 
-  /* Narrower phones */
-  @media (max-width: 391px) { .hero { --fs-w: 96px; --lh-w: 80px; } }
-  @media (max-width: 367px) { .hero { --fs-w: 88px; --lh-w: 72px; } }
-  @media (max-width: 343px) { .hero { --fs-w: 80px; --lh-w: 64px; } }
-
-  /* Shorter screens */
+  /* Shorter screens: tighten spacing and step the names down so the hero still fits */
   @media (max-height: 720px) {
-    .hero { gap: 40px; --fs-h: 96px; --lh-h: 80px; }
-    .date { font-size: 1.5rem; line-height: 32px; }
+    .hero { gap: 48px; }
+    .nm { font-size: min(var(--text-caps-name), 2.5rem); }
+    .amp { font-size: 4rem; }
   }
   @media (max-height: 600px) {
-    .hero { gap: 24px; --fs-h: 80px; --lh-h: 64px; }
+    .hero { gap: 24px; }
+    .nm { font-size: min(var(--text-caps-name), 2rem); }
+    .amp { font-size: 3rem; }
+    .script-sm { font-size: 2rem; }
   }
 
   /* Decorative sprigs (placeholders) */
