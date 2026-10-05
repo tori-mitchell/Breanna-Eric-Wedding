@@ -9,5 +9,5 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <style>
   .footer { margin-top: var(--space-5); text-align: center; }
   img { width: 100%; }
-  p { padding: var(--space-3) var(--gutter) var(--space-4); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-label); }
+  p { padding: var(--space-2) var(--gutter) calc(var(--space-2) + env(safe-area-inset-bottom, 0px)); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-label); }
 </style>
