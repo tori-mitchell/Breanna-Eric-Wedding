@@ -64,7 +64,7 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
   --space-6: 6rem;
-  --gutter: 1rem;                 /* page side padding on mobile */
+  --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
 
   /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */

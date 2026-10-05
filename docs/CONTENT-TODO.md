@@ -106,6 +106,10 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - **Dark mode (later):** "Midnight & Champagne" is saved as a comment in `src/styles/tokens.css` (bg `#1b2a41`, text `#ece4d3`, body `#b9b4a6`, eyebrow `#c8ac72`, rule `#33455f`). Watercolor art will need dark-friendly versions.
 - Watercolor placeholders were cropped on cream; replacement art should be made on (or transparent over) bone `#f4f2ee`.
 
+### Restraint rule (from the inspiration site)
+- Side padding is 24px. Eyebrows and subheads are reserved for page headers, the start of a genuinely new section, and real callouts; everything else is plain body text. Don't add one per block.
+- Applied: Itinerary dates are plain text (no eyebrow); Explore keeps one tagline eyebrow per destination, "A few favorites" is plain; Travel airport eyebrows removed; "A Note From Us" removed. Hero, RSVP/Registry and chapter labels keep their eyebrow.
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |

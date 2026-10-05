@@ -1,5 +1,5 @@
 ---
-// Explore-page destination: eyebrow, name, copy, suggested stay, favorites, note, art.
+// Explore-page destination: one eyebrow (tagline), name, copy, then plain-text stay and favorites.
 interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
 const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor', artSrc } = Astro.props;
 import Section from './Section.astro';
@@ -11,14 +11,7 @@ import Figure from './Figure.astro';
   {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p><em>{stay}</em></p>
-  {favorites && <>
-    <p class="eyebrow fav">A few favorites</p>
-    <p>{favorites}</p>
-  </>}
+  {favorites && <p>A few favorites: {favorites}</p>}
   <slot name="note" />
   {!artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
 </Section>
-
-<style>
-  .fav { margin-top: var(--space-3); }
-</style>

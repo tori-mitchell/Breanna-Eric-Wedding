@@ -44,7 +44,9 @@ em { font-style: italic; }
 /* Text is never right-aligned (legibility). Sections are left or centered. */
 [data-align='center'] { text-align: center; }
 
-/* Utility text styles */
+/* Utility text styles.
+   RESTRAINT RULE: eyebrow and subhead styles are for page headers, the start of a genuinely new
+   section, and real callouts. Everything else is plain body text. Don't add one per block. */
 .eyebrow {                     /* "CHAPTER ONE", "A FEW FAVORITES", "SATURDAY, SEPTEMBER 18, 2027" */
   font-family: var(--font-sans);
   font-size: var(--text-eyebrow);
