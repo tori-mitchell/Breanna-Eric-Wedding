@@ -18,7 +18,7 @@
   /* Color — "Bone & Slate": quiet luxury, one accent.
      ink = headings, nav, eyebrows, key details · body = paragraph text (lighter, so headings carry the weight)
      accent = the bride's mid-tone blue, reserved for special places (hero names, signature, buttons, blocks, active nav) */
-  --color-bg: #f4f2ee;            /* bone */
+  --color-bg: #f7f3ee;            /* cream (the paper texture below is baked on this color) */
   --color-text: #2a3850;          /* ink (10.6:1) */
   --color-body: #5b677d;          /* lighter body text (5.1:1) */
   --color-label: #2a3850;         /* eyebrows, footer */

@@ -6,7 +6,10 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  /* Toothy watercolor-paper texture, subtle. Generated placeholder — see docs/CONTENT-TODO.md (follow-up: swap for a vetted real texture). */
+  background-image: url('../assets/paper-texture.webp');
+  background-size: 256px 256px;
   color: var(--color-body);
   font-family: var(--font-serif);
   font-size: var(--text-body);

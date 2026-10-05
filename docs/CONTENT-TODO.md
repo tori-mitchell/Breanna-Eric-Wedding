@@ -101,7 +101,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Itinerary titles now name the day type: Arrival / Relaxation / Wedding Day / Departure (Friday was "Welcome" on Canva — confirm).
 
 ### Palette ("Bone & Slate") and dark mode
-- Background bone `#f4f2ee`; ink `#2a3850` (headings, nav, eyebrows, key details); lighter body `#5b677d`; dividers `#e1ded7`.
+- Background cream `#f7f3ee` (was bone `#f4f2ee`); ink `#2a3850` (headings, nav, eyebrows, key details); lighter body `#5b677d`; dividers `#e1ded7`.
 - **Accent `#365f89`** is the bride's mid-tone blue, reserved for special places: hero names, signature, buttons, solid photo blocks, sketch frames, active-nav underline, FAQ +/- icons. Add it elsewhere only deliberately.
 - **Dark mode (later):** "Midnight & Champagne" is saved as a comment in `src/styles/tokens.css` (bg `#1b2a41`, text `#ece4d3`, body `#b9b4a6`, eyebrow `#c8ac72`, rule `#33455f`). Watercolor art will need dark-friendly versions.
 - Watercolor placeholders were cropped on cream; replacement art should be made on (or transparent over) bone `#f4f2ee`.
@@ -139,6 +139,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Layout priority | Mobile first; desktop pass later | — |
 
 ## 6. Pending features
+
+- [ ] **Follow-up: replace the generated paper texture** (`src/assets/paper-texture.webp`, toothy watercolor paper, subtle) with a vetted real texture (a licensed/CC0 SVG or paper scan). Fidelity of the generated tile is unverified. Texture is baked on cream `#f7f3ee`, so a new one should match or be an overlay.
 
 - [ ] RSVP — link to Joy (URL needed)
 - [ ] Custom domain (if any)
