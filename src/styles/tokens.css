@@ -1,3 +1,5 @@
+/* GRID RULE: spacing and size values are multiples of 8px, or multiples of 4px below 24px.
+   Check with: python3 scripts/audit-grid.py */
 /*
   Design tokens — single source of truth for the site's look.
   Values marked (est.) were estimated from Canva screenshots; tune on /styleguide/.
@@ -28,17 +30,19 @@
   /* Type scale — mobile first (est.). Five styles total:
      script hero · script header · subhead · eyebrow · body (+ <em> for italic) */
   --text-body: 1.25rem;           /* 20px — body, nav, footer, small text */
-  --text-eyebrow: 0.875rem;        /* 14px */
-  --text-subhead: 1.75rem;        /* "Sorrento", "The Simple Version" */
-  --text-script-header: 2.75rem;  /* page titles, section titles, step titles, pull quotes */
+  --text-eyebrow: 1rem;            /* 16px */
+  --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
+  --text-script-header: 2.5rem;   /* 40px — page titles, section titles, step titles, pull quotes */
   --text-script-hero: 4.5rem;     /* home hero names */
 
-  --leading-body: 1.25;
-  --leading-script: 1.15;
-  --leading-hero: 0.8;
+  /* Line heights in px so every line box lands on the 4/8 grid */
+  --leading-body: 24px;
+  --leading-script: 48px;
+  --leading-subhead: 40px;
+  --leading-hero: 56px;
   --tracking-body: 0.03em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
-  --tracking-eyebrow: 3px;
+  --tracking-eyebrow: 4px;
 
   /* Spacing */
   --space-1: 0.5rem;
