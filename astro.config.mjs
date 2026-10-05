@@ -10,4 +10,17 @@ export default defineConfig({
   site: process.env.SITE_URL || (onCloudflare ? process.env.CF_PAGES_URL : 'https://tori-mitchell.github.io'),
   base: process.env.BASE_PATH ?? (onCloudflare ? '/' : '/Breanna-Eric-Wedding'),
   trailingSlash: 'always',
+  // Clean, unhashed asset URLs: /assets/Base.css, /assets/<font>.woff2
+  build: { assets: 'assets' },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/[name].js',
+          chunkFileNames: 'assets/[name].js',
+          assetFileNames: 'assets/[name][extname]',
+        },
+      },
+    },
+  },
 });
