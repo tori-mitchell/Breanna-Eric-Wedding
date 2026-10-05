@@ -35,11 +35,11 @@ const current = Astro.url.pathname;
   @media (max-width: 399px) { ul { column-gap: var(--space-2); } }
   @media (max-width: 343px) { ul { column-gap: var(--space-1); } a { letter-spacing: 0.02em; } }
   a {
-    font-weight: 600; letter-spacing: 0.06em;
+    color: var(--color-text); font-weight: 600; letter-spacing: 0.06em;
     text-decoration: none; padding-bottom: 0.25rem;
     border-bottom: 1px solid transparent;
   }
-  a[aria-current='page'] { border-bottom-color: currentColor; }
-  a:hover { border-bottom-color: var(--color-label); }
+  a[aria-current='page'] { border-bottom-color: var(--color-accent); }
+  a:hover { border-bottom-color: var(--color-rule); }
   a:focus-visible { outline: 2px solid var(--color-label); outline-offset: 4px; }
 </style>

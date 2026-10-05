@@ -7,7 +7,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-body);
   font-family: var(--font-serif);
   font-size: var(--text-body);
   line-height: var(--leading-body);
@@ -28,6 +28,7 @@ a { color: inherit; }
 
 /* Headings are script by default */
 h1, h2, h3, .script {
+  color: var(--color-text);
   font-family: var(--font-script);
   font-weight: 400;
   line-height: var(--leading-script);
@@ -53,6 +54,7 @@ em { font-style: italic; }
   color: var(--color-label);
 }
 .subhead, h3.subhead {          /* "Sorrento" */
+  color: var(--color-text);
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -60,6 +62,7 @@ em { font-style: italic; }
   line-height: var(--leading-subhead);
 }
 .subhead-sm, h3.subhead-sm {      /* "Florence", itinerary titles */
+  color: var(--color-text);
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: 0.04em;

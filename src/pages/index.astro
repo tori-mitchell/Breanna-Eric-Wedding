@@ -24,7 +24,7 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
     <p>It means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
     <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
     <p>With all our love,</p>
-    <p class="script">Breanna &amp; Eric</p>
+    <p class="script sig">Breanna &amp; Eric</p>
   </Section>
 
   <Section>
@@ -73,8 +73,10 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   /* Hero names: size is the smaller of a width limit (so "Breanna" never overflows) and a
      height limit (so everything still fits the first screen). Sizes/line-heights are paired. */
   .hero { --fs-w: 104px; --lh-w: 88px; --fs-h: 104px; --lh-h: 88px; }
-  h1 { font-size: min(var(--fs-w), var(--fs-h)); line-height: min(var(--lh-w), var(--lh-h)); }
-  .date { font-size: var(--text-subhead); line-height: var(--leading-subhead); }
+  h1 { color: var(--color-accent); font-size: min(var(--fs-w), var(--fs-h)); line-height: min(var(--lh-w), var(--lh-h)); }
+  .date { color: var(--color-text); font-size: var(--text-subhead); line-height: var(--leading-subhead); }
+  .loc { color: var(--color-text); }
+  .sig { color: var(--color-accent); }
   sup { font-size: 0.5em; line-height: 0; vertical-align: baseline; position: relative; top: -0.6em; }
 
   /* Narrower phones */

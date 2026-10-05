@@ -95,10 +95,16 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 ### Eyebrow audit (best practice)
 - Eyebrows: short labels (<= ~5 words), never wrap on mobile, marked up as `<p>` (never headings), above a heading, not above everything.
-- `--color-label` darkened from #7a9cc9 (2.5:1) to **#4e6e96 (4.6:1)** to meet WCAG AA for small text. Confirm you like the look; the lightest passing blue is close to the body blue.
+- Eyebrow color is now the ink color (the old pale blue failed contrast at 2.5:1).
 - Travel airport eyebrows shortened ("Easiest onward journey", "More flight options"); "Before You Go" items are now headings, not eyebrows (nothing sat above them).
 - Heading levels no longer skip (Explore, Itinerary, Travel steps).
 - Itinerary titles now name the day type: Arrival / Relaxation / Wedding Day / Departure (Friday was "Welcome" on Canva — confirm).
+
+### Palette ("Bone & Slate") and dark mode
+- Background bone `#f4f2ee`; ink `#2a3850` (headings, nav, eyebrows, key details); lighter body `#5b677d`; dividers `#e1ded7`.
+- **Accent `#365f89`** is the bride's mid-tone blue, reserved for special places: hero names, signature, buttons, solid photo blocks, sketch frames, active-nav underline, FAQ +/- icons. Add it elsewhere only deliberately.
+- **Dark mode (later):** "Midnight & Champagne" is saved as a comment in `src/styles/tokens.css` (bg `#1b2a41`, text `#ece4d3`, body `#b9b4a6`, eyebrow `#c8ac72`, rule `#33455f`). Watercolor art will need dark-friendly versions.
+- Watercolor placeholders were cropped on cream; replacement art should be made on (or transparent over) bone `#f4f2ee`.
 
 ## 5. Decisions made (best guess — confirm later)
 
