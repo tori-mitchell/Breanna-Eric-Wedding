@@ -3,7 +3,7 @@ interface Props { n: string; title: string; }
 const { n, title } = Astro.props;
 ---
 <li class="step reveal">
-  <span class="n">{n}</span>
+  <span class="n eyebrow">{n}</span>
   <h3>{title}</h3>
   <div><slot /></div>
 </li>
@@ -11,7 +11,7 @@ const { n, title } = Astro.props;
 <style>
   .step { list-style: none; text-align: center; padding: var(--space-3) var(--space-3); border-top: 1px solid var(--color-rule); }
   .step:first-child { border-top: 0; }
-  .n { letter-spacing: var(--tracking-caps); }
+  .n { display: block; }
   h3 { margin: 0.25rem 0 var(--space-2); }
   div > :global(* + *) { margin-top: var(--space-2); }
 </style>

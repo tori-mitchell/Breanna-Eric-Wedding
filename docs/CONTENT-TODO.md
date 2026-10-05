@@ -106,6 +106,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Typos | "Piza"→"Pisa", "BeforeYou"→"Before You" fixed | — |
 | Lodging duplicate paragraph | Kept as-is for now (see §4) | Yes |
 | Travel step dividers | Thin rules between all 3 steps | Yes |
+| Buttons | Square corners, solid accent fill, eyebrow-style label in page color (no pill, ring, or arrow) | Yes |
+| Body text alignment | Left-aligned everywhere except hero, title bars, and travel step cards; body letter-spacing 0.01em (Canva's was wider) | Yes |
 | Fonts | Pinyon Script (script) + EB Garamond (serif), self-hosted | Verify against Canva font names |
 | Nav active state | Correct page highlighted (Canva's was wrong on most pages) | — |
 | Nav (mobile) | Two rows (3 + 4 items now that FAQ exists), no hamburger | Yes |
