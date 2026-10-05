@@ -81,7 +81,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 | Decision | Choice | Confirm? |
 |---|---|---|
-| Hosting | GitHub Pages, **private repo** | ⚠️ Pages from a private repo requires **GitHub Pro/Team/Enterprise**. Confirm plan, or make repo public. |
+| Hosting | GitHub Pages, **public repo** (source + git history are public) | ⚠️ Don't commit venue photos until permission is confirmed (§2). |
 | Domain | Default `*.github.io` URL now; custom domain later | Add domain when purchased (CNAME + DNS) |
 | Search indexing | Blocked (`noindex` meta + `robots.txt` disallow) | — |
 | Body text weight | Regular everywhere (Canva mixed regular/semibold) | Yes |
