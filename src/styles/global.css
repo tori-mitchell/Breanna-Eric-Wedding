@@ -60,8 +60,10 @@ em, .note { font-style: italic; }
   letter-spacing: var(--tracking-caps);
   color: var(--color-text);
 }
-.subhead {                     /* "Sorrento" */
+.subhead, h3.subhead {          /* "Sorrento" */
+  font-family: var(--font-serif);
   font-weight: 600;
+  letter-spacing: 0.04em;
   font-size: var(--text-subhead);
   line-height: 1.2;
 }

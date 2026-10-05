@@ -1,0 +1,15 @@
+---
+// Weekend day block: date label, script title, lead sentence, italic note, art.
+interface Props { date: string; title: string; note: string; align?: 'left' | 'right'; artPos?: 'above' | 'below' | 'none'; artLabel?: string; artRatio?: string; }
+const { date, title, note, align = 'left', artPos = 'below', artLabel = 'Watercolor', artRatio = '4 / 5' } = Astro.props;
+import Section from './Section.astro';
+import Figure from './Figure.astro';
+---
+<Section align={align}>
+  {artPos === 'above' && <Figure art ratio={artRatio} label={artLabel} />}
+  <p class="label--date label">{date}</p>
+  <h2>{title}</h2>
+  <p><slot /></p>
+  <p class="note">{note}</p>
+  {artPos === 'below' && <Figure art ratio={artRatio} label={artLabel} />}
+</Section>

@@ -19,6 +19,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
   </head>
   <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <filter id="sketch"><feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" seed="4" /><feDisplacementMap in="SourceGraphic" scale="4" /></filter>
+    </svg>
     <Nav />
     <main><slot /></main>
     <Footer />

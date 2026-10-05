@@ -1,0 +1,22 @@
+---
+// Image slot. Renders a labeled placeholder until `src` (path under /public) is provided.
+interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; }
+const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<figure class:list={['fig', { bleed, narrow, art }]} style={`--ratio:${ratio}`}>
+  {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
+</figure>
+
+<style>
+  .fig { margin: 0; width: 100%; }
+  .fig.narrow { width: 56%; margin-inline: auto; }
+  .fig.bleed { width: 100vw; margin-inline: calc(50% - 50vw); }
+  img, .ph { width: 100%; aspect-ratio: var(--ratio); object-fit: cover; }
+  .ph {
+    display: grid; place-items: center; text-align: center; padding: var(--space-2);
+    background: color-mix(in srgb, var(--color-label) 18%, var(--color-bg));
+    color: var(--color-text); font-size: 0.95rem; letter-spacing: var(--tracking-label);
+  }
+  .art .ph { background: color-mix(in srgb, #c9b98a 22%, var(--color-bg)); }
+</style>

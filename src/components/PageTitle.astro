@@ -1,0 +1,10 @@
+---
+// TODO: watercolor arch/vine banner art on both sides (docs/CONTENT-TODO.md §3)
+interface Props { title: string; }
+---
+<header class="title"><h1>{Astro.props.title}</h1></header>
+
+<style>
+  .title { text-align: center; padding: var(--space-3) var(--gutter) var(--space-4); }
+  h1 { font-size: var(--text-script-lg); }
+</style>

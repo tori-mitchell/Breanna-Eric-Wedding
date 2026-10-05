@@ -1,0 +1,15 @@
+---
+// ALL-CAPS label + paragraph (Before You Go, Choosing an Airport).
+interface Props { label: string; name?: string; }
+---
+<div class="info">
+  <p class="label label--caps">{Astro.props.label}</p>
+  {Astro.props.name && <h3 class="subhead">{Astro.props.name}</h3>}
+  <p><slot /></p>
+</div>
+
+<style>
+  .info { margin-top: var(--space-3); }
+  .info > :global(* + *) { margin-top: var(--space-1); }
+  h3 { font-family: var(--font-serif); letter-spacing: 0.04em; }
+</style>

@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Section from '../components/Section.astro';
+import Figure from '../components/Figure.astro';
+import Step from '../components/Step.astro';
+import Info from '../components/Info.astro';
+---
+<Base title="The Journey — Breanna & Eric">
+  <PageTitle title="The Journey" />
+  <Section align="center">
+    <p class="lead">Getting to the Tuscan countryside takes a little planning, but you will not need a rental car for the wedding weekend. Guests can fly into Florence, Rome, or Pisa and travel by train to Rapolano Terme, where we’ll coordinate the final transfer to Laticastelli.</p>
+  </Section>
+
+  <Section align="center">
+    <h3 class="subhead">The Simple Version</h3>
+    <ol class="steps">
+      <Step n="01" title="Fly">Fly into Florence, Rome, or Pisa depending on the route and airfare that work best for your trip.</Step>
+      <Step n="02" title="Train">Continue by train to Rapolano Terme, the station closest to Laticastelli.</Step>
+      <Step n="03" title="We’ll Meet You There">
+        Coordinated transfers will meet selected trains arriving in Rapolano Terme on Thursday and bring guests the short remaining distance to the borgo.
+        <p class="note">Recommended train options and exact pickup times will be shared closer to the wedding once the 2027 rail schedule is available.</p>
+      </Step>
+    </ol>
+    <Figure art ratio="16 / 9" label="Illustrated route map" />
+  </Section>
+
+  <Section>
+    <h2>Choosing an Airport</h2>
+    <Info label="Best for the easiest onward journey" name="Florence">Florence is the simplest option once you are on the ground. From the airport, you can connect into central Florence and continue by regional train through Siena to Rapolano Terme.</Info>
+    <Info label="Best for more transatlantic flight options" name="Rome">Rome can be a great choice if it offers a better flight from North America. From Fiumicino Airport, travel into Rome and continue north by train through Chiusi-Chianciano Terme to Rapolano Terme.</Info>
+    <Info label="Another workable option" name="Pisa">Pisa is also possible, particularly if it fits well with the rest of your Italy itinerary. From the airport, connect to Pisa Centrale and continue toward Rapolano Terme through Tuscany.</Info>
+  </Section>
+
+  <Section>
+    <h2>Arrival Timing</h2>
+    <p>Check-in at Laticastelli begins at 3:00 PM on Thursday, September 16. When we share the recommended trains and transfer schedule, we’ll coordinate arrivals around check-in so you do not need to arrive at the borgo early.</p>
+  </Section>
+  <Section tight>
+    <h2>Delays</h2>
+    <p>If your travel plans change or you miss your planned transfer, don’t panic. We’ll provide backup contact information and instructions closer to the wedding.</p>
+  </Section>
+  <Section tight>
+    <h2>Rental Cars</h2>
+    <p>You will not need a rental car for the wedding weekend. Once you arrive at Laticastelli, the weekend is designed so you can settle in and stay at the borgo.</p>
+    <p class="note">If you are planning to spend more time exploring Tuscany before or after the wedding, a car can be helpful for reaching smaller towns, wineries, and countryside areas that are less convenient by train. If you are driving to the wedding, parking information will be provided with your arrival details.</p>
+  </Section>
+  <Section tight>
+    <h2>September in Tuscany</h2>
+    <p>September in Tuscany is typically warm during the day with cooler evenings, so light layers are useful. We recommend packing for warm weather while bringing something for evenings and the possibility of rain.</p>
+  </Section>
+
+  <Section>
+    <h2>Before You Go</h2>
+    <Info label="Passport & entry requirements">Make sure your passport is valid for your trip and check current entry requirements for Italy well before departure. We’ll link to the latest official guidance here closer to the wedding.</Info>
+    <Info label="Phones & connectivity">Check your carrier’s international options before traveling. Many travelers also use an international eSIM for data while abroad.</Info>
+    <Info label="Money">Italy uses the euro. Credit cards are widely used, but it is helpful to carry some cash for smaller purchases.</Info>
+    <Info label="Electricity">Italy uses European-style outlets and 230V electricity. Most guests will need a plug adapter, and it is worth checking that any device you bring supports 230V before plugging it in.</Info>
+  </Section>
+</Base>
+
+<style>
+  .steps { padding: 0; margin: var(--space-3) auto 0; max-width: 24rem; }
+</style>
