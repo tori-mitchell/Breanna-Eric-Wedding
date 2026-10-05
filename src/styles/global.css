@@ -46,6 +46,8 @@ em { font-style: italic; }
 
 /* Utility text styles */
 .eyebrow {                     /* "CHAPTER ONE", "A FEW FAVORITES", "SATURDAY, SEPTEMBER 18, 2027" */
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
