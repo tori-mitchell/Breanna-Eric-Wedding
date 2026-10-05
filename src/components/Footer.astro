@@ -1,15 +1,20 @@
 ---
 // Shared footer (every page). The date sits on top of the hills image, centered both ways.
+// `sticky`: stays pinned to the bottom of the screen while content scrolls beneath it
+// (settles into place at the end of the page).
+interface Props { sticky?: boolean; }
+const { sticky = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
-<footer class="footer">
+<footer class:list={['footer', { sticky }]}>
   <img src={`${base}images/placeholders/art-hills.jpg`} alt="" data-temp />
   <p>B &amp; E · 09.2027</p>
 </footer>
 
 <style>
-  .footer { position: relative; margin-top: var(--space-5); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  img { display: block; width: 100%; }
-  p { position: absolute; inset: 0; margin: 0; display: grid; place-items: center;
+  .footer { position: relative; margin-top: var(--space-5); padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--color-bg); }
+  .footer.sticky { position: sticky; bottom: 0; z-index: 10; margin-top: 0; }
+  img { display: block; width: 100%; height: var(--footer-h); object-fit: cover; }
+  p { position: absolute; inset: 0 0 env(safe-area-inset-bottom, 0px) 0; margin: 0; display: grid; place-items: center;
     letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-label); }
 </style>

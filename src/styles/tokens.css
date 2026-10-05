@@ -19,6 +19,7 @@
   --color-bg: #f4f0e8;
   --color-text: #3f5e85;          /* body, headings, nav */
   --color-label: #7a9cc9;         /* eyebrow labels */
+  --color-accent: #365f89;        /* solid blocks, buttons (sampled) */
   --color-frame: #2f4b85;         /* sketch frames, rules (est.) */
   --color-rule: color-mix(in srgb, var(--color-text) 60%, transparent);
 
@@ -43,6 +44,10 @@
   --tracking-body: 0.03em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
   --tracking-eyebrow: 3px;
+
+  /* Shared layout heights (grid-aligned) */
+  --nav-h: 120px;
+  --footer-h: 48px;
 
   /* Spacing */
   --space-1: 0.5rem;

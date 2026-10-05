@@ -5,7 +5,7 @@ const { align = 'left', tight = false } = Astro.props;
 <section class:list={['section', 'reveal', { tight }]} data-align={align}><slot /></section>
 
 <style>
-  .section { padding-inline: var(--gutter); margin-block: var(--space-5); }
+  .section { position: relative; padding-inline: var(--gutter); margin-block: var(--space-5); }
   .section.tight { margin-block: var(--space-3); }
   .section > :global(* + *) { margin-top: var(--space-2); }
   .section > :global(h2) { margin-top: var(--space-3); }

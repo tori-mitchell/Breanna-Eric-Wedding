@@ -1,0 +1,27 @@
+---
+// Photo with a solid accent block offset beside/behind it. Heights are on the 8px grid.
+interface Props { src?: string; label?: string; variant?: 'left' | 'right'; }
+const { src, label = 'Photo', variant = 'left' } = Astro.props;
+import Figure from './Figure.astro';
+---
+<div class:list={['bp', variant]}>
+  <span class="block" aria-hidden="true"></span>
+  <div class="photo"><Figure src={src} label={label} ratio="2 / 3" /></div>
+</div>
+
+<style>
+  /* .bp.bp outranks Section's `* + *` spacing rule */
+  .bp.bp { position: relative; height: 432px; margin-block: 40px 64px; }
+  .bp.right { margin-block: 112px; }   /* the block extends 72px past the photo, top and bottom */
+  .photo { position: absolute; top: 0; bottom: 0; }
+  .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
+  .block { position: absolute; background: var(--color-accent); }
+
+  /* block hugs the left of the photo, shorter than it */
+  .left .photo { left: 72px; right: 0; }
+  .left .block { left: 0; width: 72px; top: 72px; height: 288px; }
+
+  /* block runs behind the right of the photo, taller than it */
+  .right .photo { left: 0; right: 64px; }
+  .right .block { right: 0; width: 128px; top: -72px; height: 576px; }
+</style>

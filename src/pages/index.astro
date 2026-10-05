@@ -1,34 +1,75 @@
 ---
 import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import BlockPhoto from '../components/BlockPhoto.astro';
+import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const art = (n) => `${base}images/placeholders/${n}.jpg`;
 ---
-<Base title="Breanna & Eric" fullScreen>
-  <!-- Watercolor sits behind the date + location. Placeholder slice of the Canva hero (CONTENT-TODO §3). -->
-  <img class="art" src={`${base}images/placeholders/art-hero.jpg`} alt="" data-temp />
+<Base title="Breanna & Eric" stickyFooter>
   <section class="page hero" data-align="center">
+    <!-- Watercolor sits behind the date + location. Placeholder slice of the Canva hero (CONTENT-TODO §3). -->
+    <img class="art" src={art('art-hero')} alt="" data-temp />
     <p class="eyebrow">The wedding of</p>
     <h1>Breanna<br />&amp; Eric</h1>
     <div class="when">
       <p class="date">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
       <p class="loc"><em>Borgo Laticastelli, Tuscany, Italy</em></p>
     </div>
-    <!-- TODO: hero watercolor background (CONTENT-TODO §3) -->
   </section>
+
+  <Section align="center">
+    <BlockPhoto src="images/placeholders/home-couple.jpg" label="Photo: couple" variant="left" />
+    <h2>You’re invited!</h2>
+    <p>It means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
+    <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
+    <p>With all our love,</p>
+    <p class="script">Breanna &amp; Eric</p>
+  </Section>
+
+  <Section align="center">
+    <h2>This is where our forever begins</h2>
+    <p>For a few days, Borgo Laticastelli will become a little world of our own. The people we love most will be staying together here, waking up in the same village, wandering the same stone paths, and sharing all of the quiet moments in between the plans.</p>
+    <p>Dating back to the 12th century, Laticastelli is a restored Tuscan borgo overlooking the Crete Senesi. Its name is said to mean “the castle where light comes from all sides,” which feels especially fitting for the place where this next chapter begins.</p>
+    <p>The borgo will be reserved exclusively for our group. More than anything, we love the idea that for one weekend, everyone we care about will get to settle in, slow down, and experience it all together.</p>
+    <BlockPhoto src="images/placeholders/home-lane.jpg" label="Photo: borgo lane" variant="right" />
+  </Section>
+
+  <Section align="center">
+    <img class="sprig tr" src={art('art-sprig-r')} alt="" data-temp />
+    <img class="sprig bl" src={art('art-sprig-l')} alt="" data-temp />
+    <div class="kicker"><h3 class="subhead">RSVP</h3><span class="rule"></span></div>
+    <h2>Already know you can’t make it?</h2>
+    <p>We completely understand that traveling to Tuscany won’t be possible for everyone. If you already know you won’t be able to join us, you’re welcome to let us know now. For everyone else, formal RSVP details will be shared with the invitation.</p>
+    <p><Button href="#">Let us Know</Button></p>
+  </Section>
+
+  <Section align="center">
+    <img class="sprig br" src={art('art-sprig-r2')} alt="" data-temp />
+    <div class="kicker"><h3 class="subhead">Registry</h3><span class="rule"></span></div>
+    <h2>For the Years Ahead</h2>
+    <p>The greatest gift is having you there to celebrate with us. For those who have asked, we’ve created a registry filled with a few things we’d love for the home and life we’re continuing to build together.</p>
+    <p><Button href="#">View our Registry</Button></p>
+  </Section>
 </Base>
 
 <style>
-  /* Home never scrolls: nav pinned top, footer pinned bottom. The hero is one container
-     (eyebrow / names / date+location, 88px apart) centered in the space between them.
-     Date+location is its own container with a 4px gap. */
+  /* First screen: nav + hero + the (sticky) footer fill the phone exactly. The hero's three chunks
+     (eyebrow / names / date+location) are one container, centered, 88px apart. Date+location is its
+     own container with a 4px gap and hugs its contents. */
+  .hero {
+    position: relative; display: flex; flex-direction: column; justify-content: center; gap: 88px;
+    min-height: calc(100vh - var(--nav-h) - var(--footer-h));
+    min-height: calc(100svh - var(--nav-h) - var(--footer-h));
+  }
+  .hero > :not(.art) { position: relative; z-index: 1; }
   .art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 224px; object-fit: cover; object-position: center bottom; z-index: 0; opacity: 0.7;
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
-  .hero { position: relative; z-index: 1; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 88px; }
-  /* Container 3: hugs its two children (date, location); the 4px gap is the only space between them.
-     Zero the global `p + p` margin, which would otherwise stack on top of the gap. */
   .when { display: flex; flex-direction: column; gap: 4px; height: fit-content; }
   .when > p { margin: 0; }
+
   /* Hero names: size is the smaller of a width limit (so "Breanna" never overflows) and a
-     height limit (so everything still fits one screen). Sizes/line-heights are paired. */
+     height limit (so everything still fits the first screen). Sizes/line-heights are paired. */
   .hero { --fs-w: 104px; --lh-w: 88px; --fs-h: 104px; --lh-h: 88px; }
   h1 { font-size: min(var(--fs-w), var(--fs-h)); line-height: min(var(--lh-w), var(--lh-h)); }
   .date { font-size: var(--text-subhead); line-height: var(--leading-subhead); }
@@ -46,4 +87,14 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   @media (max-height: 600px) {
     .hero { gap: 24px; --fs-h: 80px; --lh-h: 64px; }
   }
+
+  /* Section heading with a short rule beneath (RSVP, Registry) */
+  .kicker { display: grid; justify-items: center; gap: 8px; margin-bottom: var(--space-3); }
+  .rule { width: 128px; height: 2px; background: var(--color-accent); } /* grid-exempt: line weight */
+
+  /* Decorative sprigs (placeholders) */
+  .sprig { position: absolute; width: 96px; height: auto; pointer-events: none; }
+  .tr { right: 0; top: -48px; }
+  .bl { left: 0; bottom: -88px; }
+  .br { right: 0; bottom: -72px; }
 </style>

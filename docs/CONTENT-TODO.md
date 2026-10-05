@@ -30,6 +30,7 @@ Legend: **[SS]** = cropped from screenshot (low-res, replace) · **[PH]** = plac
 | Our Story | Ch. 3 | Reaction close-up (hand over mouth) | [SS] |
 | Our Story | Ch. 3 | Group photo with family/friends at fence | [SS] |
 | Our Story | Ch. 4 And Now, Tuscany | Couple on porch (rust dress, grey suit) | [SS] |
+| Home | You're invited! | Couple kissing, holding hands w/ ring (portrait) | [SS] |
 
 ## 2. Venue photos (Borgo Laticastelli) — need originals + permission [LIC]
 
@@ -42,6 +43,7 @@ Legend: **[SS]** = cropped from screenshot (low-res, replace) · **[PH]** = plac
 | Stay | Gallery | Terrace w/ red cushions & wicker chairs | [SS] |
 | Stay | Gallery | Balcony window, cypress view | [SS] |
 | Stay | Gallery | Brick-vaulted cellar restaurant | [SS] |
+| Home | This is where our forever begins | Cobblestone borgo lane (**likely venue photo — permission**) | [SS] [LIC] |
 
 ## 3. Illustrations & decorative art — source/license unknown [LIC]
 
@@ -61,7 +63,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Explore: Dolomites | Explore | [SS] |
 | Explore: Sorrento | Explore | [SS] |
 | Hand-sketched double photo frame | Our Story | Redraw as SVG (no license needed) |
-| Olive branch sprig | Our Story | [PH] — redraw or license |
+| Olive branch sprigs (RSVP/Registry on Home; also Our Story) | Home, Our Story | [SS] crops on Home; Our Story still [PH] — redraw or license |
 | Hydrangea sprig | Our Story | [PH] — redraw or license |
 
 ## 4. Copy to verify
@@ -82,6 +84,14 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Our Story | Ch. 3 "Game 5 of the Hurricanes–Canadiens series", May 29 | Verify |
 | Before You Go | "We'll link to the latest official guidance" | Links TBD |
 | Delays | "backup contact information" | TBD closer to date |
+
+### Home page: copy and links to verify
+- "The borgo  will be reserved…" had a double space in Canva (fixed to one).
+- "Dating back to the 12th century… Crete Senesi… name is said to mean 'the castle where light comes from all sides'" — verify claim.
+- **"Let us Know" button** (RSVP): destination unknown — currently `#`. Mailto, form, or Joy link?
+- **"View our Registry" button**: registry URL needed — currently `#`.
+- "formal RSVP details will be shared with the invitation" vs Stay page "RSVP … through Joy" — reconcile wording.
+- Home hero date/location is final; first screen is nav + hero + sticky footer (footer stays pinned at screen bottom while content scrolls under it).
 
 ## 5. Decisions made (best guess — confirm later)
 
