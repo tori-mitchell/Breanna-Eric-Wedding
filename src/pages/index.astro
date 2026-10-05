@@ -6,10 +6,10 @@ import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const art = (n) => `${base}images/placeholders/${n}.jpg`;
 ---
-<Base title="Breanna & Eric" stickyFooter>
+<Base title="Breanna & Eric">
   <section class="page hero" data-align="center">
-    <!-- Watercolor sits behind the date + location. Placeholder slice of the Canva hero (CONTENT-TODO §3). -->
-    <img class="art" src={art('art-hero')} alt="" data-temp />
+    <!-- Hero watercolor fills the first screen, behind the glass nav. Placeholder: Canva hero with the text erased (CONTENT-TODO §3). -->
+    <img class="art" src={art('art-hero-full')} alt="" data-temp />
     <p class="eyebrow">The wedding of</p>
     <h1>Breanna<br />&amp; Eric</h1>
     <div class="when">
@@ -54,17 +54,19 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 </Base>
 
 <style>
-  /* First screen: nav + hero + the (sticky) footer fill the phone exactly. The hero's three chunks
+  /* First screen: sticky glass nav + hero fill the phone. The hero's three chunks
      (eyebrow / names / date+location) are one container, centered, 88px apart. Date+location is its
      own container with a 4px gap and hugs its contents. */
   .hero {
     position: relative; display: flex; flex-direction: column; justify-content: center; gap: 88px;
-    min-height: calc(100vh - var(--nav-h) - var(--footer-h));
-    min-height: calc(100svh - var(--nav-h) - var(--footer-h));
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100svh - var(--nav-h));
   }
   .hero > :not(.art) { position: relative; z-index: 1; }
-  .art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 224px; object-fit: cover; object-position: center bottom; z-index: 0; opacity: 0.7;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
+  /* The art runs from the top of the page (behind the glass nav) to the bottom of the first screen,
+     fading into the page background at its lower edge. */
+  .art { position: absolute; left: 0; right: 0; top: calc(-1 * var(--nav-h)); bottom: 0; width: 100%; height: calc(100% + var(--nav-h)); object-fit: cover; object-position: center bottom; z-index: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
   .when { display: flex; flex-direction: column; gap: 4px; height: fit-content; }
   .when > p { margin: 0; }
 

@@ -91,7 +91,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - **"Let us Know" button** (RSVP): destination unknown — currently `#`. Mailto, form, or Joy link?
 - **"View our Registry" button**: registry URL needed — currently `#`.
 - "formal RSVP details will be shared with the invitation" vs Stay page "RSVP … through Joy" — reconcile wording.
-- Home hero date/location is final; first screen is nav + hero + sticky footer (footer stays pinned at screen bottom while content scrolls under it).
+- Nav is sticky with a glass (blur) background on every page; footer is a normal end-of-page footer.
 
 ## 5. Decisions made (best guess — confirm later)
 
