@@ -84,7 +84,7 @@
   --measure: 38rem;               /* max text width */
 
   /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */
-  --temp-outline: 3px solid #ff00ff;
+  --temp-outline: none;
 
   /* Misc */
   --radius: 0;                    /* photos are square-cornered */
