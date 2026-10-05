@@ -22,10 +22,11 @@ img[data-temp] { outline: var(--temp-outline); outline-offset: -3px; }
 
 a { color: inherit; }
 
-/* Home: exactly one screen, never scrolls. Nav pinned top, footer pinned bottom,
-   hero flexes to fill the space between. */
-.screen.full { height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
-.screen.full > main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+/* Home: exactly one screen, never scrolls. Pinned to the real viewport (fixed + inset 0)
+   so the footer sits at the very bottom even as mobile browser toolbars move.
+   Nav pinned top, footer pinned bottom, hero flexes to fill the space between. */
+.screen.full { position: fixed; inset: 0; overflow: hidden; display: flex; flex-direction: column; }
+.screen.full > main { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .screen.full > footer { margin-top: 0; }
 
 /* Layout */

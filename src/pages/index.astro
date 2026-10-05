@@ -1,7 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <Base title="Breanna & Eric" fullScreen>
+  <!-- Watercolor sits behind the date + location. Placeholder slice of the Canva hero (CONTENT-TODO §3). -->
+  <img class="art" src={`${base}images/placeholders/art-hero.jpg`} alt="" data-temp />
   <section class="page hero" data-align="center">
     <p class="eyebrow">The wedding of</p>
     <h1>Breanna<br />&amp; Eric</h1>
@@ -17,7 +20,9 @@ import Base from '../layouts/Base.astro';
   /* Home never scrolls: nav pinned top, footer pinned bottom. The hero is one container
      (eyebrow / names / date+location, 64px apart) centered in the space between them.
      Date+location is its own container with an 8px gap. */
-  .hero { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 64px; }
+  .art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 224px; object-fit: cover; object-position: center bottom; z-index: 0; opacity: 0.7;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
+  .hero { position: relative; z-index: 1; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 64px; }
   .when { display: flex; flex-direction: column; gap: 8px; }
   h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); }
   .date { font-size: var(--text-subhead); line-height: var(--leading-subhead); }
