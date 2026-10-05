@@ -27,18 +27,23 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
      Zero the global `p + p` margin, which would otherwise stack on top of the gap. */
   .when { display: flex; flex-direction: column; gap: 4px; height: fit-content; }
   .when > p { margin: 0; }
-  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); }
+  /* Hero names: size is the smaller of a width limit (so "Breanna" never overflows) and a
+     height limit (so everything still fits one screen). Sizes/line-heights are paired. */
+  .hero { --fs-w: 104px; --lh-w: 88px; --fs-h: 104px; --lh-h: 88px; }
+  h1 { font-size: min(var(--fs-w), var(--fs-h)); line-height: min(var(--lh-w), var(--lh-h)); }
   .date { font-size: var(--text-subhead); line-height: var(--leading-subhead); }
   sup { font-size: 0.5em; line-height: 0; vertical-align: baseline; position: relative; top: -0.6em; }
 
-  /* Shorter screens: step the type down so everything still fits without scrolling */
+  /* Narrower phones */
+  @media (max-width: 383px) { .hero { --fs-w: 96px; --lh-w: 80px; } }
+  @media (max-width: 359px) { .hero { --fs-w: 80px; --lh-w: 64px; } }
+
+  /* Shorter screens */
   @media (max-height: 720px) {
-    .hero { gap: 40px; }
-    h1 { font-size: 4rem; line-height: 56px; }
+    .hero { gap: 40px; --fs-h: 96px; --lh-h: 80px; }
     .date { font-size: 1.5rem; line-height: 32px; }
   }
   @media (max-height: 600px) {
-    .hero { gap: 24px; }
-    h1 { font-size: 3.5rem; line-height: 48px; }
+    .hero { gap: 24px; --fs-h: 80px; --lh-h: 64px; }
   }
 </style>

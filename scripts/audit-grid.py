@@ -1,5 +1,5 @@
 # Flags spacing/size values (px/rem) that break the grid: multiples of 8, or of 4 below 24px.
-# Exempt: hairlines (<=1px), borders/outlines, opacity, percentages, unitless line-heights.
+# Exempt: @media breakpoints, hairlines (<=1px), borders/outlines, opacity, percentages, unitless line-heights.
 # Run from repo root: python3 scripts/audit-grid.py
 import re,glob,sys
 files=glob.glob('src/**/*.css',recursive=True)+glob.glob('src/**/*.astro',recursive=True)
@@ -9,6 +9,7 @@ for f in files:
     for n,line in enumerate(open(f),1):
         l=line.strip()
         if l.startswith(('/*','//','<!--','*')) or 'grid-exempt' in l: continue
+        l=re.sub(r'@media\s*\([^)]*\)','',l)   # breakpoints are screen thresholds, not spacing
         for m in re.finditer(r'(?<![\w.#-])(-?\d*\.?\d+)(rem|px)\b',l):
             ctx=l[:m.start()]
             if any(k in ctx.split(';')[-1] for k in skip_props): continue
