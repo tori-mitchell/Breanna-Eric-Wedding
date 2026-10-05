@@ -4,43 +4,127 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const current = Astro.url.pathname;
 ---
 <nav class="nav" aria-label="Main">
-  {[nav.slice(0, 3), nav.slice(3)].map((row) => (
-  <ul>
-    {row.map((item) => {
-      const href = base + item.path;
-      return (
-        <li>
-          <a class="eyebrow" href={href} aria-current={current === href ? 'page' : undefined}><span>{item.label}</span></a>
-        </li>
-      );
-    })}
-  </ul>
-  ))}
+  <div class="bar">
+    <a class="brand eyebrow" href={base} aria-label="Breanna & Eric, home">B &amp; E</a>
+    <button class="toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <line class="l1" x1="3" y1="9" x2="21" y2="9" />
+        <line class="l2" x1="3" y1="15" x2="21" y2="15" />
+      </svg>
+    </button>
+  </div>
+  <div class="menu" id="menu">
+    <ul>
+      {nav.map((item) => {
+        const href = base + item.path;
+        return (
+          <li>
+            <a href={href} aria-current={current === href ? 'page' : undefined}><span>{item.label}</span></a>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="stamp eyebrow">B &amp; E · 09.2027</p>
+  </div>
 </nav>
 
 <style>
-  /* Sticky glass bar: content scrolls beneath it, blurred.
-     Links use the eyebrow style. Each link is a 48px-tall touch target (padding, not just text);
-     two rows of 48px + 8px top/bottom = --nav-h (112px). */
-  .nav {
-    position: sticky; top: 0; z-index: 20;
-    box-sizing: border-box; min-height: var(--nav-h); padding: var(--space-1) var(--space-2);
+  /* Mobile: slim glass bar (brand + menu icon). The menu opens full-screen beneath it.
+     >= 1024px: the same markup becomes one expanded row. Without JS the menu is simply shown inline. */
+  .nav { position: sticky; top: 0; z-index: 20; }
+  .bar {
+    box-sizing: border-box; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between;
+    padding-inline: var(--gutter) 12px;
     background: color-mix(in srgb, var(--color-bg) 60%, transparent);
     -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
     box-shadow: 0 1px 0 color-mix(in srgb, var(--color-bg) 50%, transparent);   /* edge line without adding height */
   }
-  ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-evenly; }
-  a {
-    display: flex; align-items: center; justify-content: center;
-    min-height: 48px; min-width: 48px; padding-inline: 4px;
-    color: var(--color-text); text-decoration: none;
-  }
-  a span { padding-bottom: 4px; border-bottom: 1px solid transparent; }
-  a[aria-current='page'] span { border-bottom-color: var(--color-accent); }
-  a:hover span { border-bottom-color: var(--color-rule); }
-  a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: -4px; }
+  .brand { display: flex; align-items: center; min-height: 48px; text-decoration: none; color: var(--color-text); }
 
-  /* Narrow phones: tighten tracking so four labels still fit one row */
-  @media (max-width: 359px) { a { letter-spacing: 2px; } }
-  @media (max-width: 329px) { a { letter-spacing: 1px; } }
+  .toggle {
+    width: 48px; height: 48px; display: grid; place-items: center; padding: 0; border: 0; background: none;
+    color: var(--color-text); cursor: pointer;
+  }
+  .toggle svg line { stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; transform-box: view-box; transform-origin: center; }
+  .toggle:focus-visible, .brand:focus-visible, .menu a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .toggle svg line { transition: transform 200ms var(--ease); }
+    .menu { transition: opacity 200ms var(--ease), visibility 200ms; }
+  }
+  .toggle[aria-expanded='true'] .l1 { transform: translateY(3px) rotate(45deg); } /* grid-exempt: icon geometry */
+  .toggle[aria-expanded='true'] .l2 { transform: translateY(-3px) rotate(-45deg); } /* grid-exempt: icon geometry */
+
+  /* Full-screen menu (JS present) */
+  :global(html.js) .menu {
+    position: fixed; inset: var(--nav-h) 0 0 0; z-index: 19;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+    padding: var(--space-4) var(--gutter) var(--space-4);
+    background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+    opacity: 0; visibility: hidden;
+  }
+  :global(html.js) .nav.open .menu { opacity: 1; visibility: visible; }
+  :global(html.menu-open) { overflow: hidden; }
+
+  ul { list-style: none; margin: 0; padding: 0; text-align: center; }
+  .menu li a {
+    display: flex; align-items: center; justify-content: center; min-height: 64px;
+    color: var(--color-text); text-decoration: none;
+    font-family: var(--font-serif); font-size: var(--text-subhead); font-weight: 600; letter-spacing: 0.04em; line-height: var(--leading-subhead);
+  }
+  .menu a span { border-bottom: 1px solid transparent; padding-bottom: 4px; }
+  .menu a[aria-current='page'] span { border-bottom-color: var(--color-accent); }
+  .stamp { margin: 0; }
+
+  /* No JS: menu is a plain centered list under the bar */
+  :global(html:not(.js)) .toggle { display: none; }
+  :global(html:not(.js)) .menu { padding: 0 var(--gutter) var(--space-2); text-align: center; }
+  :global(html:not(.js)) .stamp { display: none; }
+  :global(html:not(.js)) .menu li a { min-height: 48px; font-size: var(--text-body); font-weight: 400; }
+
+  /* Expanded desktop nav (tablets keep the hamburger) */
+  @media (min-width: 1024px) {
+    .bar { padding-inline: var(--space-5); }
+    .toggle { display: none; }
+    /* Links share the bar's row: absolutely centered on it, right-aligned */
+    :global(html.js) .menu, .menu {
+      position: absolute; top: 0; height: var(--nav-h); right: var(--space-5); left: auto; bottom: auto; z-index: 21;
+      display: flex; flex-direction: row; justify-content: flex-end; align-items: center; padding: 0; background: none;
+      -webkit-backdrop-filter: none; backdrop-filter: none; opacity: 1; visibility: visible;
+    }
+    :global(html.js) .nav.open .menu { opacity: 1; }
+    :global(html.menu-open) { overflow: auto; }
+    ul { display: flex; gap: var(--space-4); }
+    .menu li a {
+      min-height: 48px; min-width: 48px; padding-inline: 4px;
+      font-family: var(--font-sans); font-size: var(--text-eyebrow); font-weight: 400; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; line-height: 24px;
+    }
+    .stamp, :global(html:not(.js)) .stamp { display: none; }
+    :global(html:not(.js)) .menu { padding: 0; }
+  }
 </style>
+
+<script>
+  const nav = document.querySelector('.nav') as HTMLElement | null;
+  const toggle = nav?.querySelector('.toggle') as HTMLButtonElement | null;
+  const menu = nav?.querySelector('.menu') as HTMLElement | null;
+  if (nav && toggle && menu) {
+    const root = document.documentElement;
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const set = (open: boolean, focus = true) => {
+      nav.classList.toggle('open', open);
+      root.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+      if (open && focus) (menu.querySelector('a') as HTMLElement)?.focus();
+      if (!open && focus) toggle.focus();
+    };
+    // Closed menu must not be tabbable on mobile
+    const sync = () => { menu.toggleAttribute('inert', !desktop.matches && !nav.classList.contains('open')); };
+    toggle.addEventListener('click', () => { set(!nav.classList.contains('open')); sync(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); sync(); } });
+    menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) { set(false, false); sync(); } });
+    desktop.addEventListener('change', () => { set(false, false); sync(); });
+    sync();
+  }
+</script>

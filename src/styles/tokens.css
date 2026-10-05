@@ -54,7 +54,7 @@
   --tracking-eyebrow: 3px;
 
   /* Shared layout heights (grid-aligned) */
-  --nav-h: 112px;
+  --nav-h: 64px;                  /* slim bar on mobile; taller on desktop (below) */
   --footer-h: 48px;
 
   /* Spacing */
@@ -75,3 +75,5 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --dur: 600ms;
 }
+
+@media (min-width: 1024px) { :root { --nav-h: 88px; } }
