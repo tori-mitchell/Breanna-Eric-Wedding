@@ -10,7 +10,7 @@ const { tilt = 0, width = '86%', align = 'center' } = Astro.props;
 <style>
   .frame {
     position: relative; width: var(--w); padding: 2rem;
-    transform: rotate(var(--tilt)); margin-block: var(--space-4);
+    transform: rotate(var(--tilt));
   }
   .frame[data-a='center'] { margin-inline: auto; }
   .frame[data-a='right'] { margin-left: auto; }

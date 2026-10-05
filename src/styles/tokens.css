@@ -64,6 +64,9 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
   --space-6: 6rem;
+  /* Vertical rhythm: 16px between blocks of text; 48px around sections and media, same above and below */
+  --flow: 1rem;                   /* 16px */
+  --block: 3rem;                  /* 48px */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
 

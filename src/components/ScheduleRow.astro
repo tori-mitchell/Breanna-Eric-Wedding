@@ -14,6 +14,7 @@ const { dow, date, title } = Astro.props;
 <style>
   .row { display: grid; grid-template-columns: 88px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--color-rule); }
   .row:first-child { border-top: 0; padding-top: 0; }
+  .row:last-of-type { padding-bottom: 0; }
   .when { margin: 0; padding-top: 4px; display: grid; align-content: start; }
   .what > h2 { margin: 0; }
   .what > p { margin: 4px 0 0; }

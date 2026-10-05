@@ -5,9 +5,16 @@ const { align = 'left', tight = false } = Astro.props;
 <section class:list={['section', 'reveal', { tight }]} data-align={align}><slot /></section>
 
 <style>
-  .section { position: relative; padding-inline: var(--gutter); margin-block: var(--space-5); }
-  .section.tight { margin-block: var(--space-3); }
-  .section > :global(* + *) { margin-top: var(--space-2); }
-  .section > :global(h2) { margin-top: var(--space-3); }
-  .section :global(.fig), .section :global(.frame) { margin-top: var(--space-4); }
+  /* One rhythm: --flow (16px) between text blocks, --block (48px) around sections and media,
+     identical above and below so nothing looks bottom-heavy. */
+  .section { position: relative; padding-inline: var(--gutter); margin-block: var(--block); }
+  .section.tight { margin-block: calc(var(--flow) * 2); }   /* 32px: denser lists, still symmetric */
+  .section > :global(* + *) { margin-top: var(--flow); }
+  .section > :global(h2) { margin-top: var(--space-4); }
+  .section > :global(.eyebrow + h2), .section > :global(.eyebrow + h3) { margin-top: var(--space-1); }   /* eyebrow hugs its heading: 8px */
+  .section > :global(.info + .info) { margin-top: calc(var(--flow) * 2); }   /* 32px between info blocks */
+  .section :global(.fig), .section :global(.frame) { margin-block: var(--block); }
+  .section :global(.fig + .fig), .section :global(.fig + .frame), .section :global(.frame + .fig) { margin-top: 0; }
+  .section > :global(:first-child) { margin-top: 0; }
+  .section > :global(:last-child) { margin-bottom: 0; }
 </style>

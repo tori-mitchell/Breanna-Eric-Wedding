@@ -11,8 +11,8 @@ import Figure from './Figure.astro';
 
 <style>
   /* .bp.bp outranks Section's `* + *` spacing rule */
-  .bp.bp { position: relative; height: 432px; margin-block: 40px 64px; }
-  .bp.right { margin-block: 112px; }   /* the block extends 72px past the photo, top and bottom */
+  .bp.bp { position: relative; height: 432px; margin-block: var(--block); }
+  .bp.right { margin-block: 120px; }   /* the block extends 72px past the photo, top and bottom, plus --block */
   .photo { position: absolute; top: 0; bottom: 0; }
   .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
   .block { position: absolute; background: var(--color-accent); }

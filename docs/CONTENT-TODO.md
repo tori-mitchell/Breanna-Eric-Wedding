@@ -112,6 +112,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Script is special:** page titles (h1), hero names, signature, Home "You're invited!", Our Story chapter titles. Section headings are serif (Subhead small by default, Subhead on big Home/Explore sections). No sentences in script; pull quotes are italic body.
 
+- **Vertical rhythm:** `--flow` 16px between text blocks, `--block` 48px around sections and media, identical above and below; eyebrow-to-heading 8px; info blocks 32px apart. Defined once in `Section.astro` — don't add one-off margins.
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |
