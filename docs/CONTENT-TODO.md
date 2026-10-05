@@ -2,6 +2,12 @@
 
 Tracks everything that is a placeholder, cropped from a Canva screenshot, or needs verification before launch.
 
+**Magenta outline = temporary screenshot crop.** Crops live in `public/images/placeholders/`; any image served from that folder gets the outline automatically. To replace one: drop the real file in `public/images/`, point the page's `src` at it, and the outline disappears. To hide all outlines at once, set `--temp-outline: none` in `src/styles/tokens.css`.
+
+Venue photos (§2) are intentionally *not* committed (public repo, permission pending) and still show as text placeholders. Banner flourishes, footer hills strip, and all watercolors are screenshot crops too (§3). The olive/hydrangea sprigs are not included yet.
+
+Weekend watercolor placement (villa→Thu, pool→Fri, ceremony→Sat, coffee terrace→Sun) is a guess from the screenshots — verify.
+
 Legend: **[SS]** = cropped from screenshot (low-res, replace) · **[PH]** = placeholder · **[LIC]** = license/permission needed
 
 ---

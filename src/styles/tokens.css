@@ -49,6 +49,9 @@
   --gutter: 1rem;                 /* page side padding on mobile */
   --measure: 38rem;               /* max text width */
 
+  /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */
+  --temp-outline: 3px solid #ff00ff;
+
   /* Misc */
   --radius: 0;                    /* photos are square-cornered */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);

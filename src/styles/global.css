@@ -17,6 +17,9 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 
+/* Any image from /images/placeholders/ is a temporary screenshot crop */
+img[data-temp] { outline: var(--temp-outline); outline-offset: -3px; }
+
 a { color: inherit; }
 
 /* Layout */

@@ -5,7 +5,7 @@ const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow =
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <figure class:list={['fig', { bleed, narrow, art }]} style={`--ratio:${ratio}`}>
-  {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
+  {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" data-temp={src.includes('placeholders/') ? '' : undefined} /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
 </figure>
 
 <style>

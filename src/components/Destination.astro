@@ -1,14 +1,14 @@
 ---
 // Explore-page destination: eyebrow, name, copy, suggested stay, favorites, note, art.
-interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left' | 'right'; artFirst?: boolean; artLabel?: string; }
-const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor' } = Astro.props;
+interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left' | 'right'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
+const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor', artSrc } = Astro.props;
 import Section from './Section.astro';
 import Figure from './Figure.astro';
 ---
 <Section align={align}>
   <p class="label label--caps">{eyebrow}</p>
   <h3 class="subhead">{name}</h3>
-  {artFirst && <Figure art ratio="4 / 5" label={artLabel} />}
+  {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p class="note">{stay}</p>
   {favorites && <>
@@ -16,7 +16,7 @@ import Figure from './Figure.astro';
     <p>{favorites}</p>
   </>}
   <slot name="note" />
-  {!artFirst && <Figure art ratio="4 / 5" label={artLabel} />}
+  {!artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
 </Section>
 
 <style>

@@ -13,10 +13,11 @@ import Frame from '../components/Frame.astro';
     <h2>Welcome</h2>
     <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
     <p class="quote">We can’t wait to celebrate with you!</p>
-    <Frame><Figure ratio="3 / 2" label="Photo: couple on trail" /></Frame>
-    <Frame tilt={-3} width="78%"><Figure ratio="4 / 5" label="Photo: Hurricanes parade" /></Frame>
+    <Frame><Figure src="images/placeholders/trail.jpg" ratio="3 / 2" label="Photo: couple on trail" /></Frame>
+    <Frame tilt={-3} width="78%"><Figure src="images/placeholders/parade.jpg" ratio="3 / 4" label="Photo: Hurricanes parade" /></Frame>
     <!-- Collage: arena selfie, vineyard, Christmas-tree selfie. TODO olive sprig -->
-    <Frame align="right" width="90%"><Figure ratio="4 / 3" label="Photos: arena · vineyard · tree selfie" /></Frame>
+    <Frame align="right" width="90%"><Figure src="images/placeholders/vineyard.jpg" ratio="2 / 3" label="Photo: vineyard" /></Frame>
+    <ul class="pair"><li><Figure src="images/placeholders/arena.jpg" ratio="1 / 1" label="Photo: arena selfie" /></li><li><Figure src="images/placeholders/tree.jpg" ratio="1 / 1" label="Photo: tree selfie" /></li></ul>
   </Section>
 
   <Section align="right">
@@ -37,19 +38,19 @@ import Frame from '../components/Frame.astro';
     <p>There were weekends between Raleigh and Durham, Hurricanes games, good beer, little trips, and more and more time spent together simply because that was where they both wanted to be. Eventually, the back-and-forth gave way to moving in together.</p>
     <p>Travel became part of their rhythm too, whether it was somewhere new or just an excuse to get away, eat something good, and spend a few days together. Somewhere along the way, what had started as a last-minute date had become a shared home, a very loved dog, and a pretty great teammate.</p>
     <p class="quote" data-align="right">New places, good company, our favorite kind of adventure.</p>
-    <Frame tilt={4} align="right" width="78%"><Figure ratio="3 / 4" label="Photo: couple + dog at door" /></Frame>
-    <Frame tilt={-4} width="78%"><Figure ratio="3 / 4" label="Photo: strawberry field" /></Frame>
+    <Frame tilt={4} align="right" width="78%"><Figure src="images/placeholders/door.jpg" ratio="2 / 3" label="Photo: couple + dog at door" /></Frame>
+    <Frame tilt={-4} width="78%"><Figure src="images/placeholders/strawberry.jpg" ratio="2 / 3" label="Photo: strawberry field" /></Frame>
     <ul class="thumbs">
-      <li><Figure ratio="4 / 3" label="Brewery" /></li>
-      <li><Figure ratio="4 / 3" label="Troll sculpture" /></li>
-      <li><Figure ratio="4 / 3" label="Hockey game" /></li>
+      <li><Figure src="images/placeholders/brewery.jpg" ratio="4 / 3" label="Brewery" /></li>
+      <li><Figure src="images/placeholders/troll.jpg" ratio="4 / 3" label="Troll sculpture" /></li>
+      <li><Figure src="images/placeholders/hockey.jpg" ratio="4 / 3" label="Hockey game" /></li>
     </ul>
   </Section>
 
   <Section align="right">
-    <Frame width="90%"><Figure ratio="4 / 3" label="Photo: proposal arch" /></Frame>
-    <Frame tilt={-3} width="86%"><Figure ratio="4 / 3" label="Photo: reaction" /></Frame>
-    <Frame tilt={4} width="86%"><Figure ratio="4 / 3" label="Photo: family & friends" /></Frame>
+    <Frame width="90%"><Figure src="images/placeholders/proposal.jpg" ratio="3 / 2" label="Photo: proposal arch" /></Frame>
+    <Frame tilt={-3} width="86%"><Figure src="images/placeholders/reaction.jpg" ratio="5 / 4" label="Photo: reaction" /></Frame>
+    <Frame tilt={4} width="86%"><Figure src="images/placeholders/group.jpg" ratio="3 / 2" label="Photo: family & friends" /></Frame>
     <p class="label">Chapter Three</p>
     <h2>Engagement</h2>
     <p>By the time Eric was ready to propose, he knew one thing for certain: Breanna needed to be surprised.</p>
@@ -65,11 +66,12 @@ import Frame from '../components/Frame.astro';
     <h2>And Now, Tuscany.</h2>
     <p>All of these moments, the people, the places, the adventures, have brought us here. To a quieter chapter, filled with gratitude for what we’ve built and excitement for what’s ahead.</p>
     <p>We can’t wait to celebrate our wedding in Tuscany with the people who mean the most to us.</p>
-    <Frame width="92%"><Figure ratio="3 / 4" label="Photo: couple on porch" /></Frame>
+    <Frame width="92%"><Figure src="images/placeholders/porch.jpg" ratio="3 / 4" label="Photo: couple on porch" /></Frame>
   </Section>
 </Base>
 
 <style>
   .quote { font-family: var(--font-script); font-size: var(--text-script-quote); line-height: 1.2; letter-spacing: 0; margin-block: var(--space-3); }
+  .pair { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
   .thumbs { list-style: none; padding: 0; margin: var(--space-4) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-1); }
 </style>
