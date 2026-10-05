@@ -21,7 +21,7 @@
   --color-label: #7a9cc9;         /* eyebrow labels */
   --color-accent: #365f89;        /* solid blocks, buttons (sampled) */
   --color-frame: #2f4b85;         /* sketch frames, rules (est.) */
-  --color-rule: color-mix(in srgb, var(--color-text) 60%, transparent);
+  --color-rule: #ddd5c5;          /* all dividers: warm beige, a few steps darker than the background */
 
   /* Families */
   --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
