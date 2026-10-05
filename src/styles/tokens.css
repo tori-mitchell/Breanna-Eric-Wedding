@@ -21,18 +21,19 @@
   --color-label: #4e6e96;         /* eyebrows, footer: 4.6:1 on the background (WCAG AA for small text) */
   --color-accent: #365f89;        /* solid blocks, buttons (sampled) */
   --color-frame: #2f4b85;         /* sketch frames, rules (est.) */
-  --color-rule: #ddd5c5;          /* all dividers: warm beige, a few steps darker than the background */
+  --color-rule: #e7e0d2;          /* all dividers: pale warm beige, just darker than the background */
 
   /* Families */
   --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
   --font-serif: 'EB Garamond', Garamond, Georgia, serif;
   --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;   /* eyebrows */
 
-  /* Type scale — mobile first (est.). Five styles total:
-     script hero · script header · subhead · eyebrow · body (+ <em> for italic) */
+  /* Type scale — mobile first (est.). Six styles total:
+     script hero · script header · subhead · subhead small · eyebrow · body (+ <em> for italic) */
   --text-body: 1.25rem;           /* 20px — body, nav, footer, small text */
   --text-eyebrow: 0.875rem;        /* 14px — grid-exempt, by design */
   --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
+  --text-subhead-sm: 1.5rem;      /* 24px — itinerary titles, info-block titles */
   --text-script-header: 2.5rem;   /* 40px — page titles, section titles, step titles, pull quotes */
   --text-script-hero: 5.5rem;     /* 88px — home hero names */
 
@@ -40,6 +41,7 @@
   --leading-body: 24px;
   --leading-script: 48px;
   --leading-subhead: 40px;
+  --leading-subhead-sm: 32px;
   --leading-hero: 72px;
   --tracking-body: 0.01em;
   --tracking-caps: 0.1em;         /* footer, step numbers */

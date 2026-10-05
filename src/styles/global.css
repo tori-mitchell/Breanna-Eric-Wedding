@@ -59,6 +59,13 @@ em { font-style: italic; }
   font-size: var(--text-subhead);
   line-height: var(--leading-subhead);
 }
+.subhead-sm, h3.subhead-sm {      /* "Florence", itinerary titles */
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: var(--text-subhead-sm);
+  line-height: var(--leading-subhead-sm);
+}
 
 /* Scroll fade-in (disabled for reduced motion) */
 @media (prefers-reduced-motion: no-preference) {
