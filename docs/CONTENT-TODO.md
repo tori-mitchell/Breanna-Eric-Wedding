@@ -92,7 +92,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Search indexing | Blocked (`noindex` meta + `robots.txt` disallow) | — |
 | Body text weight | Regular everywhere (Canva mixed regular/semibold) | Yes |
 | Justified text | Replaced with left/right alignment matching section | Yes |
-| Text styles | Six: script hero, script header, lead, subhead, eyebrow (caps, light blue — chapters, labels, dates), body (also nav/footer/small text; italic = `<em>` on body) | Yes — eyebrow contrast is ~2.4:1 (below WCAG AA 4.5:1); consider a darker `--color-label` |
+| Text styles | Five: script hero, script header, subhead, eyebrow (sans caps, light blue — chapters, labels, dates), body (also nav/footer/small text; italic = `<em>` on body) | Yes — eyebrow contrast is ~2.4:1 (below WCAG AA 4.5:1); consider a darker `--color-label` |
 | Typos | "Piza"→"Pisa", "BeforeYou"→"Before You" fixed | — |
 | Stay duplicate paragraph | Kept as-is for now (see §4) | Yes |
 | Travel step dividers | Thin rules between all 3 steps | Yes |

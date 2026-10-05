@@ -48,7 +48,7 @@ em { font-style: italic; }
 .eyebrow {                     /* "CHAPTER ONE", "A FEW FAVORITES", "SATURDAY, SEPTEMBER 18, 2027" */
   font-family: var(--font-sans);
   font-size: var(--text-eyebrow);
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: var(--tracking-eyebrow);
   color: var(--color-label);
@@ -60,7 +60,6 @@ em { font-style: italic; }
   font-size: var(--text-subhead);
   line-height: 1.2;
 }
-.lead { font-size: var(--text-lead); text-align: center; line-height: 1.5; }
 
 /* Scroll fade-in (disabled for reduced motion) */
 @media (prefers-reduced-motion: no-preference) {

@@ -25,11 +25,10 @@
   --font-serif: 'EB Garamond', Garamond, Georgia, serif;
   --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;   /* eyebrows */
 
-  /* Type scale — mobile first (est.). Six styles total:
-     script hero · script header · lead · subhead · eyebrow · body (+ <em> for italic) */
+  /* Type scale — mobile first (est.). Five styles total:
+     script hero · script header · subhead · eyebrow · body (+ <em> for italic) */
   --text-body: 1.25rem;           /* 20px — body, nav, footer, small text */
   --text-eyebrow: 0.875rem;        /* 14px */
-  --text-lead: 1.5rem;            /* intro paragraphs, hero date */
   --text-subhead: 1.75rem;        /* "Sorrento", "The Simple Version" */
   --text-script-header: 2.75rem;  /* page titles, section titles, step titles, pull quotes */
   --text-script-hero: 4.5rem;     /* home hero names */
@@ -38,7 +37,7 @@
   --leading-script: 1.15;
   --tracking-body: 0.03em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
-  --tracking-eyebrow: 2px;
+  --tracking-eyebrow: 3px;
 
   /* Spacing */
   --space-1: 0.5rem;

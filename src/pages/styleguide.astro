@@ -17,9 +17,8 @@ const colors = [
 const specs = [
   ['Script hero', '--text-script-hero', 'Pinyon Script'],
   ['Script header', '--text-script-header', 'Pinyon Script'],
-  ['Lead', '--text-lead', 'EB Garamond'],
   ['Subhead', '--text-subhead', 'EB Garamond 600'],
-  ['Eyebrow', '--text-eyebrow', 'Jost 500, caps, 2px'],
+  ['Eyebrow', '--text-eyebrow', 'Jost 400, caps, 3px'],
   ['Body', '--text-body', 'EB Garamond (also nav, footer)'],
 ];
 ---
@@ -30,7 +29,7 @@ const specs = [
     <p class="gh">Text styles</p>
     <p class="script hero">Script hero</p>
     <p class="script">Script header</p>
-    <p class="lead">Lead — intro paragraphs and the hero date.</p>
+    <p>Lead — intro paragraphs and the hero date.</p>
     <p class="subhead">Subhead</p>
     <p class="eyebrow">Eyebrow</p>
     <p>Body — We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
@@ -52,17 +51,17 @@ const specs = [
 
     <p class="gh">Patterns — as used on the pages</p>
 
-    <p class="gh sub">Page title + lead (all pages)</p>
+    <p class="gh sub">Page title + intro (all pages)</p>
     <div class="demo bleed">
       <PageTitle title="The Journey" />
-      <Section align="center"><p class="lead">Getting to the Tuscan countryside takes a little planning, but you will not need a rental car for the wedding weekend.</p></Section>
+      <Section align="center"><p>Getting to the Tuscan countryside takes a little planning, but you will not need a rental car for the wedding weekend.</p></Section>
     </div>
 
     <p class="gh sub">Home hero</p>
     <div class="demo" data-align="center">
       <p class="eyebrow">The wedding of</p>
       <p class="script hero">Breanna<br />&amp; Eric</p>
-      <p class="lead">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
+      <p>September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
       <p>Borgo Laticastelli, Tuscany, Italy</p>
     </div>
 
@@ -134,7 +133,6 @@ const specs = [
 <style>
   .guide { padding-block: var(--space-4); max-width: var(--measure); margin-inline: auto; }
   .guide > * + * { margin-top: var(--space-3); }
-  .guide > .lead { text-align: left; }
   .hero { font-size: var(--text-script-hero); }
   .gh { margin-top: var(--space-5) !important; padding-top: var(--space-1); border-top: 1px solid var(--color-rule);
     font: 0.75rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
