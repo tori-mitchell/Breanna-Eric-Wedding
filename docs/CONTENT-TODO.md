@@ -36,13 +36,13 @@ Legend: **[SS]** = cropped from screenshot (low-res, replace) · **[PH]** = plac
 
 | Page | Section | Description | Status |
 |---|---|---|---|
-| Stay | Below intro | Full-bleed terrace dining at sunset | [SS] |
-| Stay | Gallery | Aerial pool + hillside | [SS] |
-| Stay | Gallery | Stone doorway w/ topiaries (**photographer watermark visible**) | [SS] [LIC] |
-| Stay | Gallery | Bedroom w/ open window, robes on bed | [SS] |
-| Stay | Gallery | Terrace w/ red cushions & wicker chairs | [SS] |
-| Stay | Gallery | Balcony window, cypress view | [SS] |
-| Stay | Gallery | Brick-vaulted cellar restaurant | [SS] |
+| Lodging | Below intro | Full-bleed terrace dining at sunset | [SS] |
+| Lodging | Gallery | Aerial pool + hillside | [SS] |
+| Lodging | Gallery | Stone doorway w/ topiaries (**photographer watermark visible**) | [SS] [LIC] |
+| Lodging | Gallery | Bedroom w/ open window, robes on bed | [SS] |
+| Lodging | Gallery | Terrace w/ red cushions & wicker chairs | [SS] |
+| Lodging | Gallery | Balcony window, cypress view | [SS] |
+| Lodging | Gallery | Brick-vaulted cellar restaurant | [SS] |
 | Home | This is where our forever begins | Cobblestone borgo lane (**likely venue photo — permission**) | [SS] [LIC] |
 
 ## 3. Illustrations & decorative art — source/license unknown [LIC]
@@ -73,13 +73,13 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Travel | "Piza" heading | Typo → **Pisa** (fixing) |
 | Travel | "BeforeYou Go" | Missing space → **Before You Go** (fixing) |
 | Travel | Step 02 side rules | Only step with borders — keep, extend to all, or remove? |
-| Stay | "Getting Here and Having a Car" | Para 1 duplicates "Life at the Borgo" verbatim; para 2 repeats "no car needed" |
-| Stay / Travel | "Rental Cars" (Travel) vs. "Having a Car" (Stay) | Overlapping content — keep both? |
+| Lodging | "Getting Here and Having a Car" | Para 1 duplicates "Life at the Borgo" verbatim; para 2 repeats "no car needed" |
+| Lodging / Travel | "Rental Cars" (Travel) vs. "Having a Car" (Lodging) | Overlapping content — keep both? |
 | All | Dates | Thu Sep 16 – Sun Sep 19, 2027 (weekdays verified correct) |
-| Stay / Travel | Check-in 3:00 PM Thu, checkout 12:00 PM Sun | Verify with venue |
+| Lodging / Travel | Check-in 3:00 PM Thu, checkout 12:00 PM Sun | Verify with venue |
 | Travel | Train routes (Florence→Siena→Rapolano Terme; Rome→Chiusi-Chianciano→Rapolano Terme; Pisa Centrale) | Verify |
-| Stay | Planner name "Ani" | Verify spelling; full name/contact to add? |
-| Stay | "shared privately through Joy" | Need Joy URL for RSVP link |
+| Lodging | Planner name "Ani" | Verify spelling; full name/contact to add? |
+| Lodging | "shared privately through Joy" | Need Joy URL for RSVP link |
 | Explore | Suggested stays (Florence 2–3, Dolomites 3–4 Ortisei/Val Gardena, Sorrento 3–4) | Verify |
 | Our Story | Ch. 3 "Game 5 of the Hurricanes–Canadiens series", May 29 | Verify |
 | Before You Go | "We'll link to the latest official guidance" | Links TBD |
@@ -90,7 +90,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - "Dating back to the 12th century… Crete Senesi… name is said to mean 'the castle where light comes from all sides'" — verify claim.
 - **"Let us Know" button** (RSVP): destination unknown — currently `#`. Mailto, form, or Joy link?
 - **"View our Registry" button**: registry URL needed — currently `#`.
-- "formal RSVP details will be shared with the invitation" vs Stay page "RSVP … through Joy" — reconcile wording.
+- "formal RSVP details will be shared with the invitation" vs Lodging page "RSVP … through Joy" — reconcile wording.
 - Nav is sticky with a glass (blur) background on every page; footer is a normal end-of-page footer.
 
 ## 5. Decisions made (best guess — confirm later)
@@ -104,7 +104,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Justified text | Replaced with left/right alignment matching section | Yes |
 | Text styles | Five: script hero, script header, subhead, eyebrow (sans caps, light blue — chapters, labels, dates), body (also nav/footer/small text; italic = `<em>` on body) | Yes — eyebrow contrast is ~2.4:1 (below WCAG AA 4.5:1); consider a darker `--color-label` |
 | Typos | "Piza"→"Pisa", "BeforeYou"→"Before You" fixed | — |
-| Stay duplicate paragraph | Kept as-is for now (see §4) | Yes |
+| Lodging duplicate paragraph | Kept as-is for now (see §4) | Yes |
 | Travel step dividers | Thin rules between all 3 steps | Yes |
 | Fonts | Pinyon Script (script) + EB Garamond (serif), self-hosted | Verify against Canva font names |
 | Nav active state | Correct page highlighted (Canva's was wrong on most pages) | — |
