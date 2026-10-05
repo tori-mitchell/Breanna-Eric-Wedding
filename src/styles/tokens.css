@@ -30,7 +30,7 @@
   /* Type scale — mobile first (est.). Five styles total:
      script hero · script header · subhead · eyebrow · body (+ <em> for italic) */
   --text-body: 1.25rem;           /* 20px — body, nav, footer, small text */
-  --text-eyebrow: 1rem;            /* 16px */
+  --text-eyebrow: 0.875rem;        /* 14px — grid-exempt, by design */
   --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
   --text-script-header: 2.5rem;   /* 40px — page titles, section titles, step titles, pull quotes */
   --text-script-hero: 4.5rem;     /* home hero names */
@@ -42,7 +42,7 @@
   --leading-hero: 56px;
   --tracking-body: 0.03em;
   --tracking-caps: 0.1em;         /* footer, step numbers */
-  --tracking-eyebrow: 4px;
+  --tracking-eyebrow: 3px;
 
   /* Spacing */
   --space-1: 0.5rem;

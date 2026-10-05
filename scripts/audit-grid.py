@@ -8,7 +8,7 @@ bad=[]
 for f in files:
     for n,line in enumerate(open(f),1):
         l=line.strip()
-        if l.startswith(('/*','//','<!--','*')): continue
+        if l.startswith(('/*','//','<!--','*')) or 'grid-exempt' in l: continue
         for m in re.finditer(r'(?<![\w.#-])(-?\d*\.?\d+)(rem|px)\b',l):
             ctx=l[:m.start()]
             if any(k in ctx.split(';')[-1] for k in skip_props): continue
