@@ -1,21 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Breanna & Eric">
+<Base title="Breanna & Eric" fullScreen>
   <section class="page hero" data-align="center">
     <p class="eyebrow">The wedding of</p>
     <h1>Breanna<br />&amp; Eric</h1>
-    <p class="date">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
-    <p class="loc"><em>Borgo Laticastelli, Tuscany, Italy</em></p>
+    <div class="when">
+      <p class="date">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
+      <p class="loc"><em>Borgo Laticastelli, Tuscany, Italy</em></p>
+    </div>
     <!-- TODO: hero watercolor background (CONTENT-TODO §3) -->
   </section>
 </Base>
 
 <style>
-  /* Three chunks (eyebrow / names / date+location), spaced to look equidistant.
-     Gaps are tuned optically against the script's flourishes, not equal margins. */
-  .hero { --gap-eyebrow: 3.9rem; --gap-names: 3.4rem; padding-block: var(--space-5); }
-  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: var(--gap-eyebrow) 0 var(--gap-names); }
+  /* Three chunks (eyebrow / names / date+location) fill the first screen:
+     --hero-pad of clearance below the nav and above the screen bottom, with
+     the chunks spread so the gaps look equal. The h1 margins nudge the two
+     gaps optically (the script's flourishes eat into the space above the names). */
+  .hero {
+    --hero-pad: 88px;
+    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+    /* top is reduced by the nav's own bottom padding so the visible gap is --hero-pad */
+    padding: calc(var(--hero-pad) - 1.2rem) var(--gutter) var(--hero-pad);
+  }
+  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: 0.25rem 0 -0.25rem; }
   .date { font-size: var(--text-subhead); line-height: 1.1; }
   sup { font-size: 0.55em; }
   .loc { margin-top: 0.625rem; }
