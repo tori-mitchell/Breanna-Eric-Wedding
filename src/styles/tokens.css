@@ -1,0 +1,56 @@
+/*
+  Design tokens — single source of truth for the site's look.
+  Values marked (est.) were estimated from Canva screenshots; tune on /styleguide/.
+*/
+
+/* Fonts (self-hosted via @fontsource) */
+@import '@fontsource/pinyon-script/latin-400.css';
+@import '@fontsource/eb-garamond/latin-400.css';
+@import '@fontsource/eb-garamond/latin-400-italic.css';
+@import '@fontsource/eb-garamond/latin-500.css';
+@import '@fontsource/eb-garamond/latin-600.css';
+
+:root {
+  /* Color — sampled from screenshots */
+  --color-bg: #efebe0;
+  --color-text: #3f5e85;          /* body, headings, nav */
+  --color-label: #7a9cc9;         /* eyebrow labels */
+  --color-frame: #2f4b85;         /* sketch frames, rules (est.) */
+  --color-rule: color-mix(in srgb, var(--color-text) 60%, transparent);
+
+  /* Families */
+  --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
+  --font-serif: 'EB Garamond', Garamond, Georgia, serif;
+
+  /* Type scale — mobile first (est.) */
+  --text-body: 1.1875rem;         /* 19px */
+  --text-lead: 1.5rem;            /* intro paragraphs */
+  --text-label: 1.0625rem;
+  --text-nav: 1.125rem;
+  --text-subhead: 1.75rem;        /* "Sorrento", "The Dolomites" */
+  --text-script-md: 2.5rem;       /* section titles */
+  --text-script-lg: 3rem;         /* page titles */
+  --text-script-xl: 4.5rem;       /* hero names */
+  --text-script-quote: 2rem;      /* pull quotes */
+
+  --leading-body: 1.45;
+  --leading-script: 1.15;
+  --tracking-body: 0.03em;
+  --tracking-label: 0.08em;
+  --tracking-caps: 0.1em;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --gutter: 1rem;                 /* page side padding on mobile */
+  --measure: 38rem;               /* max text width */
+
+  /* Misc */
+  --radius: 0;                    /* photos are square-cornered */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 600ms;
+}

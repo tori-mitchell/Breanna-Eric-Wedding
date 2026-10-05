@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Breanna & Eric">
+  <section class="page hero" data-align="center">
+    <p class="eyebrow">The wedding of</p>
+    <h1>Breanna<br />&amp; Eric</h1>
+    <p class="date">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
+    <p class="loc">Borgo Laticastelli, Tuscany, Italy</p>
+    <!-- TODO: hero watercolor background (CONTENT-TODO §3) -->
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: var(--space-5); }
+  h1 { font-size: var(--text-script-xl); margin: var(--space-1) 0 var(--space-4); }
+  .eyebrow { text-transform: uppercase; letter-spacing: var(--tracking-caps); font-size: var(--text-lead); }
+  .date { font-size: 2rem; line-height: 1.2; }
+  sup { font-size: 0.55em; }
+  .loc { font-size: var(--text-label); margin-top: var(--space-1); }
+</style>

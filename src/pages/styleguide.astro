@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+const colors = [
+  ['--color-bg', 'Background'],
+  ['--color-text', 'Text / headings'],
+  ['--color-label', 'Labels'],
+  ['--color-frame', 'Frames & rules'],
+];
+const sizes = [
+  '--text-body', '--text-lead', '--text-label', '--text-nav', '--text-subhead',
+  '--text-script-md', '--text-script-lg', '--text-script-xl', '--text-script-quote',
+];
+---
+<Base title="Style guide">
+  <div class="page guide stack">
+    <h1>Style guide</h1>
+    <p class="note">Internal reference — not linked from the site. Tokens live in <code>src/styles/tokens.css</code>.</p>
+
+    <h2>Color</h2>
+    <ul class="swatches">
+      {colors.map(([v, name]) => (
+        <li><span class="chip" style={`background:var(${v})`}></span><b>{name}</b><code>{v}</code></li>
+      ))}
+    </ul>
+
+    <h2>Type</h2>
+    <p class="label">A Note From Us (label)</p>
+    <p class="label label--caps">A few favorites (caps label)</p>
+    <p class="label--date label">Saturday, September 18, 2027 (date label)</p>
+    <p class="subhead">Sorrento (subhead)</p>
+    <p>Body: We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
+    <p class="note">Italic note: Departure and transfer details will be shared closer to the wedding.</p>
+    <p class="lead">Lead: Getting to the Tuscan countryside takes a little planning.</p>
+    <h2>Section title (script)</h2>
+    <h1>Page title</h1>
+    <h3 style="font-size:var(--text-script-quote)">Pull quote: A last minute date that changed everything.</h3>
+
+    <h2>Alignment</h2>
+    <div data-align="right"><p class="label">Chapter One</p><h2>How We Met</h2><p>Right-aligned section for alternating layouts.</p></div>
+
+    <h2>Scale</h2>
+    <table>
+      {sizes.map((s) => <tr><td><code>{s}</code></td><td style={`font-size:var(${s});line-height:1.2;font-family:var(${s.includes("script") ? "--font-script" : "--font-serif"})`}>Aa</td></tr>)}
+    </table>
+  </div>
+</Base>
+
+<style>
+  .guide { padding-block: var(--space-4); max-width: var(--measure); margin-inline: auto; }
+  .swatches { list-style: none; padding: 0; display: grid; gap: var(--space-1); }
+  .swatches li { display: flex; align-items: center; gap: var(--space-2); }
+  .chip { width: 2.5rem; height: 2.5rem; border: 1px solid var(--color-rule); }
+  code { font-size: 0.8rem; opacity: 0.7; }
+  td { padding: 0.25rem 1rem 0.25rem 0; }
+</style>
