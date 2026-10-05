@@ -77,7 +77,27 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Before You Go | "We'll link to the latest official guidance" | Links TBD |
 | Delays | "backup contact information" | TBD closer to date |
 
-## 5. Pending features
+## 5. Decisions made (best guess — confirm later)
+
+| Decision | Choice | Confirm? |
+|---|---|---|
+| Hosting | GitHub Pages, **private repo** | ⚠️ Pages from a private repo requires **GitHub Pro/Team/Enterprise**. Confirm plan, or make repo public. |
+| Domain | Default `*.github.io` URL now; custom domain later | Add domain when purchased (CNAME + DNS) |
+| Search indexing | Blocked (`noindex` meta + `robots.txt` disallow) | — |
+| Body text weight | Regular everywhere (Canva mixed regular/semibold) | Yes |
+| Justified text | Replaced with left/right alignment matching section | Yes |
+| Eyebrow labels | 2 styles: light-blue caps; navy semibold caps for dates | Yes |
+| Typos | "Piza"→"Pisa", "BeforeYou"→"Before You" fixed | — |
+| Stay duplicate paragraph | Kept as-is for now (see §4) | Yes |
+| Travel step dividers | Thin rules between all 3 steps | Yes |
+| Fonts | Pinyon Script (script) + EB Garamond (serif), self-hosted | Verify against Canva font names |
+| Nav active state | Correct page highlighted (Canva's was wrong on most pages) | — |
+| Nav (mobile) | Two-row wrapped nav, no hamburger (matches Canva) | Yes |
+| Footer | Hills strip + "B & E · 09.2027" (Canva footer removed) | Yes — wording |
+| Motion | Subtle fade-in on scroll; disabled for reduced-motion users | Yes |
+| Layout priority | Mobile first; desktop pass later | — |
+
+## 6. Pending features
 
 - [ ] RSVP — link to Joy (URL needed)
 - [ ] Custom domain (if any)
