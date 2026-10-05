@@ -1,5 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Section from '../components/Section.astro';
+import Event from '../components/Event.astro';
+import Info from '../components/Info.astro';
+import Destination from '../components/Destination.astro';
+import Step from '../components/Step.astro';
+import Frame from '../components/Frame.astro';
+import Figure from '../components/Figure.astro';
 const colors = [
   ['--color-bg', 'Background'],
   ['--color-text', 'Text'],
@@ -41,13 +49,92 @@ const specs = [
       {colors.map(([v, name]) => <tr><td>{name}</td><td><code>{v}</code></td><td></td></tr>)}
     </table>
     <p><code>src/styles/tokens.css</code></p>
+
+    <p class="gh">Patterns — as used on the pages</p>
+
+    <p class="gh sub">Page title + lead (all pages)</p>
+    <div class="demo bleed">
+      <PageTitle title="The Journey" />
+      <Section align="center"><p class="lead">Getting to the Tuscan countryside takes a little planning, but you will not need a rental car for the wedding weekend.</p></Section>
+    </div>
+
+    <p class="gh sub">Home hero</p>
+    <div class="demo" data-align="center">
+      <p class="eyebrow">The wedding of</p>
+      <p class="script hero">Breanna<br />&amp; Eric</p>
+      <p class="lead">September 16<sup>th</sup> to 19<sup>th</sup> 2027</p>
+      <p>Borgo Laticastelli, Tuscany, Italy</p>
+    </div>
+
+    <p class="gh sub">Chapter / text section — left</p>
+    <div class="demo">
+      <Section>
+        <p class="eyebrow">Chapter Two</p>
+        <h2>Life Together</h2>
+        <p>After ZincHouse came a lot more dates, and then Eric got a dog.</p>
+        <p>Breanna quickly became part of the training process, and before long their lives were weaving together.</p>
+        <p class="script">New places, good company, our favorite kind of adventure.</p>
+      </Section>
+    </div>
+
+    <p class="gh sub">Chapter / text section — right-aligned</p>
+    <div class="demo">
+      <Section align="right">
+        <p class="eyebrow">Chapter One</p>
+        <h2>How We Met</h2>
+        <p>All of Breanna’s friends were out of town when a random boy she’d been texting asked what she was doing that night.</p>
+        <p>The rest is history.</p>
+      </Section>
+    </div>
+
+    <p class="gh sub">Event block (Weekend)</p>
+    <div class="demo">
+      <Event date="Saturday, September 18, 2027" title="Wedding Day" align="right" artPos="none"
+        note="Full timing and dress details will be shared with the formal invitation.">
+        The ceremony and celebration will take place at Laticastelli.
+      </Event>
+    </div>
+
+    <p class="gh sub">Destination block (Explore)</p>
+    <div class="demo">
+      <Destination eyebrow="For coast & sunshine" name="Sorrento" stay="Suggested stay: 3–4 nights"
+        favorites="Capri • Pompeii • Positano/Amalfi Coast • Marina Grande" artLabel="Watercolor">
+        <p>For a few days by the water, Sorrento lets you slow down in town, with the Bay of Naples and the Amalfi Coast close by when you want them.</p>
+        <p slot="note"><em>Sorrento is farther from Tuscany, so think of it as a true trip extension.</em></p>
+      </Destination>
+    </div>
+
+    <p class="gh sub">Info blocks (Travel)</p>
+    <div class="demo">
+      <Section>
+        <h2>Choosing an Airport</h2>
+        <Info label="Best for the easiest onward journey" name="Florence">Florence is the simplest option once you are on the ground.</Info>
+        <Info label="Money">Italy uses the euro. Credit cards are widely used, but it is helpful to carry some cash.</Info>
+      </Section>
+    </div>
+
+    <p class="gh sub">Numbered steps (Travel)</p>
+    <div class="demo">
+      <Section align="center">
+        <h3 class="subhead">The Simple Version</h3>
+        <ol class="steps">
+          <Step n="01" title="Fly">Fly into Florence, Rome, or Pisa.</Step>
+          <Step n="02" title="Train">Continue by train to Rapolano Terme.</Step>
+        </ol>
+      </Section>
+    </div>
+
+    <p class="gh sub">Framed photo (Our Story)</p>
+    <div class="demo">
+      <Frame tilt={-3} width="78%"><Figure src="images/placeholders/parade.jpg" ratio="3 / 4" label="Photo" /></Frame>
+    </div>
   </div>
 </Base>
 
 <style>
   .guide { padding-block: var(--space-4); max-width: var(--measure); margin-inline: auto; }
   .guide > * + * { margin-top: var(--space-3); }
-  .guide .lead { text-align: left; }
+  .guide > .lead { text-align: left; }
   .hero { font-size: var(--text-script-hero); }
   .gh { margin-top: var(--space-5) !important; padding-top: var(--space-1); border-top: 1px solid var(--color-rule);
     font: 0.75rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
@@ -57,4 +144,8 @@ const specs = [
   table { font-size: 0.85rem; border-collapse: collapse; width: 100%; }
   td { padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; }
   code { font-size: 0.78rem; opacity: 0.75; }
+  .gh.sub { border-top: 0; margin-top: var(--space-4) !important; opacity: 0.55; }
+  .demo { border: 1px dashed var(--color-rule); padding: var(--space-2) 0; overflow: hidden; }
+  .steps { padding: 0; margin: var(--space-3) auto 0; max-width: 24rem; }
+  .demo.bleed { padding: 0; }
 </style>
