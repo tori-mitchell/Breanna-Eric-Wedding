@@ -1,6 +1,6 @@
 ---
 // Explore-page destination: eyebrow, name, copy, suggested stay, favorites, note, art.
-interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left' | 'right'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
+interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
 const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor', artSrc } = Astro.props;
 import Section from './Section.astro';
 import Figure from './Figure.astro';

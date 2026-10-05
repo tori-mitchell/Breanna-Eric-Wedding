@@ -1,6 +1,6 @@
 ---
 // Weekend day block: date label, script title, lead sentence, italic note, art.
-interface Props { date: string; title: string; note: string; align?: 'left' | 'right'; artPos?: 'above' | 'below' | 'none'; artLabel?: string; artRatio?: string; artSrc?: string; }
+interface Props { date: string; title: string; note: string; align?: 'left'; artPos?: 'above' | 'below' | 'none'; artLabel?: string; artRatio?: string; artSrc?: string; }
 const { date, title, note, align = 'left', artPos = 'below', artLabel = 'Watercolor', artRatio = '4 / 5', artSrc } = Astro.props;
 import Section from './Section.astro';
 import Figure from './Figure.astro';

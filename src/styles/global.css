@@ -40,8 +40,7 @@ p { margin: 0; }
 p + p { margin-top: var(--space-3); }
 em { font-style: italic; }
 
-/* Section alignment flips: <section data-align="right"> */
-[data-align='right'] { text-align: right; }
+/* Text is never right-aligned (legibility). Sections are left or centered. */
 [data-align='center'] { text-align: center; }
 
 /* Utility text styles */

@@ -1,5 +1,5 @@
 ---
-interface Props { align?: 'left' | 'right' | 'center'; tight?: boolean; }
+interface Props { align?: 'left' | 'center'; tight?: boolean; }
 const { align = 'left', tight = false } = Astro.props;
 ---
 <section class:list={['section', 'reveal', { tight }]} data-align={align}><slot /></section>
