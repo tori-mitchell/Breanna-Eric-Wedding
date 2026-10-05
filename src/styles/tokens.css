@@ -8,7 +8,8 @@
 /* Fonts (self-hosted via @fontsource) */
 @import '@fontsource/pinyon-script/latin-400.css';
 @import '@fontsource/eb-garamond/latin-400.css';
-@import '@fontsource/eb-garamond/latin-400-italic.css';
+@import '@fontsource/lora/latin-400.css';
+@import '@fontsource/newsreader/latin-400-italic.css';
 @import '@fontsource/eb-garamond/latin-500.css';
 @import '@fontsource/eb-garamond/latin-600.css';
 @import '@fontsource/jost/latin-400.css';
@@ -21,6 +22,7 @@
   --color-bg: #f7f3ee;            /* cream (the paper texture below is baked on this color) */
   --color-text: #2a3850;          /* ink (10.6:1) */
   --color-body: #5b677d;          /* lighter body text (5.1:1) */
+  --color-detail: #646f84;        /* details (itinerary descriptions, FAQ answers, notes) — paler still */
   --color-label: #2a3850;         /* eyebrows, footer */
   --color-accent: #365f89;        /* mid-tone blue (sampled from Canva), 6.0:1 */
   --color-rule: #e1ded7;          /* dividers: hairline just darker than the background */
@@ -31,12 +33,16 @@
 
   /* Families */
   --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
-  --font-serif: 'EB Garamond', Garamond, Georgia, serif;
+  --font-serif: 'EB Garamond', Garamond, Georgia, serif;     /* headings, hero, nav menu */
+  --font-body: 'Lora', Georgia, serif;                       /* paragraphs */
+  --font-italic: 'Newsreader', Georgia, serif;               /* italics (emphasis, notes) — sized up to match Lora's lowercase */
   --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;   /* eyebrows */
 
   /* Type scale — mobile first (est.). Six styles total:
      script hero · script header · subhead · subhead small · eyebrow · body (+ <em> for italic) */
-  --text-body: 1.25rem;           /* 20px — body, nav, footer, small text */
+  --text-body: 1rem;              /* 16px — Lora body */
+  --text-small: 0.875rem;         /* 14px — details: itinerary descriptions, FAQ answers, italic notes (grid-exempt: type size) */
+  --text-italic-scale: 1.11;      /* Newsreader italic is this much bigger than the text around it, to match Lora's x-height */
   --text-eyebrow: 0.875rem;        /* 14px — grid-exempt, by design */
   --text-subhead: 2rem;           /* 32px — "Sorrento", hero date */
   --text-subhead-sm: 1.5rem;      /* 24px — itinerary titles, info-block titles */
@@ -52,10 +58,11 @@
 
   /* Line heights in px so every line box lands on the 4/8 grid */
   --leading-body: 24px;
+  --leading-small: 20px;
   --leading-script: 48px;
   --leading-subhead: 40px;
   --leading-subhead-sm: 32px;
-    --tracking-body: 0.01em;
+    --tracking-body: 0;
   --tracking-caps: 0.1em;         /* footer, step numbers */
   --tracking-eyebrow: 3px;
 

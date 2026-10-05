@@ -13,6 +13,7 @@ const colors = [
   ['--color-bg', 'Background'],
   ['--color-text', 'Ink (headings, nav, eyebrows)'],
   ['--color-body', 'Body text (lighter)'],
+  ['--color-detail', 'Details (paler still)'],
   ['--color-accent', 'Accent (special places)'],
   ['--color-rule', 'Dividers'],
 ];
@@ -24,7 +25,9 @@ const specs = [
   ['Subhead', '--text-subhead', 'EB Garamond 600'],
   ['Subhead small', '--text-subhead-sm', 'EB Garamond 600'],
   ['Eyebrow', '--text-eyebrow', 'Jost 400, caps, 3px tracking'], // grid-exempt
-  ['Body', '--text-body', 'EB Garamond (also nav, footer)'],
+  ['Body', '--text-body', 'Lora'],
+  ['Small', '--text-small', 'Lora, paler (details)'],
+  ['Italic', '--text-italic-scale', 'Newsreader italic, ×1.11 to match Lora'],
 ];
 ---
 <Base title="Style guide">
@@ -41,7 +44,9 @@ const specs = [
     <p class="subhead-sm">Subhead small</p>
     <p class="eyebrow">Eyebrow</p>
     <p>Body — We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
-    <p><em>Body italic — an em inside body text, for notes like “details will be shared closer to the wedding.”</em></p>
+    <p>Italic is a different family: a note like <em>“details will be shared closer to the wedding”</em> inside a sentence.</p>
+    <p class="small">Small — details such as itinerary descriptions and FAQ answers, in a paler tone. Check-in begins at 3:00 PM.</p>
+    <p><em>An italic-only paragraph is automatically Small, like this note about the household.</em></p>
 
     <p class="gh">Color</p>
     <ul class="swatches">

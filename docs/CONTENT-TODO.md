@@ -120,6 +120,9 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Color roles (decided):** current — ink `#2a3850` for names, headings, nav, eyebrows and dates; the bride's midtown blue `#365f89` for the accent (ampersand, script flourishes, buttons, active-nav underline, frames). Compared and not chosen: all-midtown headings, and "names darkest / everything else midtown".
 
+- **Body type (decided):** Lora 16px for paragraphs; Newsreader italic for emphasis and notes (sized ×1.11 to match Lora's lowercase height); **Small** (Lora 14px, paler `#646f84`) for itinerary descriptions, FAQ answers and italic-only notes. Headings, hero and nav menu stay EB Garamond; eyebrows stay Jost; script stays Pinyon. EB Garamond italic is no longer loaded.
+- Fonts are now: Pinyon Script, EB Garamond (400/500/600), Jost, Lora, Newsreader italic. Type sizes for body/small are grid-exempt by design (fonts are flexible; spacing and containers are strict).
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |

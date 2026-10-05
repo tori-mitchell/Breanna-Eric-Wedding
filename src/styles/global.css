@@ -11,7 +11,7 @@ body {
   background-image: url('../assets/paper-texture.webp');
   background-size: 256px 256px;
   color: var(--color-body);
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: var(--leading-body);
   letter-spacing: var(--tracking-body);
@@ -50,7 +50,10 @@ h2, h3 {
 
 p { margin: 0; }
 p + p { margin-top: var(--space-3); }
-em { font-style: italic; }
+em { font-family: var(--font-italic); font-style: italic; font-size: calc(1em * var(--text-italic-scale)); }
+
+/* Small: details in a paler tone. Use .small, or a paragraph that is only italic. */
+.small, .small p, p:has(> em:only-child) { font-size: var(--text-small); line-height: var(--leading-small); color: var(--color-detail); }
 
 /* .script on an h2 (chapter titles) wins over the h2 default */
 h2.script, h3.script { font-family: var(--font-script); font-size: var(--text-script-header); font-weight: 400; line-height: var(--leading-script); letter-spacing: 0; }

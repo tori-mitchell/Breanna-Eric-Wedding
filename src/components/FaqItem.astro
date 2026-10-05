@@ -4,13 +4,13 @@ interface Props { q: string; }
 ---
 <details class="faq">
   <summary>{Astro.props.q}</summary>
-  <div class="a"><slot /></div>
+  <div class="a small"><slot /></div>
 </details>
 
 <style>
   .faq { border-top: 1px solid var(--color-rule); }
   .faq:last-of-type { border-bottom: 1px solid var(--color-rule); }
-  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 16px 0; font-weight: 600; color: var(--color-text); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 16px 0; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--color-text); }
   summary::-webkit-details-marker { display: none; }
   summary::after { content: '+'; flex: none; color: var(--color-accent); font-weight: 400; }
   .faq[open] summary::after { content: '–'; }

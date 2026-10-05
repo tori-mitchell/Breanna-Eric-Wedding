@@ -7,7 +7,7 @@ const { dow, date, title } = Astro.props;
   <p class="when eyebrow"><span>{dow}</span><span>{date}</span></p>
   <div class="what">
     <h2 class="subhead-sm">{title}</h2>
-    <p><slot /></p>
+    <p class="small"><slot /></p>
   </div>
 </div>
 
