@@ -18,7 +18,7 @@
   /* Color — sampled from screenshots */
   --color-bg: #f4f0e8;
   --color-text: #3f5e85;          /* body, headings, nav */
-  --color-label: #7a9cc9;         /* eyebrow labels */
+  --color-label: #4e6e96;         /* eyebrows, footer: 4.6:1 on the background (WCAG AA for small text) */
   --color-accent: #365f89;        /* solid blocks, buttons (sampled) */
   --color-frame: #2f4b85;         /* sketch frames, rules (est.) */
   --color-rule: #ddd5c5;          /* all dividers: warm beige, a few steps darker than the background */

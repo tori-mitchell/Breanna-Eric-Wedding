@@ -93,6 +93,13 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - New **FAQ** page (`/faq/`), content in `src/data/faq.ts`. Answers are drawn only from existing site copy; please review each, and say what's missing (kids/plus-ones, dress code, shuttle times, etc. were not on the site so weren't invented).
 - **Travel is the comprehensive source for travel info; the FAQ is a quick reference** that may repeat it and link back. Don't trim Travel to match the FAQ.
 
+### Eyebrow audit (best practice)
+- Eyebrows: short labels (<= ~5 words), never wrap on mobile, marked up as `<p>` (never headings), above a heading, not above everything.
+- `--color-label` darkened from #7a9cc9 (2.5:1) to **#4e6e96 (4.6:1)** to meet WCAG AA for small text. Confirm you like the look; the lightest passing blue is close to the body blue.
+- Travel airport eyebrows shortened ("Easiest onward journey", "More flight options"); "Before You Go" items are now headings, not eyebrows (nothing sat above them).
+- Heading levels no longer skip (Explore, Itinerary, Travel steps).
+- Itinerary titles now name the day type: Arrival / Relaxation / Wedding Day / Departure (Friday was "Welcome" on Canva — confirm).
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |

@@ -1,15 +1,16 @@
 ---
-// ALL-CAPS label + paragraph (Before You Go, Choosing an Airport).
-interface Props { label: string; name?: string; }
+// Short info block: a heading (title) with an optional eyebrow above it, then a paragraph.
+// Eyebrows are short category labels (<= ~5 words); a block with no eyebrow just has its heading.
+interface Props { title: string; eyebrow?: string; }
+const { title, eyebrow } = Astro.props;
 ---
 <div class="info">
-  <p class="eyebrow">{Astro.props.label}</p>
-  {Astro.props.name && <h3 class="subhead">{Astro.props.name}</h3>}
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h3 class="subhead">{title}</h3>
   <p><slot /></p>
 </div>
 
 <style>
   .info { margin-top: var(--space-3); }
   .info > :global(* + *) { margin-top: var(--space-1); }
-  h3 { font-family: var(--font-serif); letter-spacing: 0.04em; }
 </style>

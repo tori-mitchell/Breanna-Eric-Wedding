@@ -7,7 +7,7 @@ import Figure from './Figure.astro';
 ---
 <Section align={align}>
   <p class="eyebrow">{eyebrow}</p>
-  <h3 class="subhead">{name}</h3>
+  <h2 class="subhead">{name}</h2>
   {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p><em>{stay}</em></p>
@@ -20,6 +20,5 @@ import Figure from './Figure.astro';
 </Section>
 
 <style>
-  h3 { font-family: var(--font-serif); letter-spacing: 0.04em; }
   .fav { margin-top: var(--space-3); }
 </style>
