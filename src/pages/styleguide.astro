@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Section from '../components/Section.astro';
-import Event from '../components/Event.astro';
+import ScheduleRow from '../components/ScheduleRow.astro';
+import FaqItem from '../components/FaqItem.astro';
 import Info from '../components/Info.astro';
 import Destination from '../components/Destination.astro';
 import Step from '../components/Step.astro';
@@ -76,12 +77,20 @@ const specs = [
       </Section>
     </div>
 
-    <p class="gh sub">Event block (Weekend)</p>
+    <p class="gh sub">Schedule rows (Itinerary)</p>
     <div class="demo">
-      <Event date="Saturday, September 18, 2027" title="Wedding Day" artPos="none"
-        note="Full timing and dress details will be shared with the formal invitation.">
-        The ceremony and celebration will take place at Laticastelli.
-      </Event>
+      <Section>
+        <ScheduleRow dow="Sat" date="Sep 18" title="Wedding Day">Ceremony and celebration at Laticastelli. Timing and dress details will be shared with the invitation.</ScheduleRow>
+        <ScheduleRow dow="Sun" date="Sep 19" title="A Slow Morning">Breakfast, then checkout by 12:00 PM.</ScheduleRow>
+      </Section>
+    </div>
+
+    <p class="gh sub">FAQ items</p>
+    <div class="demo">
+      <Section>
+        <FaqItem q="When are check-in and checkout?">Check-in begins at 3:00 PM on Thursday. Checkout is by 12:00 PM on Sunday.</FaqItem>
+        <FaqItem q="Do I need a rental car?">Not for the wedding weekend.</FaqItem>
+      </Section>
     </div>
 
     <p class="gh sub">Destination block (Explore)</p>

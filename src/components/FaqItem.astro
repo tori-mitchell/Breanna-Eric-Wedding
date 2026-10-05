@@ -1,0 +1,20 @@
+---
+// Accordion item (native <details>, no JS). Question is body text in semibold.
+interface Props { q: string; }
+---
+<details class="faq">
+  <summary>{Astro.props.q}</summary>
+  <div class="a"><slot /></div>
+</details>
+
+<style>
+  .faq { border-top: 1px solid var(--color-rule); }
+  .faq:last-of-type { border-bottom: 1px solid var(--color-rule); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 16px 0; font-weight: 600; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; flex: none; color: var(--color-label); font-weight: 400; }
+  .faq[open] summary::after { content: '–'; }
+  summary:focus-visible { outline: 2px solid var(--color-label); outline-offset: 4px; }
+  .a { padding: 0 0 16px; }
+  .a :global(a) { text-decoration: underline; text-underline-offset: 4px; }
+</style>

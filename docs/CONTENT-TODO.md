@@ -6,8 +6,6 @@ Tracks everything that is a placeholder, cropped from a Canva screenshot, or nee
 
 Venue photos (§2) are intentionally *not* committed (public repo, permission pending) and still show as text placeholders. Banner flourishes, footer hills strip, and all watercolors are screenshot crops too (§3). The olive/hydrangea sprigs are not included yet.
 
-Weekend watercolor placement (villa→Thu, pool→Fri, ceremony→Sat, coffee terrace→Sun) is a guess from the screenshots — verify.
-
 Legend: **[SS]** = cropped from screenshot (low-res, replace) · **[PH]** = placeholder · **[LIC]** = license/permission needed
 
 ---
@@ -54,10 +52,6 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Home hero watercolor (Tuscan hills + villa) | Home | [SS] for now |
 | Page-title banner (arches + vines, L & R) | All inner pages | [SS] for now |
 | Footer hills strip | All pages | [SS] for now |
-| Weekend: villa arrival w/ suitcase | Weekend | [SS] |
-| Weekend: pool terrace w/ guests | Weekend | [SS] |
-| Weekend: ceremony in field | Weekend | [SS] |
-| Weekend: terrace w/ coffee cup | Weekend | [SS] |
 | Travel: illustrated route map | Travel | [SS] |
 | Explore: Florence | Explore | [SS] |
 | Explore: Dolomites | Explore | [SS] |
@@ -93,6 +87,12 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - "formal RSVP details will be shared with the invitation" vs Lodging page "RSVP … through Joy" — reconcile wording.
 - Nav is sticky with a glass (blur) background on every page; footer is a normal end-of-page footer.
 
+### Itinerary / FAQ (new)
+- Weekend page is now **Itinerary** (`/itinerary/`): compact day-by-day rows, no watercolors (the four Weekend art crops were removed). Content: `src/data/itinerary.ts`.
+- **Event times are not final** — rows show day/date only. Add a `time` to each item when known.
+- New **FAQ** page (`/faq/`), content in `src/data/faq.ts`. Answers are drawn only from existing site copy; please review each, and say what's missing (kids/plus-ones, dress code, shuttle times, etc. were not on the site so weren't invented).
+- Pages to dedupe later: Travel "Before You Go" / "Rental Cars" / "Delays" now overlap the FAQ.
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |
@@ -108,7 +108,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Travel step dividers | Thin rules between all 3 steps | Yes |
 | Fonts | Pinyon Script (script) + EB Garamond (serif), self-hosted | Verify against Canva font names |
 | Nav active state | Correct page highlighted (Canva's was wrong on most pages) | — |
-| Nav (mobile) | Two-row wrapped nav, no hamburger (matches Canva) | Yes |
+| Nav (mobile) | Two rows (3 + 4 items now that FAQ exists), no hamburger | Yes |
 | Footer | Hills strip + "B & E · 09.2027" (Canva footer removed) | Yes — wording |
 | Motion | Subtle fade-in on scroll; disabled for reduced-motion users | Yes |
 | Layout priority | Mobile first; desktop pass later | — |

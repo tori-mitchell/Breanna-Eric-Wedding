@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Section from '../components/Section.astro';
+import FaqItem from '../components/FaqItem.astro';
+import { faq } from '../data/faq';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base title="FAQ — Breanna & Eric">
+  <PageTitle title="FAQ" />
+  <Section>
+    {faq.map((f) => <FaqItem q={f.q}><Fragment set:html={f.a.replaceAll('{base}', base)} /></FaqItem>)}
+  </Section>
+</Base>

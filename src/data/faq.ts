@@ -1,0 +1,26 @@
+// FAQ items. Answers are drawn from content already on the site; keep them short and link out for detail.
+// `a` may contain simple inline HTML (links use the {base} placeholder).
+export const faq = [
+  { q: 'What are the dates?',
+    a: 'Thursday, September 16 through Sunday, September 19, 2027, at Borgo Laticastelli in Tuscany. See the <a href="{base}itinerary/">itinerary</a>.' },
+  { q: 'When are check-in and checkout?',
+    a: 'Check-in begins at 3:00 PM on Thursday. Checkout is by 12:00 PM on Sunday.' },
+  { q: 'Do I need to book my own room?',
+    a: 'No. Our wedding planner, Ani, is coordinating room assignments. Your household’s lodging details will be shared privately through Joy. See <a href="{base}lodging/">lodging</a>.' },
+  { q: 'What’s included with my stay?',
+    a: 'Breakfast each morning, plus access to the pool and shared spaces throughout the weekend.' },
+  { q: 'How do I get there?',
+    a: 'Fly into Florence, Rome, or Pisa, then take a train to Rapolano Terme. Transfers will meet selected trains on Thursday. See <a href="{base}travel/">travel</a>.' },
+  { q: 'Do I need a rental car?',
+    a: 'Not for the wedding weekend. Parking at the borgo is complimentary if you do drive. A car is only helpful if you’re exploring Tuscany before or after.' },
+  { q: 'What if my plans change or I miss my transfer?',
+    a: 'Don’t panic. We’ll share backup contact information and instructions closer to the wedding.' },
+  { q: 'What should I wear and pack?',
+    a: 'Dress details will be shared with the invitation. September in Tuscany is warm by day and cooler in the evening, so bring light layers and something for a chance of rain.' },
+  { q: 'Is the borgo accessible?',
+    a: 'Laticastelli is a historic borgo with stone lanes, steps, and changes in level. If you have mobility needs, let us know so we can plan with Ani.' },
+  { q: 'What do I need for traveling to Italy?',
+    a: 'A valid passport, plus a check of current entry requirements. Italy uses euros and 230V outlets, so most guests will want a plug adapter. More under “Before You Go” on the <a href="{base}travel/">travel</a> page.' },
+  { q: 'How do I RSVP?',
+    a: 'Formal RSVP details will be shared with the invitation. If you already know you can’t make it, you’re welcome to let us know now.' },
+];
