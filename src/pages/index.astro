@@ -65,7 +65,7 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   /* The art runs from the top of the page (behind the glass nav) to the bottom of the first screen,
      fading gradually (over most of its height) into the page background. */
   .art { position: absolute; left: 0; right: 0; top: calc(-1 * var(--nav-h)); bottom: 0; width: 100%; height: calc(100% + var(--nav-h)); object-fit: cover; object-position: center bottom; z-index: 0;
-    opacity: 0.35;
+    opacity: 0.6;
     -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); }
   .when { display: flex; flex-direction: column; gap: 4px; height: fit-content; }
   .when > p { margin: 0; }
