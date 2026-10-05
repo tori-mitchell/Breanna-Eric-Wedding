@@ -26,20 +26,31 @@ a { color: inherit; }
 .page { padding-inline: var(--gutter); }
 .stack > * + * { margin-top: var(--space-3); }
 
-/* Headings are script by default */
-h1, h2, h3, .script {
-  color: var(--color-text);
+/* Headings: h1 (page title) is script. h2/h3 are the serif "subhead small" by default.
+   Script is special: page titles, hero names, signature, and a few short moments via .script.
+   Never use script for long sentences. */
+h1, h2, h3, .script { color: var(--color-text); margin: 0; }
+h1, .script {
   font-family: var(--font-script);
+  font-size: var(--text-script-header);
   font-weight: 400;
   line-height: var(--leading-script);
   letter-spacing: 0;
-  margin: 0;
 }
-h1, h2, h3, .script { font-size: var(--text-script-header); }
+h2, h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-subhead-sm);
+  font-weight: 600;
+  line-height: var(--leading-subhead-sm);
+  letter-spacing: 0.04em;
+}
 
 p { margin: 0; }
 p + p { margin-top: var(--space-3); }
 em { font-style: italic; }
+
+/* .script on an h2 (chapter titles) wins over the h2 default */
+h2.script, h3.script { font-family: var(--font-script); font-size: var(--text-script-header); font-weight: 400; line-height: var(--leading-script); letter-spacing: 0; }
 
 /* Text is never right-aligned (legibility). Sections are left or centered. */
 [data-align='center'] { text-align: center; }
