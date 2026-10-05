@@ -1,27 +1,25 @@
 ---
-// Photo with a solid accent block offset beside/behind it. Heights are on the 8px grid.
+// Photo with a soft watercolor wash bleeding out from behind it (replaces the old solid blue block).
 interface Props { src?: string; label?: string; variant?: 'left' | 'right'; }
 const { src, label = 'Photo', variant = 'left' } = Astro.props;
 import Figure from './Figure.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <div class:list={['bp', variant]}>
-  <span class="block" aria-hidden="true"></span>
+  <img class="wash" src={`${base}images/wash-smudge.webp`} alt="" width="272" aria-hidden="true" />
   <div class="photo"><Figure src={src} label={label} ratio="2 / 3" /></div>
 </div>
 
 <style>
   /* .bp.bp outranks Section's `* + *` spacing rule */
   .bp.bp { position: relative; height: 432px; margin-block: var(--block); }
-  .bp.right { margin-block: 120px; }   /* the block extends 72px past the photo, top and bottom, plus --block */
-  .photo { position: absolute; top: 0; bottom: 0; }
+  .photo { position: absolute; top: 0; bottom: 0; z-index: 1; }
   .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
-  .block { position: absolute; background: var(--color-accent); }
+  .wash { position: absolute; z-index: 0; width: 272px; height: auto; mix-blend-mode: multiply; pointer-events: none; }
 
-  /* block hugs the left of the photo, shorter than it */
   .left .photo { left: 72px; right: 0; }
-  .left .block { left: 0; width: 72px; top: 72px; height: 288px; }
+  .left .wash { left: -56px; top: 8px; }
 
-  /* block runs behind the right of the photo, taller than it */
   .right .photo { left: 0; right: 64px; }
-  .right .block { right: 0; width: 128px; top: -72px; height: 576px; }
+  .right .wash { right: -72px; top: -40px; transform: scaleX(-1); }
 </style>

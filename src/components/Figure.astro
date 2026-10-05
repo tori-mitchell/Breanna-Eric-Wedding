@@ -1,22 +1,33 @@
 ---
 // Image slot. Renders a labeled placeholder until `src` (path under /public) is provided.
+// Every image except full-bleed ones gets an irregular, watercolor-style fade at its edges (a mask,
+// chosen by aspect ratio). The magenta placeholder outline sits on the figure so the mask doesn't hide it.
 interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; }
 const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const [rw, rh] = ratio.split('/').map((n) => parseFloat(n));
+const r = rw / (rh || 1);
+const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
 ---
-<figure class:list={['fig', { bleed, narrow, art }]} style={`--ratio:${ratio}`}>
-  {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" data-temp={src.includes('placeholders/') ? '' : undefined} /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
+<figure class:list={['fig', shape, { bleed, narrow, art }]} style={`--ratio:${ratio}`} data-temp={src && src.includes('placeholders/') ? '' : undefined}>
+  {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
 </figure>
 
 <style>
   .fig { margin: 0; width: 100%; }
   .fig.narrow { width: 56%; margin-inline: auto; }
   .fig.bleed { width: 100vw; margin-inline: calc(50% - 50vw); }
-  img, .ph { width: 100%; aspect-ratio: var(--ratio); object-fit: cover; }
+  img, .ph { display: block; width: 100%; aspect-ratio: var(--ratio); object-fit: cover; }
   .ph {
     display: grid; place-items: center; text-align: center; padding: var(--space-2);
     background: color-mix(in srgb, var(--color-label) 18%, var(--color-bg));
     color: var(--color-text); font-size: 1rem;
   }
   .art .ph { background: color-mix(in srgb, #c9b98a 22%, var(--color-bg)); }
+
+  /* Watercolor edge: the picture fades into the paper along an irregular, bleeding edge. */
+  .fig:not(.bleed) img, .fig:not(.bleed) .ph { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  .landscape:not(.bleed) img, .landscape:not(.bleed) .ph { -webkit-mask-image: url('../assets/photo-mask-landscape.webp'); mask-image: url('../assets/photo-mask-landscape.webp'); }
+  .portrait:not(.bleed) img, .portrait:not(.bleed) .ph { -webkit-mask-image: url('../assets/photo-mask-portrait.webp'); mask-image: url('../assets/photo-mask-portrait.webp'); }
+  .square:not(.bleed) img, .square:not(.bleed) .ph { -webkit-mask-image: url('../assets/photo-mask-square.webp'); mask-image: url('../assets/photo-mask-square.webp'); }
 </style>

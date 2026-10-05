@@ -123,6 +123,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - **Body type (decided):** Lora 16px for paragraphs; Newsreader italic for emphasis and notes (sized ×1.11 to match Lora's lowercase height); **Small** (Lora 14px, paler `#646f84`) for itinerary descriptions, FAQ answers and italic-only notes. Headings, hero and nav menu stay EB Garamond; eyebrows stay Jost; script stays Pinyon. EB Garamond italic is no longer loaded.
 - Fonts are now: Pinyon Script, EB Garamond (400/500/600), Jost, Lora, Newsreader italic. Type sizes for body/small are grid-exempt by design (fonts are flexible; spacing and containers are strict).
 
+- **Watercolor treatments (applied):** every photo/art figure (except full-bleed) fades irregularly into the paper via three alpha masks in `src/assets/photo-mask-*.webp`; Home photos have a soft blue wash (`public/images/wash-smudge.webp`) behind them instead of solid blocks. Both assets are **procedurally generated stand-ins** — swap for scanned/hand-painted versions if they look digital up close. The magenta placeholder outline now sits on the figure (so the fade doesn't hide it). Sketch frames still surround Our Story photos; if the fade + frame feels busy, drop one.
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |
