@@ -118,6 +118,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Type pairing (decided):** sans caps eyebrows (Jost) + serif headings + serif body (EB Garamond) — the current site. Figtree body and italic-serif eyebrows were compared and not chosen.
 
+- **Color roles (decided):** current — ink `#2a3850` for names, headings, nav, eyebrows and dates; the bride's midtown blue `#365f89` for the accent (ampersand, script flourishes, buttons, active-nav underline, frames). Compared and not chosen: all-midtown headings, and "names darkest / everything else midtown".
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |
