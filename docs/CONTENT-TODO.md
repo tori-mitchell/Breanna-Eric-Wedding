@@ -91,7 +91,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Weekend page is now **Itinerary** (`/itinerary/`): compact day-by-day rows, no watercolors (the four Weekend art crops were removed). Content: `src/data/itinerary.ts`.
 - **Event times are not final** — rows show day/date only. Add a `time` to each item when known.
 - New **FAQ** page (`/faq/`), content in `src/data/faq.ts`. Answers are drawn only from existing site copy; please review each, and say what's missing (kids/plus-ones, dress code, shuttle times, etc. were not on the site so weren't invented).
-- Pages to dedupe later: Travel "Before You Go" / "Rental Cars" / "Delays" now overlap the FAQ.
+- **Travel is the comprehensive source for travel info; the FAQ is a quick reference** that may repeat it and link back. Don't trim Travel to match the FAQ.
 
 ## 5. Decisions made (best guess — confirm later)
 
