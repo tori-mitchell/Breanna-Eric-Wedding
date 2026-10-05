@@ -25,8 +25,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <div class:list={['screen', { full: fullScreen }]}>
       <Nav />
       <main><slot /></main>
+      <Footer />
     </div>
-    <Footer />
     <script>
       const els = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {

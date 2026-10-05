@@ -15,11 +15,11 @@ import Base from '../layouts/Base.astro';
 
 <style>
   /* Three chunks (eyebrow / names / date+location) fill the first screen:
-     --hero-pad of clearance below the nav and above the screen bottom, with
+     --hero-pad of clearance below the nav and above the footer (pinned to the screen bottom), with
      the chunks spread so the gaps look equal. The h1 margins nudge the two
      gaps optically (the script's flourishes eat into the space above the names). */
   .hero {
-    --hero-pad: 88px;
+    --hero-pad: 136px;
     flex: 1; display: flex; flex-direction: column; justify-content: space-between;
     /* top is reduced by the nav's own bottom padding so the visible gap is --hero-pad */
     padding: calc(var(--hero-pad) - 20px) var(--gutter) var(--hero-pad);
