@@ -12,9 +12,11 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  .hero { padding-block: var(--space-5); }
-  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: var(--space-3) 0 var(--space-3); }
+  /* Three chunks (eyebrow / names / date+location), spaced to look equidistant.
+     Gaps are tuned optically against the script's flourishes, not equal margins. */
+  .hero { --gap-eyebrow: 2.9rem; --gap-names: 2.4rem; padding-block: var(--space-5); }
+  h1 { font-size: var(--text-script-hero); line-height: var(--leading-hero); margin: var(--gap-eyebrow) 0 var(--gap-names); }
   .date { font-size: var(--text-subhead); line-height: 1.1; }
   sup { font-size: 0.55em; }
-  .loc { margin-top: 0; }
+  .loc { margin-top: 0.875rem; }
 </style>
