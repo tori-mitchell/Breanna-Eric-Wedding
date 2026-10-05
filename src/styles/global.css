@@ -20,6 +20,10 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 
+/* Watercolor edge for decorative crops (title flourishes, sprigs); Figure applies the same masks to photos. */
+.wc { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.wc-landscape { -webkit-mask-image: url('../assets/photo-mask-landscape.webp'); mask-image: url('../assets/photo-mask-landscape.webp'); }
+
 /* Any image from /images/placeholders/ is a temporary screenshot crop */
 [data-temp] { outline: var(--temp-outline); outline-offset: -3px; }
 
