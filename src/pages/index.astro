@@ -42,7 +42,7 @@ import Flourish from '../components/Flourish.astro';
   </Section>
 
   <Section>
-    <img class="sprig tr wc wc-landscape" src={art('art-sprig-r')} alt="" data-temp />
+    <img class="sprig tr wc wc-landscape" src={`${base}images/art/sprig-1.jpg`} alt="" />
     <p class="eyebrow">RSVP</p>
     <h2 class="subhead">Already know you can’t make it?</h2>
     <p>We completely understand that traveling to Tuscany won’t be possible for everyone. If you already know you won’t be able to join us, you’re welcome to let us know now. For everyone else, formal RSVP details will be shared with the invitation.</p>
@@ -50,7 +50,7 @@ import Flourish from '../components/Flourish.astro';
   </Section>
 
   <Section>
-    <img class="sprig br wc wc-landscape" src={art('art-sprig-r2')} alt="" data-temp />
+    <img class="sprig br wc wc-landscape" src={`${base}images/art/sprig-2.jpg`} alt="" />
     <p class="eyebrow">Registry</p>
     <h2 class="subhead">For the Years Ahead</h2>
     <p>The greatest gift is having you there to celebrate with us. For those who have asked, we’ve created a registry filled with a few things we’d love for the home and life we’re continuing to build together.</p>
@@ -127,7 +127,7 @@ import Flourish from '../components/Flourish.astro';
   /* Sign-off: ink script, slightly transparent so it sits softer on the paper */
   .sig { opacity: var(--signature-opacity); text-align: center; }
 
-  /* Decorative sprigs (placeholders) */
+  /* Decorative olive sprigs */
   .sprig { position: absolute; width: 96px; height: auto; pointer-events: none; }
   .tr { right: 0; top: -48px; }
   .br { right: 0; bottom: -72px; }

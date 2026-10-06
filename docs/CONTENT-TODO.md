@@ -176,3 +176,9 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 ## Venue photos policy
 - No official venue photos on the site: Lodging uses watercolor art, plus an external "Official photo gallery ↗" link (`src/data/links.ts`, currently the venue homepage; paste the exact gallery URL there).
 - Home's borgo photo is now the ceremony watercolor (the real lane photo is no longer used). Removed the empty Lodging slots (bedroom, terrace seating, cellar restaurant).
+
+## Round 3 images (our-story / stay / other zips)
+- In use: all 14 Our Story photos (`public/images/story/`), page-title side art (`art/banner-l|r.jpg`), footer hills (`art/hills.jpg`), olive sprigs near RSVP / Registry (`art/sprig-1|2.jpg`). Color-matched to the site paper tone; EXIF stripped.
+- Not used on purpose: official venue photos (country/bar/restaurant/doorway shots, "life at the borgo" banner).
+- Received but not placed: "BE wine bottle" graphic, a second Sorrento-style terrace watercolor, the full-width "Ivory Watercolor Landscape Border" / valley strips.
+- Still a placeholder: Home hero background, Home couple photo.

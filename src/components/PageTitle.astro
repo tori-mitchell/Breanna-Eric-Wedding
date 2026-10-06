@@ -4,9 +4,9 @@ interface Props { title: string; }
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <header class="title">
-  <img class="side wc wc-landscape" src={`${base}images/placeholders/art-banner-l.jpg`} alt="" data-temp />
+  <img class="side wc wc-landscape" src={`${base}images/art/banner-l.jpg`} alt="" />
   <h1>{Astro.props.title}</h1>
-  <img class="side wc wc-landscape" src={`${base}images/placeholders/art-banner-r.jpg`} alt="" data-temp />
+  <img class="side wc wc-landscape" src={`${base}images/art/banner-r.jpg`} alt="" />
 </header>
 
 <style>
