@@ -3,7 +3,7 @@
 // layout="zigzag" (default): photos alternate left/right, each tucked over the one above (best for 2).
 // layout="cluster": first photo on top, the rest in overlapping pairs below, so the group reads as one round-ish
 //   blob with no hole in the middle (use for 3+ photos).
-// rich: two extra washes (a blue one tucked behind the middle, a warm sand one low and off to the side).
+// rich: two extra washes (a blue one tucked behind the middle, a lighter periwinkle (--color-amp) one low and off to the side).
 // `overlap` = how far each row tucks over the one above (px). Pass `items`; per-item w (% of width), tilt (deg), side (zigzag).
 import Figure from './Figure.astro';
 interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right'; tilt?: number; }
@@ -39,7 +39,7 @@ const rows: number[][] = layout === 'cluster'
   /* Extra accents (rich): behind everything, peeking out between and around the photos */
   .w { position: absolute; z-index: -1; aspect-ratio: 1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; pointer-events: none; }
   .w3 { width: 208px; left: -40px; top: 42%; opacity: 0.5; transform: rotate(24deg); }
-  .w4 { width: 224px; right: -48px; bottom: 24%; opacity: 0.5; transform: scaleX(-1) rotate(-18deg); filter: sepia(0.8) saturate(1.5) hue-rotate(-8deg); }   /* warm sand tint */
+  .w4 { width: 224px; right: -48px; bottom: 24%; opacity: 0.55; transform: scaleX(-1) rotate(-18deg); background: var(--color-amp); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; }   /* the lighter periwinkle blue (--color-amp) */
   .row { display: flex; align-items: center; position: relative; z-index: var(--z); }
   .row.left { justify-content: flex-start; }
   .row.right { justify-content: flex-end; }
