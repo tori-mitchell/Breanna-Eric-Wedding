@@ -10,7 +10,7 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   <section class="page hero" data-align="center">
     <!-- Hero watercolor fills the first screen, behind the glass nav. Placeholder: Canva hero with the text erased (CONTENT-TODO §3). -->
     <img class="art" src={art('art-hero-full')} alt="" data-temp />
-    <p class="script-sm intro">the wedding of</p>
+    <p class="caps">the wedding of</p>
     <h1 class="names"><span class="nm">Breanna</span> <span class="amp">&amp;</span> <span class="nm">Eric</span></h1>
     <div class="when">
       <p class="caps-lg">September 16 – 19, 2027</p>
@@ -56,9 +56,10 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 <style>
   /* First screen: sticky glass nav + hero fill the phone. The hero is one container (three chunks:
      "the wedding of" / names / date + venue), centered, 88px apart. Style follows a letterpress
-     invitation: tracked caps serif, with script only for the ampersand, intro line and venue. */
+     invitation: tracked caps serif, with script only for the (huge, overlapping) ampersand and the venue. */
   .hero {
     position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 88px;
+    overflow-x: clip;                          /* the huge ampersand must not cause sideways scroll */
     min-height: calc(100vh - var(--nav-h));
     min-height: calc(100svh - var(--nav-h));
   }
@@ -71,12 +72,18 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 
   .hero p { margin: 0; }
   .script-sm { font-family: var(--font-script); font-size: var(--text-script-sm); line-height: 1; color: var(--color-accent); }
-  .names { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0; line-height: 0; }
+  /* Names stacked tightly; the ampersand is centered over the gap and sits in front of both. */
+  .names { position: relative; display: flex; flex-direction: column; align-items: center; gap: 40px; font-size: 0; line-height: 0; }
   .nm {
     font-family: var(--font-serif); font-weight: 400; font-size: var(--text-caps-name); line-height: 1.1;
     letter-spacing: var(--tracking-name); margin-right: calc(-1 * var(--tracking-name)); text-transform: uppercase; color: var(--color-text);
   }
-  .amp { font-family: var(--font-script); font-size: var(--text-script-amp); line-height: 0.8; color: var(--color-accent); }
+  .amp {
+    position: absolute; left: 50%; top: 50%; z-index: 2; pointer-events: none;
+    transform: translate(-56%, -50%);        /* optically centered: the glyph's ink sits right of its box */
+    mix-blend-mode: multiply;                 /* on top of the names, but they still read through it */
+    font-family: var(--font-script); font-size: var(--text-script-amp); line-height: 1; color: var(--color-accent);
+  }
   .when { display: flex; flex-direction: column; align-items: center; gap: 8px; }
   .caps-lg, .caps {
     font-family: var(--font-serif); text-transform: uppercase; letter-spacing: var(--tracking-caps-wide);
@@ -89,12 +96,17 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   @media (max-height: 720px) {
     .hero { gap: 48px; }
     .nm { font-size: min(var(--text-caps-name), 2.5rem); }
-    .amp { font-size: 4rem; }
+    .amp { font-size: 18rem; }
+    .names { gap: 32px; }
   }
+  /* Narrow phones: keep the date on one line */
+  @media (max-width: 359px) { .caps-lg { font-size: 0.875rem; letter-spacing: 0.16em; margin-right: -0.16em; } }  /* grid-exempt: type size */
+
   @media (max-height: 600px) {
     .hero { gap: 24px; }
     .nm { font-size: min(var(--text-caps-name), 2rem); }
-    .amp { font-size: 3rem; }
+    .amp { font-size: 14rem; }
+    .names { gap: 24px; }
     .script-sm { font-size: 2rem; }
   }
 

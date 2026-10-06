@@ -29,6 +29,9 @@ img { display: block; max-width: 100%; height: auto; }
 
 a { color: inherit; }
 
+/* Decorative washes and sprigs may bleed past the content edge; never let them cause sideways scroll */
+main { overflow-x: clip; }
+
 /* Layout */
 .page { padding-inline: var(--gutter); }
 .stack > * + * { margin-top: var(--space-3); }
