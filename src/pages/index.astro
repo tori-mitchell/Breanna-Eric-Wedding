@@ -25,7 +25,7 @@ import Flourish from '../components/Flourish.astro';
     <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
       <Flourish />
       <h2 class="script">You’re invited!</h2>
-      <p class="dropcap">It means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
+      <p><span class="dc">I</span>t means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
       <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
       <p>With all our love,</p>
       <p class="script sig">Breanna &amp; Eric</p>
@@ -65,13 +65,9 @@ import Flourish from '../components/Flourish.astro';
   .letter::before { content: ''; position: absolute; inset: 0 -32px; z-index: -1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.22; pointer-events: none; }
   .letter > :global(* + *) { margin-top: var(--flow); }
   .letter h2 { text-align: center; }
-  .dropcap::first-letter { font-family: var(--font-script); color: var(--color-accent); margin-right: 4px; }
-  @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
-    .dropcap::first-letter { -webkit-initial-letter: 3; initial-letter: 3; }
-  }
-  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
-    .dropcap::first-letter { float: left; font-size: 4rem; line-height: 0.75; padding-top: 4px; } /* grid-exempt: drop cap optical fit */
-  }
+  /* Script drop cap: a float whose shape-outside is a slanted polygon, so the first three lines tuck in along the swash instead of clearing a rectangle. */
+  .dc { float: left; width: 88px; height: 72px; font-family: var(--font-script); color: var(--color-accent); font-size: 5.5rem; line-height: 0.8; margin: 0 4px 0 0; /* grid-exempt: drop cap optical fit */
+    shape-outside: polygon(0 0, 100% 0, 100% 18%, 66% 50%, 52% 85%, 52% 100%, 0 100%); shape-margin: 0; }
   /* First screen: sticky glass nav + hero fill the phone. The hero is one container (three chunks:
      "the wedding of" / names / date + venue), centered, 88px apart. Style follows a letterpress
      invitation: tracked caps serif, with script only for the (huge, overlapping) ampersand and the venue. */
