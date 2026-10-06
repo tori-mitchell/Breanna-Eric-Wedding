@@ -1,13 +1,14 @@
 ---
 // Short info block: a heading (title) with an optional eyebrow above it, then a paragraph.
 // Eyebrows are short category labels (<= ~5 words); a block with no eyebrow just has its heading.
-interface Props { title: string; eyebrow?: string; }
-const { title, eyebrow } = Astro.props;
+interface Props { title: string; eyebrow?: string; note?: string; }
+const { title, eyebrow, note } = Astro.props;
 ---
 <div class="info">
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h3 class="subhead-sm">{title}</h3>
   <p><slot /></p>
+  {note && <p><em>{note}</em></p>}
 </div>
 
 <style>
