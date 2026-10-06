@@ -129,6 +129,9 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Eyebrow → heading rule:** `--eyebrow-gap: 8px` is the *visible* (ink-to-ink) space between an eyebrow and the heading right after it, applied globally in `global.css`/`Section.astro`. Each heading style declares `--ink-gap0` (its visible gap at zero margin); re-measure it if a heading's size or leading changes. Subhead leading is now 115% (subhead) and 125% (small subhead).
 
+- **Hero ampersand (decided):** Ruthie in the old light blue `#7a9cc9` (`--font-amp`, `--color-amp`). Size is tunable via `--amp-scale` / `--name-scale` in tokens (three size variations were previewed: ampersand 85%, names +12%, both).
+- **Nav structure:** the sticky `.bar` carries its own backdrop blur and the full-screen `.menu` is a *sibling*, not a child (Chromium won't blur behind a child of a sticky element). Menu glass = 82% paper tint + 8px blur (`Nav.astro`).
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |

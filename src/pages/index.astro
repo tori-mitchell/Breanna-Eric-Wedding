@@ -75,14 +75,14 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   /* Names stacked tightly; the ampersand is centered over the gap and sits in front of both. */
   .names { position: relative; display: flex; flex-direction: column; align-items: center; gap: 40px; font-size: 0; line-height: 0; }
   .nm {
-    font-family: var(--font-serif); font-weight: 400; font-size: var(--text-caps-name); line-height: 1.1;
+    font-family: var(--font-serif); font-weight: 400; font-size: calc(var(--text-caps-name) * var(--name-scale)); line-height: 1.1;
     letter-spacing: var(--tracking-name); margin-right: calc(-1 * var(--tracking-name)); text-transform: uppercase; color: var(--color-text);
   }
   .amp {
     position: absolute; left: 50%; top: 50%; z-index: 2; pointer-events: none;
-    transform: translate(-56%, -50%);        /* optically centered: the glyph's ink sits right of its box */
+    transform: translate(-51.3%, -47.5%);     /* optically centered (Ruthie's ink is nearly centered in its box) */
     mix-blend-mode: multiply;                 /* on top of the names, but they still read through it */
-    font-family: var(--font-script); font-size: var(--text-script-amp); line-height: 1; color: var(--color-accent);
+    font-family: var(--font-amp); font-size: calc(var(--text-script-amp) * var(--amp-scale)); line-height: 1; color: var(--color-amp);
   }
   .when { display: flex; flex-direction: column; align-items: center; gap: 8px; }
   .caps-lg, .caps {
@@ -95,8 +95,8 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
   /* Shorter screens: tighten spacing and step the names down so the hero still fits */
   @media (max-height: 720px) {
     .hero { gap: 48px; }
-    .nm { font-size: min(var(--text-caps-name), 2.5rem); }
-    .amp { font-size: 18rem; }
+    .nm { font-size: calc(min(var(--text-caps-name), 2.5rem) * var(--name-scale)); }
+    .amp { font-size: calc(10rem * var(--amp-scale)); }
     .names { gap: 32px; }
   }
   /* Narrow phones: keep the date on one line */
@@ -104,8 +104,8 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 
   @media (max-height: 600px) {
     .hero { gap: 24px; }
-    .nm { font-size: min(var(--text-caps-name), 2rem); }
-    .amp { font-size: 14rem; }
+    .nm { font-size: calc(min(var(--text-caps-name), 2rem) * var(--name-scale)); }
+    .amp { font-size: calc(7.78rem * var(--amp-scale)); }   /* grid-exempt: type size */
     .names { gap: 24px; }
     .script-sm { font-size: 2rem; }
   }
