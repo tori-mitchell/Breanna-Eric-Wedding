@@ -1,10 +1,10 @@
 """Generates the watercolor-edge alpha masks in src/assets/photo-mask-*.webp (landscape/portrait/square).
 Shape: a soft "squircle-oval" (superellipse, exponent N) fading irregularly into the paper, with the edge wander
 capped so it never reaches the image border. Run from the repo root: python3 scripts/gen-photo-masks.py
-Tweak N (ovalness: 2 = true ellipse, higher = squarer), WIDTH (fade), WOB (edge wander), BLOOM (bleed nibbles)."""
+Tweak N (ovalness: 2 = true ellipse, higher = squarer), WIDTH (fade), WOB (edge wander), BLOOM (bleed nibbles; 0 = off)."""
 import numpy as np, cv2
 from PIL import Image
-N, WIDTH, WOB, BLOOM = 2.8, 0.11, 0.9, 0.25
+N, WIDTH, WOB, BLOOM = 2.6, 0.17, 0.55, 0.0
 def smooth(x,a,b): t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
 def make(W,H,seed,name,inset=0.02):
     def noise(s,sigma): r=np.random.default_rng(seed*100+s).standard_normal((H,W)).astype(np.float32); f=cv2.GaussianBlur(r,(0,0),sigma); return (f-f.mean())/f.std()
@@ -13,13 +13,13 @@ def make(W,H,seed,name,inset=0.02):
     u=np.abs((xx-(W-1)/2)/a_); v=np.abs((yy-(H-1)/2)/b_)
     rho=(u**N+v**N)**(1.0/N)                                # superellipse radius: 1 on the boundary
     d=(1-rho)*min(a_,b_)                                    # approximate inward distance (px)
-    disp=WOB*m*(0.6*noise(1,m*0.10)+0.35*noise(2,m*0.035)+0.08*noise(3,m*0.01))
+    disp=WOB*m*(0.7*noise(1,m*0.14)+0.3*noise(2,m*0.07))   # low-frequency only: broad, gentle wander (no fine nibbles)
     disp=0.03*m*np.tanh(disp/(0.03*m))                      # cap the wander
     w=m*WIDTH*(1.0+0.28*noise(4,m*0.12))                    # fade width varies around the edge
-    a=smooth(d+disp,0,np.maximum(w,m*0.05))**1.2
+    a=smooth(d+disp,0,np.maximum(w,m*0.08))
     bloom=smooth(noise(5,m*0.05),1.1,2.1)*smooth(m*0.14-d,0,m*0.06)*BLOOM
     a=np.clip(a*(1-bloom),0,1)
     border=np.minimum(np.minimum(xx,W-1-xx),np.minimum(yy,H-1-yy)); a*=smooth(border,0,m*0.02)   # transparent at the border
-    a=np.clip(a+0.010*np.random.default_rng(seed).standard_normal((H,W))*(a>0.02)*(a<0.98),0,1)
+    a=np.clip(cv2.GaussianBlur(a.astype(np.float32),(0,0),m*0.012),0,1)   # final blur: no hard spots anywhere
     Image.fromarray(np.dstack([np.full((H,W,3),255,np.uint8),(a*255).astype(np.uint8)]),'RGBA').save(f"src/assets/{name}.webp",quality=92,method=6)
 make(720,480,1,'photo-mask-landscape'); make(480,720,2,'photo-mask-portrait'); make(560,560,3,'photo-mask-square')

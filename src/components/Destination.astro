@@ -11,7 +11,13 @@ import Figure from './Figure.astro';
   {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p><em>{stay}</em></p>
-  {favorites && <p>A few favorites: {favorites}</p>}
+  {favorites && <p>A few favorites: {favorites.split(' • ').map((f, i, all) => <><span class="fav">{f}{i < all.length - 1 && <span class="dia" aria-hidden="true" />}</span>{' '}</>)}</p>}
   <slot name="note" />
   {!artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
 </Section>
+
+<style>
+  /* Diamond separator between list items (same marker as the info-block bullets) */
+  .fav { white-space: nowrap; }
+  .dia { display: inline-block; width: 6px; height: 6px; margin: 0 8px 3px 12px; background: var(--color-accent); transform: rotate(45deg); vertical-align: middle; } /* grid-exempt: marker geometry */
+</style>
