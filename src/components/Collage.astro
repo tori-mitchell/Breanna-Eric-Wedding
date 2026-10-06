@@ -1,16 +1,27 @@
 ---
-// A loose collage: photos zigzag left/right and overlap a little (width + vertical overlap), each with a slight tilt,
-// over soft watercolor washes. Pass `items`; first item has no overlap; `overlap` sets how far each photo tucks over the previous (px).
+// A loose collage of overlapping, slightly tilted photos over soft watercolor washes.
+// layout="zigzag" (default): photos alternate left/right, each tucked over the one above (best for 2).
+// layout="cluster": first photo on top, the rest in overlapping pairs below, so the group reads as one round-ish
+//   blob with no hole in the middle (use for 3+ photos).
+// `overlap` = how far each row tucks over the one above (px). Pass `items`; per-item w (% of width), tilt (deg), side (zigzag).
 import Figure from './Figure.astro';
 interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right'; tilt?: number; }
-interface Props { items: Item[]; wash?: 'left' | 'right'; overlap?: number; }
-const { items, wash = 'right', overlap = 48 } = Astro.props;
+interface Props { items: Item[]; wash?: 'left' | 'right'; overlap?: number; layout?: 'zigzag' | 'cluster'; }
+const { items, wash = 'right', overlap = 48, layout = 'zigzag' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const idx = items.map((_, i) => i);
+const rows: number[][] = layout === 'cluster'
+  ? [[0], ...Array.from({ length: Math.ceil((items.length - 1) / 2) }, (_, r) => idx.slice(1 + r * 2, 3 + r * 2))]
+  : idx.map((i) => [i]);
 ---
-<div class:list={['collage', wash]} style={`--wash:url(${base}images/wash-smudge.webp);--ov:${overlap}px`}>
-  {items.map((it, i) => (
-    <div class:list={['piece', it.side ?? (i % 2 ? 'right' : 'left')]} style={`--w:${it.w ?? 64}%;--tilt:${it.tilt ?? 0}deg;--z:${i + 1}`}>
-      <Figure soft src={it.src} ratio={it.ratio} label={it.label} />
+<div class:list={['collage', wash, layout]} style={`--wash:url(${base}images/wash-smudge.webp);--ov:${overlap}px`}>
+  {rows.map((row, r) => (
+    <div class:list={['row', layout === 'zigzag' ? (items[row[0]].side ?? (r % 2 ? 'right' : 'left')) : 'mid']} style={`--z:${r + 1}`}>
+      {row.map((i) => (
+        <div class="piece" style={`--w:${items[i].w ?? 64}%;--tilt:${items[i].tilt ?? 0}deg`}>
+          <Figure soft src={items[i].src} ratio={items[i].ratio} label={items[i].label} />
+        </div>
+      ))}
     </div>
   ))}
 </div>
@@ -23,9 +34,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   .collage.right::after { left: -56px; bottom: 4%; transform: scaleX(-1); }
   .collage.left::before { left: -56px; top: 8%; transform: scaleX(-1); }
   .collage.left::after { right: -48px; bottom: 4%; }
-  .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; z-index: var(--z); }
-  .piece.left { align-self: flex-start; }
-  .piece.right { align-self: flex-end; }
+  .row { display: flex; align-items: center; position: relative; z-index: var(--z); }
+  .row.left { justify-content: flex-start; }
+  .row.right { justify-content: flex-end; }
+  .row.mid { justify-content: center; }
+  .row + .row { margin-top: calc(-1 * var(--ov)); }   /* rows tuck over the one above */
+  .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; flex: none; }
+  .row.mid .piece + .piece { margin-left: -12%; }      /* pairs overlap sideways, so the cluster stays one shape */
   .piece.piece :global(.fig) { margin-block: 0; }
-  .piece + .piece { margin-top: calc(-1 * var(--ov)); }   /* the overlap (default 48px); `overlap` prop per collage */
 </style>
