@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+const items = [
+  ['Likely weather', 'September in Tuscany is typically warm during the day with cooler evenings, so light layers are useful. Pack for warm weather, with something for evenings and the possibility of rain.'],
+  ['Passport', 'Make sure your passport is valid for your trip and check current entry requirements for Italy well before departure.'],
+  ['Phones', 'Check your carrier’s international options before traveling. Many travelers also use an international eSIM for data.'],
+  ['Money', 'Italy uses the euro. Cards are widely used, but carry some cash for smaller purchases.'],
+  ['Electricity', 'Italy uses European-style outlets and 230V. Most guests will need a plug adapter.'],
+];
+---
+<Base title="Bullet previews">
+  <section class="wrap">
+    <p class="eyebrow">Preview A · Classic bullets, bold lead-in</p>
+    <p class="eyebrow">Plan ahead</p>
+    <h2 class="subhead">Before You Go</h2>
+    <ul class="a">{items.map(([t, d]) => <li><strong>{t}.</strong> {d}</li>)}</ul>
+
+    <hr />
+    <p class="eyebrow">Preview B · Diamond markers, title above text</p>
+    <p class="eyebrow">Plan ahead</p>
+    <h2 class="subhead">Before You Go</h2>
+    <ul class="b">{items.map(([t, d]) => <li><h3 class="subhead-sm">{t}</h3><p>{d}</p></li>)}</ul>
+
+    <hr />
+    <p class="eyebrow">Preview C · Compact: one line each, no text blocks</p>
+    <p class="eyebrow">Plan ahead</p>
+    <h2 class="subhead">Before You Go</h2>
+    <ul class="c">{items.map(([t, d]) => <li><span class="eyebrow">{t}</span><span>{d}</span></li>)}</ul>
+  </section>
+</Base>
+<style>
+  .wrap { padding: var(--space-4) var(--gutter); display: grid; gap: var(--flow); }
+  hr { border: 0; border-top: 1px solid var(--color-rule); width: 100%; margin: var(--block) 0 var(--flow); }
+  ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); }
+  .a li { padding-left: 24px; position: relative; }
+  .a li::before { content: ''; position: absolute; left: 4px; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
+  .a strong { font-weight: 600; color: var(--color-text); }
+  .b li { padding-left: 24px; position: relative; }
+  .b li::before { content: ''; position: absolute; left: 2px; top: 12px; width: 6px; height: 6px; background: var(--color-accent); transform: rotate(45deg); }
+  .b h3 { margin-bottom: var(--space-1); }
+  .c li { display: grid; gap: 4px; padding: var(--space-2) 0; border-top: 1px solid var(--color-rule); }
+  .c li:first-child { border-top: 0; }
+</style>
