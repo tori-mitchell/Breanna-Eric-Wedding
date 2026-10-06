@@ -1,19 +1,19 @@
 ---
 // Explore-page destination: eyebrow (place name), heading (tagline), copy, then plain-text stay and favorites.
-interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
-const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor', artSrc } = Astro.props;
+interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left'; artFirst?: boolean; wash?: 'left' | 'right'; accent?: 'sage' | 'peach'; artLabel?: string; artSrc?: string; }
+const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, wash = 'right', accent = 'sage', artLabel = 'Watercolor', artSrc } = Astro.props;
 import Section from './Section.astro';
 import Figure from './Figure.astro';
 ---
 <Section align={align}>
   <p class="eyebrow">{name}</p>
   <h2 class="subhead">{eyebrow}</h2>
-  {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
+  {artFirst && <Figure art wash={wash} accent={accent} src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p><em>{stay}</em></p>
   {favorites && <p>A few favorites: {favorites.split(' • ').map((f, i, all) => <><span class="fav">{f}{i < all.length - 1 && <span class="dia" aria-hidden="true" />}</span>{' '}</>)}</p>}
   <slot name="note" />
-  {!artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
+  {!artFirst && <Figure art wash={wash} accent={accent} src={artSrc} ratio="4 / 5" label={artLabel} />}
 </Section>
 
 <style>

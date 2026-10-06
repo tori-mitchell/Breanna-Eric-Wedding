@@ -1,11 +1,11 @@
 ---
 // Photo with a soft watercolor wash bleeding out from behind it (replaces the old solid blue block).
-interface Props { src?: string; label?: string; variant?: 'left' | 'right'; }
-const { src, label = 'Photo', variant = 'left' } = Astro.props;
+interface Props { src?: string; label?: string; variant?: 'left' | 'right'; sage?: boolean; }
+const { src, label = 'Photo', variant = 'left', sage = false } = Astro.props;
 import Figure from './Figure.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
-<div class:list={['bp', variant]}>
+<div class:list={['bp', variant, { sage }]} style={`--washimg:url(${base}images/wash-smudge.webp)`}>
   <img class="wash" src={`${base}images/wash-smudge.webp`} alt="" width="272" aria-hidden="true" />
   <div class="photo"><Figure src={src} label={label} ratio="2 / 3" /></div>
 </div>
@@ -17,6 +17,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
   .wash { position: absolute; z-index: 0; width: 272px; height: auto; mix-blend-mode: multiply; opacity: 0.6; pointer-events: none; }
 
+  /* optional second wash in the sage green, low on the side opposite the blue one */
+  .sage::after { content: ''; position: absolute; z-index: 0; width: 224px; aspect-ratio: 1; bottom: -32px; background: var(--color-sage); -webkit-mask: var(--washimg) center / 100% 100% no-repeat; mask: var(--washimg) center / 100% 100% no-repeat; opacity: 0.6; pointer-events: none; transform: rotate(-12deg); }
+  .right.sage::after { left: -24px; }
+  .left.sage::after { right: -24px; transform: scaleX(-1) rotate(12deg); }
   .left .photo { left: 72px; right: 16px; }   /* 16px inset = 40px from the screen edge */
   .left .wash { left: -16px; top: 8px; }
 

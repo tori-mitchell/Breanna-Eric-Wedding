@@ -2,14 +2,14 @@
 // Image slot. Renders a labeled placeholder until `src` (path under /public) is provided.
 // Every image except full-bleed ones gets an irregular, watercolor-style fade at its edges (a mask,
 // chosen by aspect ratio). The magenta placeholder outline sits on the figure so the mask doesn't hide it.
-interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; soft?: boolean; blend?: boolean; mid?: boolean; }
-const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false, soft = false, blend = false, mid = false } = Astro.props;
+interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; soft?: boolean; blend?: boolean; mid?: boolean; wash?: 'left' | 'right'; accent?: 'sage' | 'peach'; }
+const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false, soft = false, blend = false, mid = false, wash, accent } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const [rw, rh] = ratio.split('/').map((n) => parseFloat(n));
 const r = rw / (rh || 1);
 const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
 ---
-<figure class:list={['fig', shape, { bleed, narrow, art, soft, blend, mid }]} style={`--ratio:${ratio}`} data-temp={src && src.includes('placeholders/') ? '' : undefined}>
+<figure class:list={['fig', shape, { bleed, narrow, art, soft, blend, mid, washed: !!wash }]} data-wash={wash} data-accent={accent} style={`--ratio:${ratio};--washimg:url(${base}images/wash-smudge.webp)`} data-temp={src && src.includes('placeholders/') ? '' : undefined}>
   {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
 </figure>
 
@@ -41,4 +41,15 @@ const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
   .mid.landscape:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-landscape-mid.webp'); mask-image: url('../assets/photo-mask-landscape-mid.webp'); }
   .mid.portrait:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-portrait-mid.webp'); mask-image: url('../assets/photo-mask-portrait-mid.webp'); }
   .mid.square:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-square-mid.webp'); mask-image: url('../assets/photo-mask-square-mid.webp'); }
+  /* Washes: a blue watercolor smudge peeking out on one side, plus an optional sage / peach accent on the other */
+  .washed { position: relative; isolation: isolate; }
+  .washed::before, .washed::after { content: ''; position: absolute; z-index: -1; aspect-ratio: 1; width: 56%; max-width: 240px; pointer-events: none; }
+  .washed::before { background: var(--color-accent); -webkit-mask: var(--washimg) center / 100% 100% no-repeat; mask: var(--washimg) center / 100% 100% no-repeat; opacity: 0.45; top: 6%; }
+  .washed[data-wash='left']::before { left: -8%; }
+  .washed[data-wash='right']::before { right: -8%; transform: scaleX(-1); }
+  .washed::after { bottom: 2%; opacity: 0.6; -webkit-mask: var(--washimg) center / 100% 100% no-repeat; mask: var(--washimg) center / 100% 100% no-repeat; background: transparent; }
+  .washed[data-accent='sage']::after { background: var(--color-sage); }
+  .washed[data-accent='peach']::after { background: var(--color-peach); opacity: 0.7; }
+  .washed[data-wash='left']::after { right: -8%; transform: scaleX(-1) rotate(14deg); }
+  .washed[data-wash='right']::after { left: -8%; transform: rotate(-14deg); }
 </style>
