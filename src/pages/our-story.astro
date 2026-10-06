@@ -12,14 +12,14 @@ import Collage from '../components/Collage.astro';
     <h2>Welcome</h2>
     <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
     <p><em>We can’t wait to celebrate with you!</em></p>
-    <Collage wash="right" items={[
-      { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo: couple on trail', w: 74, side: 'left', tilt: -2 },
-      { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 52, side: 'right', tilt: 3 },
-      { src: 'images/story/vineyard.jpg', ratio: '2 / 3', label: 'Photo: vineyard', w: 50, side: 'left', tilt: -2 },
+    <Collage wash="right" overlap={88} items={[
+      { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo: couple on trail', w: 80, side: 'left', tilt: -2 },
+      { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 58, side: 'right', tilt: 3 },
+      { src: 'images/story/vineyard.jpg', ratio: '2 / 3', label: 'Photo: vineyard', w: 56, side: 'left', tilt: -2 },
     ]} />
-    <Collage wash="left" items={[
-      { src: 'images/story/arena.jpg', ratio: '1 / 1', label: 'Photo: arena selfie', w: 58, side: 'right', tilt: 2 },
-      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 58, side: 'left', tilt: -3 },
+    <Collage wash="left" overlap={96} items={[
+      { src: 'images/story/arena.jpg', ratio: '1 / 1', label: 'Photo: arena selfie', w: 66, side: 'right', tilt: 2 },
+      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 64, side: 'left', tilt: -3 },
     ]} />
   </Section>
 
@@ -41,14 +41,14 @@ import Collage from '../components/Collage.astro';
     <p>There were weekends between Raleigh and Durham, Hurricanes games, good beer, little trips, and more and more time spent together simply because that was where they both wanted to be. Eventually, the back-and-forth gave way to moving in together.</p>
     <p>Travel became part of their rhythm too, whether it was somewhere new or just an excuse to get away, eat something good, and spend a few days together. Somewhere along the way, what had started as a last-minute date had become a shared home, a very loved dog, and a pretty great teammate.</p>
     <p><em>New places, good company, our favorite kind of adventure.</em></p>
-    <Collage wash="left" items={[
-      { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 52, side: 'right', tilt: 3 },
-      { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 52, side: 'left', tilt: -3 },
+    <Collage wash="left" overlap={104} items={[
+      { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 58, side: 'right', tilt: 3 },
+      { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 58, side: 'left', tilt: -3 },
     ]} />
-    <Collage wash="right" items={[
-      { src: 'images/story/brewery.jpg', ratio: '4 / 3', label: 'Brewery', w: 62, side: 'left', tilt: -2 },
-      { src: 'images/story/troll.jpg', ratio: '4 / 3', label: 'Troll sculpture', w: 62, side: 'right', tilt: 2 },
-      { src: 'images/story/hockey.jpg', ratio: '4 / 3', label: 'Hockey game', w: 62, side: 'left', tilt: -1 },
+    <Collage wash="right" overlap={64} items={[
+      { src: 'images/story/brewery.jpg', ratio: '4 / 3', label: 'Brewery', w: 66, side: 'left', tilt: -2 },
+      { src: 'images/story/troll.jpg', ratio: '4 / 3', label: 'Troll sculpture', w: 66, side: 'right', tilt: 2 },
+      { src: 'images/story/hockey.jpg', ratio: '4 / 3', label: 'Hockey game', w: 66, side: 'left', tilt: -1 },
     ]} />
   </Section>
 
