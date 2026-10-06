@@ -5,6 +5,7 @@ import Section from '../components/Section.astro';
 import Figure from '../components/Figure.astro';
 // Venue photos stay as placeholders until permission is confirmed (docs/CONTENT-TODO.md §2).
 import Flourish from '../components/Flourish.astro';
+import { venueGallery } from '../data/links';
 ---
 <Base title="Lodging — Breanna & Eric">
   <PageTitle title="Lodging" />
@@ -31,7 +32,6 @@ import Flourish from '../components/Flourish.astro';
   <Section tight>
     <Figure src="images/art/pool-party.jpg" ratio="3 / 2" label="Venue photo: aerial pool" />
     <Figure narrow src="images/art/arrival.jpg" ratio="2 / 3" label="Venue photo: stone doorway" />
-    <Figure ratio="3 / 2" label="Venue photo: bedroom" />
   </Section>
 
   <Section>
@@ -45,9 +45,8 @@ import Flourish from '../components/Flourish.astro';
   </Section>
 
   <Section tight>
-    <Figure ratio="3 / 2" label="Venue photo: terrace seating" />
     <Figure narrow src="images/art/terrace-cafe.jpg" ratio="2 / 3" label="Venue photo: balcony view" />
-    <Figure ratio="3 / 2" label="Venue photo: cellar restaurant" />
+    <p class="gallery"><a class="more" href={venueGallery} target="_blank" rel="noopener">Official photo gallery ↗</a></p>
   </Section>
 
   <Section>

@@ -172,3 +172,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Received but not placed yet: `ceremony.jpg` (wedding ceremony watercolor).
 - Still placeholders: Lodging bedroom / terrace seating / cellar restaurant; page-title side art, hero, footer hills, sprigs; all Our Story photos (personal).
 - Note: the map's labels get small on a phone; consider a tap-to-enlarge or a taller crop.
+
+## Venue photos policy
+- No official venue photos on the site: Lodging uses watercolor art, plus an external "Official photo gallery ↗" link (`src/data/links.ts`, currently the venue homepage; paste the exact gallery URL there).
+- Home's borgo photo is now the ceremony watercolor (the real lane photo is no longer used). Removed the empty Lodging slots (bedroom, terrace seating, cellar restaurant).
