@@ -1,13 +1,13 @@
 ---
-// Explore-page destination: one eyebrow (tagline), name, copy, then plain-text stay and favorites.
+// Explore-page destination: eyebrow (place name), heading (tagline), copy, then plain-text stay and favorites.
 interface Props { eyebrow: string; name: string; stay: string; favorites?: string; align?: 'left'; artFirst?: boolean; artLabel?: string; artSrc?: string; }
 const { eyebrow, name, stay, favorites, align = 'left', artFirst = false, artLabel = 'Watercolor', artSrc } = Astro.props;
 import Section from './Section.astro';
 import Figure from './Figure.astro';
 ---
 <Section align={align}>
-  <p class="eyebrow">{eyebrow}</p>
-  <h2 class="subhead">{name}</h2>
+  <p class="eyebrow">{name}</p>
+  <h2 class="subhead">{eyebrow}</h2>
   {artFirst && <Figure art src={artSrc} ratio="4 / 5" label={artLabel} />}
   <slot />
   <p><em>{stay}</em></p>
