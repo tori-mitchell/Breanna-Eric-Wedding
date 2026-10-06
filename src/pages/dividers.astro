@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const opts = [
+  ['A', '❦', 'Floral heart (hedera)'],
+  ['B', '❧', 'Rotated floral heart'],
+  ['C', '☙', 'Reversed rotated floral heart'],
+  ['D', '❀', 'Eight-petal flower'],
+  ['E', '✿', 'Black florette'],
+  ['F', '❖', 'Diamond cluster'],
+  ['G', '◆', 'Single diamond'],
+];
+---
+<Base title="Divider options">
+  <style is:inline set:html={`@font-face{font-family:'Noto Sans Symbols 2';src:url(${base}preview-fonts/noto-sans-symbols-2-symbols-400-normal.woff2)}`}></style>
+  <section class="wrap">
+    <p class="eyebrow">Divider options</p>
+    {opts.map(([k, g, name]) => (
+      <div class="opt">
+        <p class="eyebrow">{k} · {name}</p>
+        <div class="rule"><i></i><span>{g}</span><i></i></div>
+      </div>
+    ))}
+    <div class="opt">
+      <p class="eyebrow">H · Pair ❧ ☙ with hairline</p>
+      <div class="rule"><i></i><span>❧</span><span class="gap"></span><span>☙</span><i></i></div>
+    </div>
+    <div class="opt">
+      <p class="eyebrow">I · Three flowers</p>
+      <div class="rule"><i></i><span class="sm">✿ ❀ ✿</span><i></i></div>
+    </div>
+  </section>
+</Base>
+<style>
+  .wrap { padding: var(--space-4) var(--gutter); display: grid; gap: var(--space-4); }
+  .opt { display: grid; gap: var(--space-1); text-align: center; }
+  .rule { display: flex; align-items: center; gap: var(--space-2); color: var(--color-accent); }
+  .rule i { flex: 1; height: 1px; background: linear-gradient(to right, transparent, currentColor); opacity: 0.6; }
+  .rule i:last-child { background: linear-gradient(to left, transparent, currentColor); }
+  .rule span { font-family: 'Noto Sans Symbols 2', 'Segoe UI Symbol', serif; font-size: 1.5rem; line-height: 1; }
+  .rule .sm { font-size: 1rem; letter-spacing: 8px; }
+  .gap { width: 8px; }
+</style>
