@@ -1,0 +1,22 @@
+---
+// Thin ornamental divider: hairlines fading outward from a small curled flourish. Decorative only.
+---
+<svg class="flourish" viewBox="0 0 240 24" width="240" height="24" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="fl-l" gradientUnits="userSpaceOnUse" x1="0" x2="84"><stop offset="0" stop-color="currentColor" stop-opacity="0" /><stop offset="1" stop-color="currentColor" /></linearGradient>
+    <linearGradient id="fl-r" gradientUnits="userSpaceOnUse" x1="156" x2="240"><stop offset="0" stop-color="currentColor" /><stop offset="1" stop-color="currentColor" stop-opacity="0" /></linearGradient>
+  </defs>
+  <path d="M0 12H84" stroke="url(#fl-l)" />
+  <path d="M156 12H240" stroke="url(#fl-r)" />
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M84 12C92 12 94 6 100 6C105 6 106 11 102 11.5C99 12 98.5 8.5 101 8" />
+    <path d="M156 12C148 12 146 6 140 6C135 6 134 11 138 11.5C141 12 141.5 8.5 139 8" />
+    <path d="M100 12C106 12 108 17 112 17C115 17 116 14 120 12C124 14 125 17 128 17C132 17 134 12 140 12" />
+  </g>
+  <path d="M120 8.5L122.5 12L120 15.5L117.5 12Z" fill="currentColor" stroke="none" />
+</svg>
+
+<style>
+  .flourish { display: block; width: 240px; height: 24px; margin-inline: auto; color: var(--color-accent); opacity: 0.7; overflow: visible; }
+  .flourish :global(path) { stroke-width: 1; vector-effect: non-scaling-stroke; }
+</style>

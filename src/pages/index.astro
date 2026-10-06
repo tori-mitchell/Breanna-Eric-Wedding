@@ -5,6 +5,7 @@ import BlockPhoto from '../components/BlockPhoto.astro';
 import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const art = (n) => `${base}images/placeholders/${n}.jpg`;
+import Flourish from '../components/Flourish.astro';
 ---
 <Base title="Breanna & Eric">
   <section class="page hero" data-align="center">
@@ -21,11 +22,15 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 
   <Section>
     <BlockPhoto src="images/placeholders/home-couple.jpg" label="Photo: couple" variant="left" />
-    <h2 class="script">You’re invited!</h2>
-    <p>It means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
-    <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
-    <p>With all our love,</p>
-    <p class="script sig">Breanna &amp; Eric</p>
+    <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
+      <Flourish />
+      <h2 class="script">You’re invited!</h2>
+      <p class="dropcap">It means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
+      <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
+      <p>With all our love,</p>
+      <p class="script sig">Breanna &amp; Eric</p>
+      <Flourish />
+    </div>
   </Section>
 
   <Section>
@@ -54,6 +59,19 @@ const art = (n) => `${base}images/placeholders/${n}.jpg`;
 </Base>
 
 <style>
+  /* Invitation letter: wash behind, thin flourish rules above and below, storybook drop cap that hugs the text.
+     initial-letter (Safari, Chromium) aligns the cap to the text lines exactly; Firefox lacks it, so a tuned float stands in. */
+  .letter { position: relative; padding: var(--space-4) 0; display: flow-root; }
+  .letter::before { content: ''; position: absolute; inset: 0 -32px; z-index: -1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.22; pointer-events: none; }
+  .letter > :global(* + *) { margin-top: var(--flow); }
+  .letter h2 { text-align: center; }
+  .dropcap::first-letter { font-family: var(--font-serif); font-weight: 500; color: var(--color-accent); margin-right: 4px; }
+  @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+    .dropcap::first-letter { -webkit-initial-letter: 3; initial-letter: 3; }
+  }
+  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
+    .dropcap::first-letter { float: left; font-size: 4rem; line-height: 0.75; padding-top: 4px; } /* grid-exempt: drop cap optical fit */
+  }
   /* First screen: sticky glass nav + hero fill the phone. The hero is one container (three chunks:
      "the wedding of" / names / date + venue), centered, 88px apart. Style follows a letterpress
      invitation: tracked caps serif, with script only for the (huge, overlapping) ampersand and the venue. */
