@@ -25,7 +25,7 @@ img { display: block; max-width: 100%; height: auto; }
 .wc-landscape { -webkit-mask-image: url('../assets/photo-mask-landscape.webp'); mask-image: url('../assets/photo-mask-landscape.webp'); }
 
 /* Any image from /images/placeholders/ is a temporary screenshot crop */
-[data-temp] { outline: var(--temp-outline); outline-offset: -3px; }
+[data-temp] { outline: var(--temp-outline); outline-offset: -3px; filter: var(--temp-filter); }
 
 a { color: inherit; }
 

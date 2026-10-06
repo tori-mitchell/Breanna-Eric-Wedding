@@ -93,6 +93,8 @@
 
   /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */
   --temp-outline: none;
+  --temp-filter: url(#temp-tint);   /* tints every placeholder image magenta; set to none to hide */
+  --temp-box: color-mix(in srgb, #ff00ff 35%, var(--color-bg));  /* empty image slots */
 
   /* Misc */
   --radius: 0;                    /* photos are square-cornered */

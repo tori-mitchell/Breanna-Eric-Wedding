@@ -20,10 +20,9 @@ const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
   img, .ph { display: block; width: 100%; aspect-ratio: var(--ratio); object-fit: cover; }
   .ph {
     display: grid; place-items: center; text-align: center; padding: var(--space-2);
-    background: color-mix(in srgb, var(--color-label) 18%, var(--color-bg));
+    background: var(--temp-box);
     color: var(--color-text); font-size: 1rem;
   }
-  .art .ph { background: color-mix(in srgb, #c9b98a 22%, var(--color-bg)); }
 
   /* Watercolor edge: the picture fades into the paper along an irregular, bleeding edge. */
   .fig:not(.bleed) img, .fig:not(.bleed) .ph { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
