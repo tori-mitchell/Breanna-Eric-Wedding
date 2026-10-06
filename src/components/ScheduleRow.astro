@@ -13,7 +13,7 @@ const { dow, date, title } = Astro.props;
 </div>
 
 <style>
-  .row { display: grid; grid-template-columns: 112px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--color-rule); }
+  .row.row { margin-top: 0; display: grid; grid-template-columns: 112px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--color-rule); }
   .row:first-child { border-top: 0; padding-top: 0; }
   .row:last-of-type { padding-bottom: 0; }
   /* Day and date: one line, secondary color. padding-top lines its text up with the title's first line. */
