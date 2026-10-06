@@ -6,7 +6,7 @@
 // rich: two extra washes (a blue one tucked behind the middle, a gentle sage-green one low and off to the side).
 // `overlap` = how far each row tucks over the one above (px). Pass `items`; per-item w (% of width), tilt (deg), side (zigzag).
 import Figure from './Figure.astro';
-interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right'; tilt?: number; z?: number; pos?: string; fade?: 'soft' | 'mid' | 'blend'; }
+interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right' | 'center'; tilt?: number; z?: number; pos?: string; fade?: 'soft' | 'mid' | 'blend'; }
 interface Props { items: Item[]; wash?: 'left' | 'right'; overlap?: number; layout?: 'zigzag' | 'cluster'; rich?: boolean; accent?: 'sage' | 'peach'; center?: boolean; }
 const { items, wash = 'right', overlap = 48, layout = 'zigzag', rich = false, accent, center = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -46,11 +46,11 @@ const rows: number[][] = layout === 'cluster'
   .collage.left:not([data-accent]) .w4 { bottom: auto; top: -12%; }
   /* center: a blue wash tucked behind the middle, to fill the gap where photos meet */
   .w5 { width: 256px; left: calc(50% - 128px); top: 22%; opacity: 0.5; background: var(--color-accent); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; transform: rotate(-8deg); }
-  .collage[data-accent='peach'] .w4 { background: var(--color-peach); opacity: 0.9; right: 8px; bottom: -4%; }
+  .collage[data-accent='peach'] .w4 { background: var(--color-peach); opacity: 0.9; right: -32px; bottom: 8%; }
   .row { display: flex; align-items: center; position: relative; z-index: var(--z); }
   .row.left { justify-content: flex-start; }
   .row.right { justify-content: flex-end; }
-  .row.mid { justify-content: center; }
+  .row.mid, .row.center { justify-content: center; }
   .row + .row { margin-top: calc(-1 * var(--ov)); }   /* rows tuck over the one above */
   .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; flex: none; }
   .row.mid .piece + .piece { margin-left: -12%; }      /* pairs overlap sideways, so the cluster stays one shape */
