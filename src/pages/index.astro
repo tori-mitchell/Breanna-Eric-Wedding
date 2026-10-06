@@ -66,7 +66,7 @@ import Flourish from '../components/Flourish.astro';
   .letter > :global(* + *) { margin-top: var(--flow); }
   .letter h2 { text-align: center; }
   /* Script drop cap: a float whose shape-outside is a slanted polygon, so the first three lines tuck in along the swash instead of clearing a rectangle. */
-  .dc { float: left; width: 88px; height: 72px; font-family: var(--font-script); color: var(--color-accent); font-size: 5.5rem; line-height: 0.8; margin: 0 4px 0 0; /* grid-exempt: drop cap optical fit */
+  .dc { float: left; width: 88px; height: 72px; font-family: var(--font-script); color: var(--color-accent); font-size: 5.5rem; line-height: 0.8; margin: 0 0 0 0; /* grid-exempt: drop cap optical fit */
     shape-outside: polygon(0 0, 100% 0, 100% 18%, 66% 50%, 52% 85%, 52% 100%, 0 100%); shape-margin: 0; }
   /* First screen: sticky glass nav + hero fill the phone. The hero is one container (three chunks:
      "the wedding of" / names / date + venue), centered, 88px apart. Style follows a letterpress

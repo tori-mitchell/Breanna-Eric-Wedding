@@ -70,7 +70,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 | Lodging | "Getting Here and Having a Car" | Para 1 duplicates "Life at the Borgo" verbatim; para 2 repeats "no car needed" |
 | Lodging / Travel | "Rental Cars" (Travel) vs. "Having a Car" (Lodging) | Overlapping content — keep both? |
 | All | Dates | Thu Sep 16 – Sun Sep 19, 2027 (weekdays verified correct) |
-| Lodging / Travel | Check-in 3:00 PM Thu, checkout 12:00 PM Sun | Verify with venue |
+| Lodging / Travel | Check-in 3:00 PM Thu, checkout noon Sun | Verify with venue |
 | Travel | Train routes (Florence→Siena→Rapolano Terme; Rome→Chiusi-Chianciano→Rapolano Terme; Pisa Centrale) | Verify |
 | Lodging | Planner name "Ani" | Verify spelling; full name/contact to add? |
 | Lodging | "shared privately through Joy" | Need Joy URL for RSVP link |

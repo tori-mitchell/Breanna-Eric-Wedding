@@ -4,7 +4,7 @@ export const faq = [
   { q: 'What are the dates?',
     a: 'Thursday, September 16 through Sunday, September 19, 2027, at Borgo Laticastelli in Tuscany. See the <a href="{base}itinerary/">itinerary</a>.' },
   { q: 'When are check-in and checkout?',
-    a: 'Check-in begins at 3:00 PM on Thursday. Checkout is by 12:00 PM on Sunday.' },
+    a: 'Check-in begins at 3:00 PM on Thursday. Checkout is by noon on Sunday.' },
   { q: 'Do I need to book my own room?',
     a: 'No. Our wedding planner, Ani, is coordinating room assignments. Your household’s lodging details will be shared privately through Joy. See <a href="{base}lodging/">lodging</a>.' },
   { q: 'What’s included with my stay?',

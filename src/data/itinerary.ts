@@ -8,5 +8,5 @@ export const itinerary = [
   { dow: 'Sat', date: 'Sep 18', title: 'Wedding Day',
     desc: 'Ceremony and celebration at Laticastelli. Timing and dress details will be shared with the invitation.' },
   { dow: 'Sun', date: 'Sep 19', title: 'Departure',
-    desc: 'One last slow morning, with breakfast. Checkout is by 12:00 PM. Departure details to come.' },
+    desc: 'One last slow morning, with breakfast. Checkout is by noon. Departure details to come.' },
 ];
