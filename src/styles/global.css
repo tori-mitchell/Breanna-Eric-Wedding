@@ -40,6 +40,8 @@ main { overflow-x: clip; }
    Script is special: page titles, hero names, signature, and a few short moments via .script.
    Never use script for long sentences. */
 h1, h2, h3, .script { color: var(--color-text); margin: 0; }
+/* Script headings (page titles, chapter titles, step titles) use the secondary text color; the signature keeps its own color */
+h1, h2.script, h3.script { color: var(--color-body); }
 h1, .script {
   font-family: var(--font-script);
   font-size: var(--text-script-header);
