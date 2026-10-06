@@ -182,3 +182,4 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Not used on purpose: official venue photos (country/bar/restaurant/doorway shots, "life at the borgo" banner).
 - Received but not placed: "BE wine bottle" graphic, a second Sorrento-style terrace watercolor, the full-width "Ivory Watercolor Landscape Border" / valley strips.
 - Still a placeholder: Home hero background, Home couple photo.
+- Update: Home hero (`art/hero.jpg`) and couple photo (`art/couple.jpg`) are now final. No placeholder images remain in use.

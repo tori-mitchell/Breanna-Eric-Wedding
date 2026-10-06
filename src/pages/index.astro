@@ -4,13 +4,13 @@ import Section from '../components/Section.astro';
 import BlockPhoto from '../components/BlockPhoto.astro';
 import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const art = (n) => `${base}images/placeholders/${n}.jpg`;
+const art = (n) => `${base}images/art/${n}.jpg`;
 import Flourish from '../components/Flourish.astro';
 ---
 <Base title="Breanna & Eric">
   <section class="page hero" data-align="center">
-    <!-- Hero watercolor fills the first screen, behind the glass nav. Placeholder: Canva hero with the text erased (CONTENT-TODO §3). -->
-    <img class="art" src={art('art-hero-full')} alt="" data-temp />
+    <!-- Hero watercolor fills the first screen, behind the glass nav. -->
+    <img class="art" src={art('hero')} alt="" />
     <p class="caps">the wedding of</p>
     <h1 class="names"><span class="nm">Breanna</span> <span class="amp">&amp;</span> <span class="nm">Eric</span></h1>
     <div class="when">
@@ -21,7 +21,7 @@ import Flourish from '../components/Flourish.astro';
   </section>
 
   <Section>
-    <BlockPhoto src="images/placeholders/home-couple.jpg" label="Photo: couple" variant="left" />
+    <BlockPhoto src="images/art/couple.jpg" label="Photo: couple" variant="left" />
     <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
       <Flourish />
       <h2 class="caps-lg">You’re invited!</h2>
@@ -80,7 +80,7 @@ import Flourish from '../components/Flourish.astro';
   .hero > :not(.art) { position: relative; z-index: 1; }
   /* The art runs from the top of the page (behind the glass nav) to the bottom of the first screen,
      fading gradually (over most of its height) into the page background. */
-  .art { position: absolute; left: 0; right: 0; top: calc(-1 * var(--nav-h)); bottom: 0; width: 100%; height: calc(100% + var(--nav-h)); object-fit: cover; object-position: center bottom; z-index: 0;
+  .art { position: absolute; left: 0; right: 0; top: calc(-1 * var(--nav-h)); bottom: 0; width: 100%; height: calc(100% + var(--nav-h)); object-fit: cover; object-position: 74% bottom; z-index: 0;
     opacity: 0.6;
     -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); mask-image: linear-gradient(to bottom, #000 20%, transparent 100%); }
 
