@@ -60,8 +60,10 @@
   --leading-body: 24px;
   --leading-small: 20px;
   --leading-script: 48px;
-  --leading-subhead: 40px;
-  --leading-subhead-sm: 32px;
+  /* Subhead leading is proportional (type, so grid-exempt): 115% for the 32px subhead, 125% for the 24px small one */
+  --eyebrow-gap: 8px;             /* VISIBLE space between an eyebrow and the heading right after it (ink to ink) */
+  --leading-subhead: 1.15;
+  --leading-subhead-sm: 1.25;
     --tracking-body: 0;
   --tracking-caps: 0.1em;         /* footer, step numbers */
   --tracking-eyebrow: 3px;

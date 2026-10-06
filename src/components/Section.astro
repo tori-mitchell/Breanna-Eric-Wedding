@@ -11,7 +11,8 @@ const { align = 'left', tight = false } = Astro.props;
   .section.tight { margin-block: calc(var(--flow) * 2); }   /* 32px: denser lists, still symmetric */
   .section > :global(* + *) { margin-top: var(--flow); }
   .section > :global(h2) { margin-top: var(--space-4); }
-  .section > :global(.eyebrow + h2), .section > :global(.eyebrow + h3) { margin-top: var(--space-1); }   /* eyebrow hugs its heading: 8px */
+  /* eyebrow hugs its heading: visible gap = --eyebrow-gap (see global.css) */
+  .section > :global(.eyebrow + h1), .section > :global(.eyebrow + h2), .section > :global(.eyebrow + h3) { margin-top: calc(var(--eyebrow-gap) - var(--ink-gap0)); }
   .section > :global(.info + .info) { margin-top: calc(var(--flow) * 2); }   /* 32px between info blocks */
   .section :global(.fig), .section :global(.frame) { margin-block: var(--block); }
   .section :global(.fig + .fig), .section :global(.fig + .frame), .section :global(.frame + .fig) { margin-top: 0; }

@@ -68,6 +68,14 @@ h2.script, h3.script { font-family: var(--font-script); font-size: var(--text-sc
 /* Text is never right-aligned (legibility). Sections are left or centered. */
 [data-align='center'] { text-align: center; }
 
+/* EYEBROW -> HEADING GAP. One rule for every eyebrow that sits directly above a heading:
+   the visible space between them is --eyebrow-gap (tokens.css), not a margin value. Each heading style declares
+   --ink-gap0, the visible gap it has with zero margin (empty line-box space above its letters + below the eyebrow's);
+   the rule subtracts it. Re-measure --ink-gap0 if a heading's size or leading changes. */
+h1, h2, h3 { --ink-gap0: 13px; }                          /* grid-exempt: optical measurement */
+.script, h1.script, h2.script { --ink-gap0: 11px; }       /* grid-exempt: optical measurement */
+.eyebrow + h1, .eyebrow + h2, .eyebrow + h3 { margin-top: calc(var(--eyebrow-gap) - var(--ink-gap0)); }
+
 /* Utility text styles.
    RESTRAINT RULE: eyebrow and subhead styles are for page headers, the start of a genuinely new
    section, and real callouts. Everything else is plain body text. Don't add one per block. */

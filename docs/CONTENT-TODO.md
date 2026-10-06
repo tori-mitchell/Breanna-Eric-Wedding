@@ -127,6 +127,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Next on fades:** the owner wants three *noticeably different* implementations of the watercolor edge across the site; the soft squircle-oval is now applied everywhere (photos, art, title flourishes, sprigs; not the footer strip or hero) as the baseline to react to.
 
+- **Eyebrow → heading rule:** `--eyebrow-gap: 8px` is the *visible* (ink-to-ink) space between an eyebrow and the heading right after it, applied globally in `global.css`/`Section.astro`. Each heading style declares `--ink-gap0` (its visible gap at zero margin); re-measure it if a heading's size or leading changes. Subhead leading is now 115% (subhead) and 125% (small subhead).
+
 ## 5. Decisions made (best guess — confirm later)
 
 | Decision | Choice | Confirm? |
