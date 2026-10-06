@@ -14,12 +14,12 @@ import Collage from '../components/Collage.astro';
     <p><em>We can’t wait to celebrate with you!</em></p>
     <Collage rich wash="right" layout="cluster" overlap={64} items={[
       { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo: couple on trail', w: 80, tilt: -2 },
-      { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 56, tilt: 3 },
-      { src: 'images/story/vineyard.jpg', ratio: '2 / 3', label: 'Photo: vineyard', w: 54, tilt: -2 },
+      { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 56, tilt: -3 },
+      { src: 'images/story/vineyard.jpg', ratio: '2 / 3', label: 'Photo: vineyard', w: 54, tilt: 3 },
     ]} />
     <Collage rich wash="left" overlap={96} items={[
       { src: 'images/story/arena.jpg', ratio: '1 / 1', label: 'Photo: arena selfie', w: 66, side: 'right', tilt: 2 },
-      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 64, side: 'left', tilt: -3 },
+      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 64, side: 'left', tilt: -3, fade: 'mid', pos: '10% 100%' },
     ]} />
   </Section>
 
@@ -41,9 +41,9 @@ import Collage from '../components/Collage.astro';
     <p>There were weekends between Raleigh and Durham, Hurricanes games, good beer, little trips, and more and more time spent together simply because that was where they both wanted to be. Eventually, the back-and-forth gave way to moving in together.</p>
     <p>Travel became part of their rhythm too, whether it was somewhere new or just an excuse to get away, eat something good, and spend a few days together. Somewhere along the way, what had started as a last-minute date had become a shared home, a very loved dog, and a pretty great teammate.</p>
     <p><em>New places, good company, our favorite kind of adventure.</em></p>
-    <Collage rich wash="left" overlap={104} items={[
-      { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 58, side: 'right', tilt: 3 },
-      { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 58, side: 'left', tilt: -3 },
+    <Collage rich wash="left" overlap={128} items={[
+      { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 60, side: 'right', tilt: 3 },
+      { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 60, side: 'left', tilt: -3 },
     ]} />
     <Collage rich wash="right" layout="cluster" overlap={40} items={[
       { src: 'images/story/brewery.jpg', ratio: '4 / 3', label: 'Brewery', w: 74, tilt: -2 },
@@ -53,7 +53,7 @@ import Collage from '../components/Collage.astro';
   </Section>
 
   <Section>
-    <Collage wash="right" items={[
+    <Collage wash="right" overlap={96} items={[
       { src: 'images/story/proposal.jpg', ratio: '3 / 2', label: 'Photo: proposal arch', w: 76, side: 'left', tilt: -2 },
       { src: 'images/story/reaction.jpg', ratio: '5 / 4', label: 'Photo: reaction', w: 56, side: 'right', tilt: 3 },
       { src: 'images/story/group.jpg', ratio: '3 / 2', label: 'Photo: family & friends', w: 72, side: 'left', tilt: -2 },

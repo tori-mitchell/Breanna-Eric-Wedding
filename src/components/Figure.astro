@@ -2,14 +2,14 @@
 // Image slot. Renders a labeled placeholder until `src` (path under /public) is provided.
 // Every image except full-bleed ones gets an irregular, watercolor-style fade at its edges (a mask,
 // chosen by aspect ratio). The magenta placeholder outline sits on the figure so the mask doesn't hide it.
-interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; soft?: boolean; blend?: boolean; }
-const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false, soft = false, blend = false } = Astro.props;
+interface Props { src?: string; alt?: string; ratio?: string; label?: string; bleed?: boolean; narrow?: boolean; art?: boolean; soft?: boolean; blend?: boolean; mid?: boolean; }
+const { src, alt = '', ratio = '4 / 3', label = 'Photo', bleed = false, narrow = false, art = false, soft = false, blend = false, mid = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const [rw, rh] = ratio.split('/').map((n) => parseFloat(n));
 const r = rw / (rh || 1);
 const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
 ---
-<figure class:list={['fig', shape, { bleed, narrow, art, soft, blend }]} style={`--ratio:${ratio}`} data-temp={src && src.includes('placeholders/') ? '' : undefined}>
+<figure class:list={['fig', shape, { bleed, narrow, art, soft, blend, mid }]} style={`--ratio:${ratio}`} data-temp={src && src.includes('placeholders/') ? '' : undefined}>
   {src ? <img src={`${base}${src.replace(/^\//, '')}`} alt={alt} loading="lazy" /> : <div class="ph" role="img" aria-label={alt || label}><span>{label}</span></div>}
 </figure>
 
@@ -37,4 +37,8 @@ const shape = r > 1.15 ? 'landscape' : r < 0.87 ? 'portrait' : 'square';
   .blend.landscape:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-landscape-blend.webp'); mask-image: url('../assets/photo-mask-landscape-blend.webp'); }
   .blend.portrait:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-portrait-blend.webp'); mask-image: url('../assets/photo-mask-portrait-blend.webp'); }
   .blend.square:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-square-blend.webp'); mask-image: url('../assets/photo-mask-square-blend.webp'); }
+  /* Mid: between soft and blend (a subject close to a corner) */
+  .mid.landscape:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-landscape-mid.webp'); mask-image: url('../assets/photo-mask-landscape-mid.webp'); }
+  .mid.portrait:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-portrait-mid.webp'); mask-image: url('../assets/photo-mask-portrait-mid.webp'); }
+  .mid.square:not(.bleed) img { -webkit-mask-image: url('../assets/photo-mask-square-mid.webp'); mask-image: url('../assets/photo-mask-square-mid.webp'); }
 </style>
