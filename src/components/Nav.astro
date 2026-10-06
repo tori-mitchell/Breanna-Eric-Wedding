@@ -4,7 +4,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const current = Astro.url.pathname;
 ---
 <header class="bar">
-  <a class="brand eyebrow" href={base} aria-label="Breanna & Eric, home">B &amp; E<img class="bottle" src={`${base}images/art/bottle.webp`} alt="" width="19" height="32" /></a>
+  <a class="brand eyebrow" href={base} aria-label="Breanna & Eric, home"><img class="bottle" src={`${base}images/art/bottle.webp`} alt="" width="19" height="32" />B &amp; E</a>
   <button class="toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">
     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
       <line class="l1" x1="3" y1="9" x2="21" y2="9" />
@@ -60,7 +60,7 @@ const current = Astro.url.pathname;
     :global(html.js) .bar { transition: background-color 250ms var(--ease), backdrop-filter 250ms var(--ease), -webkit-backdrop-filter 250ms var(--ease); }
     .bar::after { transition: opacity 250ms var(--ease); }
   }
-  .bottle { height: 32px; width: auto; margin-left: 12px; } /* grid-exempt: icon */
+  .bottle { height: 32px; width: auto; margin-right: 12px; } /* grid-exempt: icon */
   .brand { display: flex; align-items: center; min-height: 48px; text-decoration: none; color: var(--color-text); }
 
   .toggle {
