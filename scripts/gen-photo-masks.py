@@ -4,9 +4,10 @@ capped so it never reaches the image border. Run from the repo root: python3 scr
 Tweak N (ovalness: 2 = true ellipse, higher = squarer), WIDTH (fade), WOB (edge wander), BLOOM (bleed nibbles; 0 = off)."""
 import numpy as np, cv2
 from PIL import Image
-N, WIDTH, WOB, BLOOM = 2.6, 0.17, 0.55, 0.0
+N, WIDTH, WOB, BLOOM = 2.6, 0.17, 0.55, 0.0   # defaults (soft fade, used for art)
+SOFT = dict(N=4.0, WIDTH=0.07, WOB=0.30)       # light feather for photos of people: keeps faces, still no hard edge
 def smooth(x,a,b): t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
-def make(W,H,seed,name,inset=0.02):
+def make(W,H,seed,name,inset=0.02,N=N,WIDTH=WIDTH,WOB=WOB):
     def noise(s,sigma): r=np.random.default_rng(seed*100+s).standard_normal((H,W)).astype(np.float32); f=cv2.GaussianBlur(r,(0,0),sigma); return (f-f.mean())/f.std()
     yy,xx=np.mgrid[0:H,0:W].astype(np.float32); m=min(W,H)
     a_=(W-1)/2*(1-inset); b_=(H-1)/2*(1-inset)
@@ -23,3 +24,5 @@ def make(W,H,seed,name,inset=0.02):
     a=np.clip(cv2.GaussianBlur(a.astype(np.float32),(0,0),m*0.012),0,1)   # final blur: no hard spots anywhere
     Image.fromarray(np.dstack([np.full((H,W,3),255,np.uint8),(a*255).astype(np.uint8)]),'RGBA').save(f"src/assets/{name}.webp",quality=92,method=6)
 make(720,480,1,'photo-mask-landscape'); make(480,720,2,'photo-mask-portrait'); make(560,560,3,'photo-mask-square')
+
+make(720,480,1,'photo-mask-landscape-soft',inset=0.01,**SOFT); make(480,720,2,'photo-mask-portrait-soft',inset=0.01,**SOFT); make(560,560,3,'photo-mask-square-soft',inset=0.01,**SOFT)

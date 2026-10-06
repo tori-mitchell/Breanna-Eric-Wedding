@@ -1,0 +1,31 @@
+---
+// A loose collage: photos zigzag left/right and overlap a little (width + vertical overlap), each with a slight tilt,
+// over soft watercolor washes. Pass `items`; first item has no overlap.
+import Figure from './Figure.astro';
+interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right'; tilt?: number; }
+interface Props { items: Item[]; wash?: 'left' | 'right'; }
+const { items, wash = 'right' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<div class:list={['collage', wash]} style={`--wash:url(${base}images/wash-smudge.webp)`}>
+  {items.map((it, i) => (
+    <div class:list={['piece', it.side ?? (i % 2 ? 'right' : 'left')]} style={`--w:${it.w ?? 64}%;--tilt:${it.tilt ?? 0}deg;--z:${i + 1}`}>
+      <Figure soft src={it.src} ratio={it.ratio} label={it.label} />
+    </div>
+  ))}
+</div>
+
+<style>
+  /* .collage.collage outranks Section's `* + *` spacing */
+  .collage.collage { position: relative; display: flex; flex-direction: column; margin-block: var(--block); isolation: isolate; }
+  .collage::before, .collage::after { content: ''; position: absolute; z-index: -1; width: 240px; aspect-ratio: 1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.5; pointer-events: none; } /* grid-exempt: wash size */
+  .collage.right::before { right: -48px; top: 8%; }
+  .collage.right::after { left: -56px; bottom: 4%; transform: scaleX(-1); }
+  .collage.left::before { left: -56px; top: 8%; transform: scaleX(-1); }
+  .collage.left::after { right: -48px; bottom: 4%; }
+  .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; z-index: var(--z); }
+  .piece.left { align-self: flex-start; }
+  .piece.right { align-self: flex-end; }
+  .piece.piece :global(.fig) { margin-block: 0; }
+  .piece + .piece { margin-top: -48px; }   /* the overlap: just enough to feel layered */
+</style>

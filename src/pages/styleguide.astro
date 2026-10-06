@@ -7,7 +7,7 @@ import FaqItem from '../components/FaqItem.astro';
 import Info from '../components/Info.astro';
 import Destination from '../components/Destination.astro';
 import Step from '../components/Step.astro';
-import Frame from '../components/Frame.astro';
+import Collage from '../components/Collage.astro';
 import Figure from '../components/Figure.astro';
 const colors = [
   ['--color-bg', 'Background'],
@@ -134,9 +134,12 @@ const specs = [
       </Section>
     </div>
 
-    <p class="gh sub">Framed photo (Our Story)</p>
+    <p class="gh sub">Photo collage (Our Story)</p>
     <div class="demo">
-      <Frame tilt={-3} width="78%"><Figure src="images/placeholders/parade.jpg" ratio="3 / 4" label="Photo" /></Frame>
+      <Collage items={[
+        { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo', w: 56, side: 'left', tilt: -2 },
+        { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo', w: 66, side: 'right', tilt: 2 },
+      ]} />
     </div>
   </div>
 </Base>
