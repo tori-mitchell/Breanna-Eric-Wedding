@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   .bp.bp { position: relative; height: 432px; margin-block: var(--block); }
   .photo { position: absolute; top: 0; bottom: 0; z-index: 1; }
   .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
-  .wash { position: absolute; z-index: 0; width: 272px; height: auto; mix-blend-mode: multiply; pointer-events: none; }
+  .wash { position: absolute; z-index: 0; width: 272px; height: auto; mix-blend-mode: multiply; opacity: 0.6; pointer-events: none; }
 
   .left .photo { left: 72px; right: 0; }
   .left .wash { left: -56px; top: 8px; }
