@@ -25,9 +25,9 @@
   --color-body: #5b677d;          /* lighter body text (5.1:1) */
   --color-detail: #646f84;        /* details (itinerary descriptions, FAQ answers, notes) — paler still */
   --color-label: var(--color-body);   /* eyebrows, footer: the same slate as body text and the hero's "Tuscany, Italy" line */
-  --color-accent: #365f89;        /* mid-tone blue (sampled from Canva), 6.0:1 */
+  --color-accent: #6e95c7;        /* official palette "Cornflower Blue" (previous: #365f89, sampled from Canva) */
   --color-rule: #e1ded7;          /* dividers: hairline just darker than the background */
-  --color-frame: #365f89;         /* sketch frames */
+  --color-frame: #6e95c7;         /* sketch frames (previous: #365f89) */
 
   /* DARK MODE (saved for later — "Midnight & Champagne"):
      bg #1b2a41 · text #ece4d3 · body #b9b4a6 · label #c8ac72 · rule #33455f · accent #ece4d3 */
