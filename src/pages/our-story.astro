@@ -17,10 +17,6 @@ import Collage from '../components/Collage.astro';
       { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 56, tilt: -3 },
       { src: 'images/story/vineyard.jpg', ratio: '2 / 3', label: 'Photo: vineyard', w: 54, tilt: 3 },
     ]} />
-    <Collage rich wash="left" overlap={96} items={[
-      { src: 'images/story/arena.jpg', ratio: '1 / 1', label: 'Photo: arena selfie', w: 66, side: 'right', tilt: 2 },
-      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 64, side: 'left', tilt: -3, fade: 'mid', pos: '10% 100%' },
-    ]} />
   </Section>
 
   <Section>
@@ -31,6 +27,10 @@ import Collage from '../components/Collage.astro';
     <p>Turns out, it was a pretty good decision.</p>
     <p>The rest is history.</p>
     <p><em>A last minute date that changed everything.</em></p>
+    <Collage rich wash="left" overlap={96} items={[
+      { src: 'images/story/arena.jpg', ratio: '1 / 1', label: 'Photo: arena selfie', w: 66, side: 'right', tilt: 2 },
+      { src: 'images/story/tree.jpg', ratio: '1 / 1', label: 'Photo: tree selfie', w: 64, side: 'left', tilt: -3, fade: 'mid', pos: '10% 100%' },
+    ]} />
   </Section>
 
   <Section>
