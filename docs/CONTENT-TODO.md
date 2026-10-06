@@ -174,7 +174,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Note: the map's labels get small on a phone; consider a tap-to-enlarge or a taller crop.
 
 ## Venue photos policy
-- No official venue photos on the site: Lodging uses watercolor art, plus an external "Official photo gallery ↗" link (`src/data/links.ts`, currently the venue homepage; paste the exact gallery URL there).
+- No official venue photos on the site: Lodging uses watercolor art, plus an external "Official photo gallery ↗" link (`src/data/links.ts`, https://www.laticastelli.com/en/gallery).
 - Home's borgo photo is now the ceremony watercolor (the real lane photo is no longer used). Removed the empty Lodging slots (bedroom, terrace seating, cellar restaurant).
 
 ## Round 3 images (our-story / stay / other zips)
