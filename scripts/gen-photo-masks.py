@@ -6,7 +6,7 @@ import numpy as np, cv2
 from PIL import Image
 N, WIDTH, WOB, BLOOM = 2.6, 0.17, 0.55, 0.0   # defaults (soft fade, used for art)
 SOFT = dict(N=4.0, WIDTH=0.07, WOB=0.30)       # light feather for photos of people: keeps faces, still no hard edge
-BLEND = dict(N=3.4, WIDTH=0.14, WOB=0.35, BLUR=0.03)  # extra-soft, long feather: Our Story collages, so overlapping photos melt together
+BLEND = dict(N=3.0, WIDTH=0.15, WOB=0.35, BLUR=0.03, inset=0.08)  # extra-soft, long feather: Our Story collages, so overlapping photos melt together
 def smooth(x,a,b): t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
 def make(W,H,seed,name,inset=0.02,N=N,WIDTH=WIDTH,WOB=WOB,BLUR=0.012):
     def noise(s,sigma): r=np.random.default_rng(seed*100+s).standard_normal((H,W)).astype(np.float32); f=cv2.GaussianBlur(r,(0,0),sigma); return (f-f.mean())/f.std()
@@ -21,10 +21,10 @@ def make(W,H,seed,name,inset=0.02,N=N,WIDTH=WIDTH,WOB=WOB,BLUR=0.012):
     a=smooth(d+disp,0,np.maximum(w,m*0.08))
     bloom=smooth(noise(5,m*0.05),1.1,2.1)*smooth(m*0.14-d,0,m*0.06)*BLOOM
     a=np.clip(a*(1-bloom),0,1)
-    border=np.minimum(np.minimum(xx,W-1-xx),np.minimum(yy,H-1-yy)); a*=smooth(border,0,m*0.02)   # transparent at the border
-    a=np.clip(cv2.GaussianBlur(a.astype(np.float32),(0,0),m*BLUR),0,1)   # final blur: no hard spots anywhere
+    border=np.minimum(np.minimum(xx,W-1-xx),np.minimum(yy,H-1-yy)); a*=smooth(border,0,m*0.05)   # transparent at the border
+    a=np.clip(cv2.GaussianBlur(a.astype(np.float32),(0,0),m*BLUR),0,1); a*=smooth(border,1,m*0.04)   # exactly 0 on the image border   # final blur: no hard spots anywhere
     Image.fromarray(np.dstack([np.full((H,W,3),255,np.uint8),(a*255).astype(np.uint8)]),'RGBA').save(f"src/assets/{name}.webp",quality=92,method=6)
 make(720,480,1,'photo-mask-landscape'); make(480,720,2,'photo-mask-portrait'); make(560,560,3,'photo-mask-square')
 
 make(720,480,1,'photo-mask-landscape-soft',inset=0.01,**SOFT); make(480,720,2,'photo-mask-portrait-soft',inset=0.01,**SOFT); make(560,560,3,'photo-mask-square-soft',inset=0.01,**SOFT)
-make(720,480,1,'photo-mask-landscape-blend',inset=0.01,**BLEND); make(480,720,2,'photo-mask-portrait-blend',inset=0.01,**BLEND); make(560,560,3,'photo-mask-square-blend',inset=0.01,**BLEND)
+make(720,480,1,'photo-mask-landscape-blend',**BLEND); make(480,720,2,'photo-mask-portrait-blend',**BLEND); make(560,560,3,'photo-mask-square-blend',**BLEND)
