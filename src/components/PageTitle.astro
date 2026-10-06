@@ -15,5 +15,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   .banner { width: 100%; height: auto; display: block; mix-blend-mode: multiply;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
     -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent); mask-composite: intersect; }
+  /* Phones: the title is nearly as wide as the banner, so fade the middle of the art (leaves above the ascenders, hills below the descenders)
+     and lighten the whole banner slightly; the arch and olive branches at each end stay full strength. */
+  @media (max-width: 599px) {
+    .banner { opacity: 0.88;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 14%, rgba(0, 0, 0, 0.2) 28%, rgba(0, 0, 0, 0.2) 72%, #000 86%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 6%, #000 14%, rgba(0, 0, 0, 0.2) 28%, rgba(0, 0, 0, 0.2) 72%, #000 86%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent); }
+  }
   h1 { text-align: center; white-space: nowrap; position: relative; z-index: 1; }
 </style>
