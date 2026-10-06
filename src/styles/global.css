@@ -112,5 +112,5 @@ h1, h2, h3 { --ink-gap0: 13px; }                          /* grid-exempt: optica
 }
 
 /* Text link ("Learn more →"): bold body text, underlined, accent on hover/tap/focus */
-.more { color: var(--color-body); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; transition: color 150ms var(--ease); }
+.more { font-variant-emoji: text; color: var(--color-body); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; transition: color 150ms var(--ease); }
 .more:hover, .more:active, .more:focus-visible { color: var(--color-accent); }
