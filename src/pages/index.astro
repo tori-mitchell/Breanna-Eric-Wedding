@@ -24,7 +24,7 @@ import Flourish from '../components/Flourish.astro';
     <BlockPhoto src="images/placeholders/home-couple.jpg" label="Photo: couple" variant="left" />
     <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
       <Flourish />
-      <h2 class="script">You’re invited!</h2>
+      <h2 class="caps-lg">You’re invited!</h2>
       <p><span class="dc">I</span>t means so much to us to have the people we love joining us in Tuscany for this weekend. We’ve put this little corner together to keep everything in one place, from where to stay and how to get there to what we’ll be doing once we’re all together.</p>
       <p>More than anything, we hope these few days feel like time to slow down, settle in, and celebrate with us. We can’t wait for long dinners, late nights, lots of laughter, and the kind of memories we’ll be talking about for years.</p>
       <p>With all our love,</p>
@@ -64,7 +64,7 @@ import Flourish from '../components/Flourish.astro';
   .letter { position: relative; padding: var(--space-4) 0; display: flow-root; }
   .letter::before { content: ''; position: absolute; inset: 0 -32px; z-index: -1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.22; pointer-events: none; }
   .letter > :global(* + *) { margin-top: var(--flow); }
-  .letter h2 { text-align: center; }
+  .letter h2 { text-align: center; font-weight: 400; }
   /* Script drop cap: a float whose shape-outside is a slanted polygon, so the first three lines tuck in along the swash instead of clearing a rectangle. */
   .dc { float: left; width: 88px; height: 72px; font-family: var(--font-script); color: var(--color-accent); font-size: 5.5rem; line-height: 0.8; margin: 0 0 0 0; /* grid-exempt: drop cap optical fit */
     shape-outside: polygon(0 0, 100% 0, 100% 18%, 66% 50%, 52% 85%, 52% 100%, 0 100%); shape-margin: 0; }
