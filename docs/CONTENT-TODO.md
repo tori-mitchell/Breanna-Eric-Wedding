@@ -168,7 +168,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - [ ] Fancier ornamental divider (vine/flourish) to replace the plain fading-hairline + diamond in `src/components/Flourish.astro`. Need a real SVG/PNG (site hosts were blocked from the build sandbox).
 
 ## Official images received (`public/images/art/`)
-- In use: Florence, Dolomites, Sorrento (Explore), route map (Getting There), borgo lane photo (Home), wide borgo landscape (Lodging header), pool party, arrival doorway, terrace cafe (Lodging).
+- In use: Florence, Dolomites, Sorrento (Explore), route map (The Journey), borgo lane photo (Home), wide borgo landscape (Lodging header), pool party, arrival doorway, terrace cafe (Lodging).
 - Received but not placed yet: `ceremony.jpg` (wedding ceremony watercolor).
 - Still placeholders: Lodging bedroom / terrace seating / cellar restaurant; page-title side art, hero, footer hills, sprigs; all Our Story photos (personal).
 - Note: the map's labels get small on a phone; consider a tap-to-enlarge or a taller crop.
