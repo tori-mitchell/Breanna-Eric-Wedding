@@ -17,7 +17,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <meta name="theme-color" content="#f7f3ee" />
     <script is:inline>document.documentElement.classList.add('js')</script>
     <title>{title}</title>
-    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
+    <link rel="icon" href={`${base}favicon-32.png`} type="image/png" sizes="32x32" />
+    <link rel="icon" href={`${base}icon-192.png`} type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
   </head>
   <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
