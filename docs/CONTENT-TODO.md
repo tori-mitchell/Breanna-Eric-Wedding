@@ -164,3 +164,5 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - [ ] Custom domain (if any)
 - [ ] Social share image + favicon (monogram?)
 - [ ] Desktop layout (mobile-first now)
+
+- [ ] Fancier ornamental divider (vine/flourish) to replace the plain fading-hairline + diamond in `src/components/Flourish.astro`. Need a real SVG/PNG (site hosts were blocked from the build sandbox).
