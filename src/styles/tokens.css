@@ -54,7 +54,7 @@
   --text-caps: 0.9375rem;         /* hero location line — grid-exempt: type size */
   --text-script-sm: 2.5rem;       /* "the wedding of", venue name — 40px */
   --text-script-amp: 13.33rem;    /* hero ampersand (Ruthie: 0.9em tall) — ~192px of ink, layered over both names (grid-exempt: type size) */
-  --color-sage: #8fae8a;          /* gentle sage green: watercolor accent washes (Our Story collages) */
+  --color-sage: #98a08d;          /* official palette "Soft Olive-Sage": watercolor accent washes (Our Story collages) */
   --color-amp: #7a9cc9;           /* the old light blue, now used only for the hero ampersand */
   --signature-opacity: 0.78;      /* the Home sign-off "Breanna & Eric" is ink at this opacity */
   --amp-scale: 1;                 /* size multipliers for the hero (tune the look here) */
