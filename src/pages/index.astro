@@ -62,7 +62,7 @@ import Flourish from '../components/Flourish.astro';
   /* Invitation letter: wash behind, thin flourish rules above and below, storybook drop cap that hugs the text.
      initial-letter (Safari, Chromium) aligns the cap to the text lines exactly; Firefox lacks it, so a tuned float stands in. */
   .letter { position: relative; padding: var(--space-4) 0; display: flow-root; }
-  .letter::before { content: ''; position: absolute; inset: 0 -32px; z-index: -1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.22; pointer-events: none; }
+  .letter::before { content: ''; position: absolute; inset: 0 -32px; z-index: -1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; opacity: 0.3; pointer-events: none; }
   .letter > :global(* + *) { margin-top: var(--flow); }
   .letter h2 { text-align: center; }
   .dropcap::first-letter { font-family: var(--font-serif); font-weight: 500; color: var(--color-accent); margin-right: 4px; }
