@@ -36,7 +36,7 @@ import Flourish from '../components/Flourish.astro';
   <Section>
     <h2 class="subhead">This is where our forever begins</h2>
     <p>Borgo Laticastelli, a restored 12th-century Tuscan village overlooking the Crete Senesi, is reserved just for our group.</p>
-    <p><a class="more eyebrow" href={`${base}lodging/`}>More about the borgo</a></p>
+    <p><a class="more" href={`${base}lodging/`}>Learn more →</a></p>
     <BlockPhoto src="images/placeholders/home-lane.jpg" label="Photo: borgo lane" variant="right" />
   </Section>
 
@@ -58,7 +58,8 @@ import Flourish from '../components/Flourish.astro';
 </Base>
 
 <style>
-  .more { color: var(--color-accent); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+  .more { color: var(--color-body); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; transition: color 150ms var(--ease); }
+  .more:hover, .more:active, .more:focus-visible { color: var(--color-accent); }
   /* Invitation letter: wash behind, thin flourish rules above and below, storybook drop cap that hugs the text.
      initial-letter (Safari, Chromium) aligns the cap to the text lines exactly; Firefox lacks it, so a tuned float stands in. */
   .letter.letter { position: relative; padding: var(--space-4) 0; display: flow-root; margin-top: 80px; }   /* margins collapse with the photo above: 80px total */
