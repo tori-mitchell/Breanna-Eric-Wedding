@@ -10,7 +10,7 @@ const items = [
 ---
 <Base title="Bullet previews">
   <section class="wrap">
-    <p class="eyebrow">Preview D · Diamond markers + dividers, small heading</p>
+    <p class="eyebrow">Preview D · Dividers only, small heading (no diamonds)</p>
     <p class="eyebrow">Plan ahead</p>
     <h2 class="subhead">Before You Go</h2>
     <ul class="d">{items.map(([t, d]) => <li><h3 class="subhead-sm">{t}</h3><p>{d}</p></li>)}</ul>
@@ -28,9 +28,8 @@ const items = [
   .b h3 { margin-bottom: var(--space-1); }
   .c li { display: grid; gap: 4px; padding: var(--space-2) 0; border-top: 1px solid var(--color-rule); }
   .c li:first-child { border-top: 0; }
-  .d li { position: relative; padding: var(--space-2) 0 var(--space-2) 24px; border-top: 1px solid var(--color-rule); }
+  .d li { padding: var(--space-2) 0; border-top: 1px solid var(--color-rule); }
   .d li:first-child { border-top: 0; }
-  .d li::before { content: ''; position: absolute; left: 2px; top: 28px; width: 6px; height: 6px; background: var(--color-accent); transform: rotate(45deg); }
   .d h3 { margin-bottom: var(--space-1); }
   .d { gap: 0; }
 </style>
