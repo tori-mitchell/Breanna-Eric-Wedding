@@ -19,7 +19,7 @@ const rows: number[][] = layout === 'cluster'
     <div class:list={['row', layout === 'zigzag' ? (items[row[0]].side ?? (r % 2 ? 'right' : 'left')) : 'mid']} style={`--z:${r + 1}`}>
       {row.map((i) => (
         <div class="piece" style={`--w:${items[i].w ?? 64}%;--tilt:${items[i].tilt ?? 0}deg`}>
-          <Figure soft src={items[i].src} ratio={items[i].ratio} label={items[i].label} />
+          <Figure blend src={items[i].src} ratio={items[i].ratio} label={items[i].label} />
         </div>
       ))}
     </div>
