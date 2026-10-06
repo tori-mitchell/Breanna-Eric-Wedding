@@ -1,7 +1,9 @@
 ---
+interface Props { spaced?: boolean; }
+const { spaced = false } = Astro.props;
 // Divider: hairlines fading out to each side of a small diamond. Placeholder until a fancier ornament is chosen (docs/CONTENT-TODO.md).
 ---
-<svg class="flourish" viewBox="0 0 240 8" width="240" height="8" aria-hidden="true" focusable="false">
+<svg class:list={['flourish', { spaced }]} viewBox="0 0 240 8" width="240" height="8" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="fl-l" gradientUnits="userSpaceOnUse" x1="0" x2="108"><stop offset="0" stop-color="currentColor" stop-opacity="0" /><stop offset="1" stop-color="currentColor" /></linearGradient>
     <linearGradient id="fl-r" gradientUnits="userSpaceOnUse" x1="132" x2="240"><stop offset="0" stop-color="currentColor" /><stop offset="1" stop-color="currentColor" stop-opacity="0" /></linearGradient>
@@ -14,4 +16,5 @@
 <style>
   .flourish { display: block; width: 240px; height: 8px; margin-inline: auto; color: var(--color-accent); opacity: 0.7; overflow: visible; }
   .flourish :global(path[stroke]) { stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
+  .flourish.spaced { margin-block: var(--block); }   /* between page sections: 48px each side (collapses with section margins) */
 </style>
