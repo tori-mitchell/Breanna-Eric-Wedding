@@ -40,7 +40,9 @@ const rows: number[][] = layout === 'cluster'
   /* Extra accents (rich): behind everything, peeking out between and around the photos */
   .w { position: absolute; z-index: -1; aspect-ratio: 1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; pointer-events: none; }
   .w3 { width: 208px; left: -40px; top: 42%; opacity: 0.5; transform: rotate(24deg); }
-  .w4 { width: 224px; right: -48px; bottom: 24%; opacity: 0.7; transform: scaleX(-1) rotate(-18deg); background: var(--color-sage); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; }   /* gentle sage green (--color-sage) */
+  .w4 { width: 224px; right: -48px; bottom: -16%; opacity: 0.7; transform: scaleX(-1) rotate(-18deg); background: var(--color-sage); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; }   /* gentle sage green (--color-sage) */
+  /* keep the green off the blue washes (overlap turns it muddy): on left-wash collages it moves to the upper right, and on right-wash ones to the lower right */
+  .collage.left:not([data-accent]) .w4 { bottom: auto; top: -12%; }
   .collage[data-accent='peach'] .w4 { background: var(--color-peach); opacity: 0.9; right: 8px; bottom: -4%; }
   .row { display: flex; align-items: center; position: relative; z-index: var(--z); }
   .row.left { justify-content: flex-start; }

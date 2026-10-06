@@ -25,9 +25,9 @@
   --color-body: #5b677d;          /* lighter body text (5.1:1) */
   --color-detail: #646f84;        /* details (itinerary descriptions, FAQ answers, notes) — paler still */
   --color-label: var(--color-body);   /* eyebrows, footer: the same slate as body text and the hero's "Tuscany, Italy" line */
-  --color-accent: #6e95c7;        /* official palette "Cornflower Blue" (previous: #365f89, sampled from Canva) */
+  --color-accent: #365f89;        /* mid-tone blue (sampled from Canva), 6.0:1 */
   --color-rule: #e1ded7;          /* dividers: hairline just darker than the background */
-  --color-frame: #6e95c7;         /* sketch frames (previous: #365f89) */
+  --color-frame: #365f89;         /* sketch frames */
 
   /* DARK MODE (saved for later — "Midnight & Champagne"):
      bg #1b2a41 · text #ece4d3 · body #b9b4a6 · label #c8ac72 · rule #33455f · accent #ece4d3 */
@@ -54,7 +54,7 @@
   --text-caps: 0.9375rem;         /* hero location line — grid-exempt: type size */
   --text-script-sm: 2.5rem;       /* "the wedding of", venue name — 40px */
   --text-script-amp: 13.33rem;    /* hero ampersand (Ruthie: 0.9em tall) — ~192px of ink, layered over both names (grid-exempt: type size) */
-  --color-sage: #98a08d;          /* official palette "Soft Olive-Sage": watercolor accent washes (Our Story collages) */
+  --color-sage: #9dba96;          /* fresh sage green (a clearer green than the palette's grayish Soft Olive-Sage #98A08D, which read muddy over blue): watercolor accent washes */
   --color-peach: #deb19b;         /* official palette "Soft Apricot-Peach": warm watercolor accent wash */
   --color-amp: #7a9cc9;           /* the old light blue, now used only for the hero ampersand */
   --signature-opacity: 0.78;      /* the Home sign-off "Breanna & Eric" is ink at this opacity */
