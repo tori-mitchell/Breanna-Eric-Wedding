@@ -127,10 +127,12 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 - **Next on fades:** the owner wants three *noticeably different* implementations of the watercolor edge across the site; the soft squircle-oval is now applied everywhere (photos, art, title flourishes, sprigs; not the footer strip or hero) as the baseline to react to.
 
-- **Eyebrow → heading rule:** `--eyebrow-gap: 8px` is the *visible* (ink-to-ink) space between an eyebrow and the heading right after it, applied globally in `global.css`/`Section.astro`. Each heading style declares `--ink-gap0` (its visible gap at zero margin); re-measure it if a heading's size or leading changes. Subhead leading is now 115% (subhead) and 125% (small subhead).
+- **Eyebrow → heading rule:** `--eyebrow-gap: 12px` is the *visible* (ink-to-ink) space between an eyebrow and the heading right after it, applied globally in `global.css`/`Section.astro`. Each heading style declares `--ink-gap0` (its visible gap at zero margin); re-measure it if a heading's size or leading changes. Subhead leading is now 115% (subhead) and 125% (small subhead).
 
 - **Hero ampersand (decided):** Ruthie in the old light blue `#7a9cc9` (`--font-amp`, `--color-amp`). Size is tunable via `--amp-scale` / `--name-scale` in tokens (three size variations were previewed: ampersand 85%, names +12%, both).
 - **Nav structure:** the sticky `.bar` carries its own backdrop blur and the full-screen `.menu` is a *sibling*, not a child (Chromium won't blur behind a child of a sticky element). Menu glass = 82% paper tint + 8px blur (`Nav.astro`).
+
+- **Eyebrow color:** `--color-label` now points at `--color-body` (`#5b677d`), the same slate as body text and the hero's "Tuscany, Italy". Home sign-off is ink at `--signature-opacity: 0.78` (alternative tried: solid `#5b677d`).
 
 ## 5. Decisions made (best guess — confirm later)
 

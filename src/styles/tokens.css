@@ -24,7 +24,7 @@
   --color-text: #2a3850;          /* ink (10.6:1) */
   --color-body: #5b677d;          /* lighter body text (5.1:1) */
   --color-detail: #646f84;        /* details (itinerary descriptions, FAQ answers, notes) — paler still */
-  --color-label: #2a3850;         /* eyebrows, footer */
+  --color-label: var(--color-body);   /* eyebrows, footer: the same slate as body text and the hero's "Tuscany, Italy" line */
   --color-accent: #365f89;        /* mid-tone blue (sampled from Canva), 6.0:1 */
   --color-rule: #e1ded7;          /* dividers: hairline just darker than the background */
   --color-frame: #365f89;         /* sketch frames */
@@ -55,6 +55,7 @@
   --text-script-sm: 2.5rem;       /* "the wedding of", venue name — 40px */
   --text-script-amp: 13.33rem;    /* hero ampersand (Ruthie: 0.9em tall) — ~192px of ink, layered over both names (grid-exempt: type size) */
   --color-amp: #7a9cc9;           /* the old light blue, now used only for the hero ampersand */
+  --signature-opacity: 0.78;      /* the Home sign-off "Breanna & Eric" is ink at this opacity */
   --amp-scale: 1;                 /* size multipliers for the hero (tune the look here) */
   --name-scale: 1;
   --tracking-name: 0.22em;
@@ -66,7 +67,7 @@
   --leading-small: 20px;
   --leading-script: 48px;
   /* Subhead leading is proportional (type, so grid-exempt): 115% for the 32px subhead, 125% for the 24px small one */
-  --eyebrow-gap: 8px;             /* VISIBLE space between an eyebrow and the heading right after it (ink to ink) */
+  --eyebrow-gap: 12px;            /* VISIBLE space between an eyebrow and the heading right after it (ink to ink) */
   --leading-subhead: 1.15;
   --leading-subhead-sm: 1.25;
     --tracking-body: 0;
