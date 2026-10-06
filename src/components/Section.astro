@@ -8,8 +8,7 @@ const { align = 'left', tight = false } = Astro.props;
   /* One rhythm: --flow (16px) between text blocks, --block (48px) around sections and media,
      identical above and below so nothing looks bottom-heavy. */
   .section { position: relative; padding-inline: var(--gutter); margin-block: var(--block); }
-  /* The first section under a page title: one source drives the gap (40px from the header art) */
-  :global(.title) + .section { margin-top: 40px; }
+  /* Under a page title the standard 48px section margin is the only gap (the title has no bottom padding). */
   .section.tight { margin-block: calc(var(--flow) * 2); }   /* 32px: denser lists, still symmetric */
   .section > :global(* + *) { margin-top: var(--flow); }
   .section > :global(h2) { margin-top: var(--space-4); }
