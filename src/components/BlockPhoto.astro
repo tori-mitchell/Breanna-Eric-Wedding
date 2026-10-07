@@ -12,8 +12,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 <style>
   /* .bp.bp outranks Section's `* + *` spacing rule */
-  .bp.bp { position: relative; height: 432px; margin-block: var(--block); }
-  .photo { position: absolute; top: 0; bottom: 0; z-index: 1; }
+  /* The photo box has a LOCKED aspect ratio (the phone's 257 x 432), so its crop is the same at every width; the box's height follows its width. */
+  .bp.bp { position: relative; margin-block: var(--block); }
+  .photo { position: relative; z-index: 1; aspect-ratio: 257 / 432; }
   .photo :global(.fig), .photo :global(img), .photo :global(.ph) { height: 100%; aspect-ratio: auto; }
   .wash { position: absolute; z-index: 0; width: 272px; height: auto; mix-blend-mode: multiply; opacity: 0.6; pointer-events: none; }
 
@@ -21,11 +22,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   .sage::after { content: ''; position: absolute; z-index: 0; width: 224px; aspect-ratio: 1; bottom: -32px; background: var(--color-sage); -webkit-mask: var(--washimg) center / 100% 100% no-repeat; mask: var(--washimg) center / 100% 100% no-repeat; opacity: 0.6; pointer-events: none; transform: rotate(-12deg); }
   .right.sage::after { left: -24px; }
   .left.sage::after { right: -24px; transform: scaleX(-1) rotate(12deg); }
-  .left .photo { left: 72px; right: 16px; }   /* 16px inset = 40px from the screen edge */
+  .left .photo { margin-left: 72px; margin-right: 16px; }   /* 16px inset = 40px from the screen edge */
   .left .wash { left: -16px; top: 8px; }
 
-  .right .photo { left: 16px; right: 64px; }
+  .right .photo { margin-left: 16px; margin-right: 64px; aspect-ratio: 265 / 432; }   /* same height as the left variant on phones */
   .right .wash { right: -8px; top: 40px; width: 192px; opacity: 0.45; transform: scaleX(-1); }   /* smaller and lower, so it sits beside the art instead of above it */
+  /* Between phone and desktop (600-1023px) the frame is a centered, larger version of the same locked shape (440px wide). */
+  @media (min-width: 600px) and (max-width: 1023.98px) { .bp.bp { width: min(100%, 440px); margin-inline: auto; } }   /* grid-exempt: breakpoint */
   /* Desktop only: the section's generic image margin (--block) was being applied to this photo too, pushing it down
      past its own box and into the next section. Cancel it here. (Phones keep their current layout.) */
   @media (min-width: 1024px) {
@@ -35,7 +38,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     .bp.bp { margin-top: calc(var(--block) - 32px); margin-bottom: calc(var(--block) - 16px); }
     /* wide: the image breaks out of the text column to the full wide width (824px, = the two-column total), centered, as a landscape crop. */
     .bp.bp.wide { width: var(--column-wide); margin-inline: calc((100% - var(--column-wide)) / 2); }
-    .wide .photo { left: 40px; right: 40px; }
+    .wide .photo { margin-inline: 40px; aspect-ratio: 744 / 432; }   /* landscape crop for the wide frame */
     .wide .photo :global(img), .wide .photo :global(.ph) { -webkit-mask-image: url('../assets/photo-mask-landscape.webp') !important; mask-image: url('../assets/photo-mask-landscape.webp') !important; }   /* landscape mask for the landscape crop */
     .wide .wash { right: 8px; }   /* 40px above, 56px below: visible gaps ~80px each */
   }

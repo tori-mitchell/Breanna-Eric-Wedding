@@ -20,10 +20,10 @@ Last updated with the desktop-layout release. Detailed history lives in `CONTENT
 - Official venue photos are intentionally not used; the site links to the venue gallery instead.
 
 ## Site / hosting
-- [ ] **Custom domain**: connect the Porkbun domain to Cloudflare Pages (nameservers -> Cloudflare, then Custom domains on the Pages project, apex + `www`).
-- [ ] **Search indexing**: the site is `noindex, nofollow` and has `robots.txt` disallow on purpose. Decide at launch whether to keep it that way.
-- [ ] **Branch protection** on `master` in GitHub (require a pull request, owner approves) now that a second editor is joining. See `AGENTS.md` for the dev -> prod workflow.
-- [ ] Decide whether to keep the **GitHub Pages** deploy or use Cloudflare only.
+- Done: custom domain is connected on Cloudflare Pages.
+- Decided: no branch protection needed; the dev -> prod workflow in `AGENTS.md` is the guard rail (rollback is always available via GitHub revert or Cloudflare Deployments).
+- Search indexing: the site is `noindex, nofollow` with a `robots.txt` disallow. Not a priority; leave as is unless it matters later.
+- Decided: Cloudflare only. The GitHub Pages workflow was removed; turn Pages off in the repo's GitHub Settings -> Pages if it's still enabled.
 
 ## Polish ideas (optional)
 - [ ] Re-check the 1024-1200px desktop range (two-column layouts with the hamburger nav).
