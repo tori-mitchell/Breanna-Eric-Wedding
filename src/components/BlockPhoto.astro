@@ -26,9 +26,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   .right .photo { left: 16px; right: 64px; }
   .right .wash { right: -8px; top: 40px; width: 192px; opacity: 0.45; transform: scaleX(-1); }   /* smaller and lower, so it sits beside the art instead of above it */
-  /* Between phone and desktop (600-1023px) the box would stretch with the window while its height stays 432px, cropping the 2:3 photo
-     into odd slices. Keep the phone proportions (344px wide) and center it instead. */
-  @media (min-width: 600px) and (max-width: 1023.98px) { .bp.bp { width: 344px; margin-inline: auto; } }   /* grid-exempt: breakpoint */
+  /* Between phone and desktop (600-1023px) the box used to stretch with the window while its height stayed fixed, cropping the 2:3 photo
+     into odd slices. Here it is a fixed, larger 480 x 584 box (photo ~392 x 584, still ~2:3), centered. */
+  @media (min-width: 600px) and (max-width: 1023.98px) { .bp.bp { width: 480px; height: 584px; margin-inline: auto; } }   /* grid-exempt: breakpoint */
   /* Desktop only: the section's generic image margin (--block) was being applied to this photo too, pushing it down
      past its own box and into the next section. Cancel it here. (Phones keep their current layout.) */
   @media (min-width: 1024px) {
