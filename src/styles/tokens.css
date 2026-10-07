@@ -90,6 +90,7 @@
   /* Vertical rhythm: 16px between blocks of text; 48px around sections and media, same above and below */
   --flow: 1rem;                   /* 16px */
   --block: 3rem;                  /* 48px: THE standard gap between sections, images and collages (phones). Desktop value below. */
+  --gutter-wide: 3.5rem;          /* 56px: left/right padding of body content from the phone breakpoint (600px) up, at every width */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
   --column-mid: 30rem;            /* 480px: the narrower single column (opt-in per section via `mid`) */

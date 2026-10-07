@@ -9,6 +9,8 @@ const { align = 'left', tight = false, id, wide = false, mid = false, split = fa
      identical above and below so nothing looks bottom-heavy. */
   .section[id] { scroll-margin-top: calc(var(--nav-h) + 32px); }   /* anchored sections clear the sticky nav */
   .section { position: relative; padding-inline: var(--gutter); margin-block: var(--block); box-sizing: content-box; max-width: var(--column); margin-inline: auto; }
+  /* From 600px up (above the phone layout) body content always keeps 56px of padding each side, however the window is resized. */
+  @media (min-width: 600px) { .section { padding-inline: var(--gutter-wide); } }
   /* Under a page title the standard 48px section margin is the only gap (the title has no bottom padding). */
   .section.tight { margin-block: calc(var(--flow) * 2); }   /* 32px: denser lists, still symmetric */
   .section > :global(* + *) { margin-top: var(--flow); }
