@@ -1,8 +1,9 @@
 ---
 // Solid button. Label uses the eyebrow style (sans caps) in the page color; square corners per --radius.
 interface Props { href: string; }
+const external = /^https?:\/\//.test(Astro.props.href);   // outside links open in a new tab
 ---
-<a class="btn eyebrow" href={Astro.props.href}><slot /></a>
+<a class="btn eyebrow" href={Astro.props.href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}><slot /></a>
 
 <style>
   .btn {

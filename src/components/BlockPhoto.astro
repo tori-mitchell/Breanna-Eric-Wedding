@@ -1,11 +1,11 @@
 ---
 // Photo with a soft watercolor wash bleeding out from behind it (replaces the old solid blue block).
-interface Props { src?: string; label?: string; variant?: 'left' | 'right'; sage?: boolean; }
-const { src, label = 'Photo', variant = 'left', sage = false } = Astro.props;
+interface Props { src?: string; label?: string; variant?: 'left' | 'right'; sage?: boolean; wide?: boolean; }
+const { src, label = 'Photo', variant = 'left', sage = false, wide = false } = Astro.props;
 import Figure from './Figure.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
-<div class:list={['bp', variant, { sage }]} style={`--washimg:url(${base}images/wash-smudge.webp)`}>
+<div class:list={['bp', variant, { sage, wide }]} style={`--washimg:url(${base}images/wash-smudge.webp)`}>
   <img class="wash" src={`${base}images/wash-smudge.webp`} alt="" width="272" aria-hidden="true" />
   <div class="photo"><Figure src={src} label={label} ratio="2 / 3" /></div>
 </div>
@@ -26,4 +26,17 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   .right .photo { left: 16px; right: 64px; }
   .right .wash { right: -8px; top: 40px; width: 192px; opacity: 0.45; transform: scaleX(-1); }   /* smaller and lower, so it sits beside the art instead of above it */
+  /* Desktop only: the section's generic image margin (--block) was being applied to this photo too, pushing it down
+     past its own box and into the next section. Cancel it here. (Phones keep their current layout.) */
+  @media (min-width: 1024px) {
+    .bp .photo :global(.fig) { margin-block: 0; }
+    /* The painting's pale sky fades in, so its visible top edge sits ~24px below its box. Take that back from the top gap so the
+       visible gap above the image matches the one below it. */
+    .bp.bp { margin-top: calc(var(--block) - 32px); margin-bottom: calc(var(--block) - 16px); }
+    /* wide: the image breaks out of the text column to the full wide width (824px, = the two-column total), centered, as a landscape crop. */
+    .bp.bp.wide { width: var(--column-wide); margin-inline: calc((100% - var(--column-wide)) / 2); }
+    .wide .photo { left: 40px; right: 40px; }
+    .wide .photo :global(img), .wide .photo :global(.ph) { -webkit-mask-image: url('../assets/photo-mask-landscape.webp') !important; mask-image: url('../assets/photo-mask-landscape.webp') !important; }   /* landscape mask for the landscape crop */
+    .wide .wash { right: 8px; }   /* 40px above, 56px below: visible gaps ~80px each */
+  }
 </style>

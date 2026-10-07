@@ -6,6 +6,7 @@ import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const art = (n) => `${base}images/art/${n}.jpg`;
 import Flourish from '../components/Flourish.astro';
+import { registry } from '../data/links';
 ---
 <Base title="Breanna & Eric">
   <section class="page hero" data-align="center">
@@ -20,7 +21,8 @@ import Flourish from '../components/Flourish.astro';
     </div>
   </section>
 
-  <Section>
+  <Section wide>
+    <div class="duo">
     <BlockPhoto src="images/art/couple.jpg" label="Photo: couple" variant="left" />
     <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
       <Flourish />
@@ -31,17 +33,18 @@ import Flourish from '../components/Flourish.astro';
       <p class="script sig">Breanna &amp; Eric</p>
       <Flourish />
     </div>
+    </div>
   </Section>
 
-  <Section>
+  <Section id="accommodations">
     <p class="eyebrow">Accommodations</p>
     <h2 class="subhead">This is where our forever begins</h2>
     <p>Borgo Laticastelli, a restored 12th-century Tuscan village overlooking the Crete Senesi, is reserved just for our group.</p>
     <p><a class="more" href={`${base}lodging/`}>Learn more →</a></p>
-    <BlockPhoto sage src="images/art/ceremony.jpg" label="Watercolor: ceremony" variant="right" />
+    <BlockPhoto wide sage src="images/art/ceremony.jpg" label="Watercolor: ceremony" variant="right" />
   </Section>
 
-  <Section>
+  <Section id="rsvp">
     <img class="sprig tr wc wc-landscape" src={`${base}images/art/sprig-1.jpg`} alt="" />
     <p class="eyebrow">RSVP</p>
     <h2 class="subhead">Already know you can’t make it?</h2>
@@ -54,7 +57,7 @@ import Flourish from '../components/Flourish.astro';
     <p class="eyebrow">Registry</p>
     <h2 class="subhead">For the Years Ahead</h2>
     <p>The greatest gift is having you there to celebrate with us. For those who have asked, we’ve created a registry filled with a few things we’d love for the home and life we’re continuing to build together.</p>
-    <p><Button href="#">View our Registry</Button></p>
+    <p><Button href={registry}>View our Registry</Button></p>
   </Section>
 </Base>
 
@@ -131,4 +134,15 @@ import Flourish from '../components/Flourish.astro';
   .sprig { position: absolute; width: 96px; height: auto; pointer-events: none; }
   .tr { right: 0; top: -48px; }
   .br { right: 0; bottom: -72px; }
+
+  /* Desktop only (>= 1024px): the couple photo and the letter sit side by side, photo left, letter right.
+     Phones keep the stacked layout. */
+  @media (min-width: 1024px) {
+    .duo { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--col-gap); align-items: center; }
+    .duo :global(.bp.bp) { margin-block: 0; }
+    .letter.letter { margin-top: 0; }
+    /* RSVP sits closer to the ceremony painting above it; the margins of the Accommodations section, the painting and RSVP all collapse together, so each is 56px */
+    :global(#rsvp) { margin-top: calc(var(--block) - 16px); }
+    :global(#accommodations) { margin-bottom: calc(var(--block) - 16px); }
+  }
 </style>

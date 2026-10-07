@@ -188,3 +188,7 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Four per-day schedules (Thu–Sun) with timestamps live below the summary on `/itinerary/`, data in `src/data/daily.ts`. All times and events are dummy placeholders, labeled "Placeholder schedule". Each has a magenta placeholder image slot (blurred edges + wash) to replace.
 
 - Image swap: Itinerary daily schedules now use the watercolors (Arrival: villa, Relaxation: pool, Wedding Day: ceremony, Departure: coffee terrace). Accommodations has magenta placeholders in those slots (pool, doorway, terrace) to replace; its wide borgo header image is unchanged.
+
+## Spacing tokens (decided)
+- `--block` = THE standard gap between sections, images and collages: 48px on phones, 96px at >= 1024px (set in `tokens.css`). `--flow` = 16px between text blocks (same on both).
+- Known mobile quirk (left alone on purpose): on phones the BlockPhoto image is nudged down 48px by the generic section image margin, so it overhangs its box and sits close to the next block. Fixed on desktop only; ask before changing phones.

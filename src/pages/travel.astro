@@ -14,20 +14,26 @@ import Flourish from '../components/Flourish.astro';
   </Section>
   <Flourish spaced />
 
-  <Section align="center">
+  <Section align="center" wide>
     <h2 class="subhead">The Simple Version</h2>
     <ol class="steps">
       <Step n="01" title="Fly"><p>Fly into Florence, Rome, or Pisa depending on the route and airfare that work best for your trip.</p></Step>
       <Step n="02" title="Train"><p>Continue by train to Rapolano Terme, the station closest to Laticastelli.</p></Step>
-      <Step n="03" title="We’ll Meet You There">
+      <Step n="03" title="See You There">
         <p>Coordinated transfers will meet selected trains arriving in Rapolano Terme on Thursday and bring guests the short remaining distance to the borgo.</p>
-        <p><em>Recommended train options and exact pickup times will be shared closer to the wedding once the 2027 rail schedule is available.</em></p>
       </Step>
     </ol>
+  </Section>
+
+  <Section tight align="center">
+    <p><em>Recommended train options and exact pickup times will be shared closer to the wedding once the 2027 rail schedule is available.</em></p>
+  </Section>
+
+  <Section align="center" wide>
     <Figure art wash="right" accent="sage" src="images/art/map.jpg" ratio="16 / 9" label="Illustrated route map" />
   </Section>
 
-  <Section align="center">
+  <Section align="center" wide>
     <h2 class="subhead">Choosing an Airport</h2>
     <ol class="steps">
       <Step n="For simplicity" title="Florence"><p>Florence is the simplest option once you are on the ground. From the airport, you can connect into central Florence and continue by regional train through Siena to Rapolano Terme.</p></Step>
@@ -35,6 +41,8 @@ import Flourish from '../components/Flourish.astro';
       <Step n="For your itinerary" title="Pisa"><p>Pisa is also possible, particularly if it fits well with the rest of your Italy itinerary. From the airport, connect to Pisa Centrale and continue toward Rapolano Terme through Tuscany.</p></Step>
     </ol>
   </Section>
+
+  <Flourish spaced />
 
   <Section>
     <p class="eyebrow">Good to know</p>
@@ -57,4 +65,11 @@ import Flourish from '../components/Flourish.astro';
 
 <style>
   .steps { padding: 0; margin: var(--flow) auto 0; max-width: 24rem; }
+  /* Desktop (>= 1024px): the three steps sit side by side in the wide column, separated by thin vertical dividers.
+     Phones keep the stacked list with horizontal dividers. */
+  @media (min-width: 1024px) {
+    .steps { max-width: none; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-3); }
+    .steps :global(.step) { border-top: 0; border-left: 1px solid var(--color-rule); padding: var(--space-2) var(--space-3); }
+    .steps :global(.step:first-child) { border-left: 0; }
+  }
 </style>

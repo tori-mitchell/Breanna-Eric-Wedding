@@ -3,7 +3,7 @@
 interface Props { q: string; }
 ---
 <details class="faq">
-  <summary>{Astro.props.q}</summary>
+  <summary><span class="q">{Astro.props.q}</span></summary>
   <div class="a small"><slot /></div>
 </details>
 
@@ -12,6 +12,10 @@ interface Props { q: string; }
   .faq:last-of-type { border-bottom: 1px solid var(--color-rule); }
   summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 16px 0; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--color-text); }
   summary::-webkit-details-marker { display: none; }
+  /* Hover (mouse devices) or keyboard focus: the question is underlined, like the Itinerary titles; the +/– marker stays clear of it */
+  .q { text-decoration: underline transparent; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color 150ms var(--ease); }
+  @media (hover: hover) { summary:hover .q { text-decoration-color: currentColor; } }
+  summary:focus-visible .q { text-decoration-color: currentColor; }
   summary::after { content: '+'; flex: none; color: var(--color-accent); font-weight: 400; }
   .faq[open] summary::after { content: '–'; }
   summary:focus-visible { outline: 2px solid var(--color-label); outline-offset: 4px; }

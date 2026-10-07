@@ -77,7 +77,7 @@
   --tracking-eyebrow: 3px;
 
   /* Shared layout heights (grid-aligned) */
-  --nav-h: 64px;                  /* slim bar on mobile; taller on desktop (below) */
+  --nav-h: 64px;                  /* nav bar height on phones; 88px from 1024px up (hamburger or full row alike, below) */
   --footer-h: 48px;
 
   /* Spacing */
@@ -89,9 +89,14 @@
   --space-6: 6rem;
   /* Vertical rhythm: 16px between blocks of text; 48px around sections and media, same above and below */
   --flow: 1rem;                   /* 16px */
-  --block: 3rem;                  /* 48px */
+  --block: 3rem;                  /* 48px: THE standard gap between sections, images and collages (phones). Desktop value below. */
+  --gutter-wide: 3.5rem;          /* 56px: left/right padding of body content from the phone breakpoint (600px) up, at every width */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
+  --column-mid: 30rem;            /* 480px: the narrower single column (opt-in per section via `mid`) */
+  --col-gap: 1.5rem;              /* 24px: the gap between the two columns of EVERY two-column layout (Home, Itinerary, schedule rows) */
+  --column-wide: 51.5rem;         /* 824px: two-column sections on desktop (two 400px columns + 24px gap) */
+  --column: 34.5rem;              /* 552px (was 640): width of the centered single content column on wide screens (phones are narrower, so unaffected) */
 
   /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */
   --temp-outline: none;
@@ -104,4 +109,4 @@
   --dur: 600ms;
 }
 
-@media (min-width: 1024px) { :root { --nav-h: 88px; } }
+@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 4.5rem; /* 72px: the same standard gap, roomier on desktop (was 96; 72 keeps header-to-content gaps tighter) */ } }

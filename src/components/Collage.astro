@@ -6,7 +6,7 @@
 // rich: two extra washes (a blue one tucked behind the middle, a gentle sage-green one low and off to the side).
 // `overlap` = how far each row tucks over the one above (px). Pass `items`; per-item w (% of width), tilt (deg), side (zigzag).
 import Figure from './Figure.astro';
-interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right' | 'center'; tilt?: number; z?: number; pos?: string; fade?: 'soft' | 'mid' | 'blend'; }
+interface Item { src: string; ratio: string; label: string; w?: number; side?: 'left' | 'right' | 'center'; tilt?: number; wd?: number; z?: number; pos?: string; fade?: 'soft' | 'mid' | 'blend'; }
 interface Props { items: Item[]; wash?: 'left' | 'right'; overlap?: number; layout?: 'zigzag' | 'cluster'; rich?: boolean; accent?: 'sage' | 'peach'; center?: boolean; }
 const { items, wash = 'right', overlap = 48, layout = 'zigzag', rich = false, accent, center = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -15,14 +15,14 @@ const rows: number[][] = layout === 'cluster'
   ? [[0], ...Array.from({ length: Math.ceil((items.length - 1) / 2) }, (_, r) => idx.slice(1 + r * 2, 3 + r * 2))]
   : idx.map((i) => [i]);
 ---
-<div class:list={['collage', wash, layout, { rich }]} data-accent={accent} style={`--wash:url(${base}images/wash-smudge.webp);--ov:${overlap}px`}>
+<div class:list={['collage', wash, layout, { rich }]} data-accent={accent} style={`--wash:url(${base}images/wash-smudge.webp);--ovn:${overlap}`}>
   {center && <i class="w w5" aria-hidden="true" />}
   {accent && !rich && <i class="w w4" aria-hidden="true" />}
   {rich && <><i class="w w3" aria-hidden="true" /><i class="w w4" aria-hidden="true" /></>}
   {rows.map((row, r) => (
     <div class:list={['row', layout === 'zigzag' ? (items[row[0]].side ?? (r % 2 ? 'right' : 'left')) : 'mid']} style={`--z:${items[row[0]].z ?? r + 1}`}>
       {row.map((i) => (
-        <div class="piece" style={`--w:${items[i].w ?? 64}%;--tilt:${items[i].tilt ?? 0}deg;--pos:${items[i].pos ?? 'center'}`}>
+        <div class="piece" style={`--w:${items[i].w ?? 64}%;${items[i].wd ? `--wd:${items[i].wd}%;` : ''}--tilt:${items[i].tilt ?? 0}deg;--pos:${items[i].pos ?? 'center'}`}>
           <Figure soft={items[i].fade === 'soft'} mid={items[i].fade === 'mid'} blend={!items[i].fade || items[i].fade === 'blend'} src={items[i].src} ratio={items[i].ratio} label={items[i].label} />
         </div>
       ))}
@@ -41,9 +41,9 @@ const rows: number[][] = layout === 'cluster'
   /* Extra accents (rich): behind everything, peeking out between and around the photos */
   .w { position: absolute; z-index: -1; aspect-ratio: 1; background: var(--wash) center / 100% 100% no-repeat; mix-blend-mode: multiply; pointer-events: none; }
   .w3 { width: 208px; left: -40px; top: 42%; opacity: 0.5; transform: rotate(24deg); }
-  .w4 { width: 224px; right: -48px; bottom: -16%; opacity: 0.7; transform: scaleX(-1) rotate(-18deg); background: var(--color-sage); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; }   /* gentle sage green (--color-sage) */
+  .w4 { width: 224px; right: -32px; bottom: 2%; opacity: 0.7; transform: scaleX(-1) rotate(-18deg); background: var(--color-sage); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; }   /* gentle sage green (--color-sage) */
   /* keep the green off the blue washes (overlap turns it muddy): on left-wash collages it moves to the upper right, and on right-wash ones to the lower right */
-  .collage.left:not([data-accent]) .w4 { bottom: auto; top: -12%; }
+  .collage.left:not([data-accent]) .w4 { bottom: auto; top: 2%; }
   /* center: a blue wash tucked behind the middle, to fill the gap where photos meet */
   .w5 { width: 256px; left: calc(50% - 128px); top: 22%; opacity: 0.5; background: var(--color-accent); -webkit-mask: var(--wash) center / 100% 100% no-repeat; mask: var(--wash) center / 100% 100% no-repeat; transform: rotate(-8deg); }
   .collage[data-accent='peach'] .w4 { background: var(--color-peach); opacity: 0.9; right: -32px; bottom: 8%; }
@@ -51,8 +51,13 @@ const rows: number[][] = layout === 'cluster'
   .row.left { justify-content: flex-start; }
   .row.right { justify-content: flex-end; }
   .row.mid, .row.center { justify-content: center; }
-  .row + .row { margin-top: calc(-1 * var(--ov)); }   /* rows tuck over the one above */
+  /* Overlap is tuned on a 345px-wide collage (a phone). It scales with the collage's actual width (container query units), so
+     wider containers keep the same proportions instead of looking stretched apart. */
+  .collage { container-type: inline-size; }
+  .row + .row { margin-top: calc(var(--ovn) / 345 * -100cqw); }   /* rows tuck over the one above */
   .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; flex: none; }
+  /* `wd`: optional width for desktop (>= 1024px), where a collage lives in a 400px column and can fill it more. */
+  @media (min-width: 1024px) { .piece { width: var(--wd, var(--w)); } }
   .row.mid .piece + .piece { margin-left: -12%; }      /* pairs overlap sideways, so the cluster stays one shape */
   .piece.piece :global(.fig) { margin-block: 0; }
   .piece :global(img) { object-position: var(--pos); }

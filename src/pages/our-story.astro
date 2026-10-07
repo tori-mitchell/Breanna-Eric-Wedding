@@ -4,14 +4,16 @@ import PageTitle from '../components/PageTitle.astro';
 import Section from '../components/Section.astro';
 import Figure from '../components/Figure.astro';
 import Collage from '../components/Collage.astro';
+import Letter from '../components/Letter.astro';
 ---
 <Base title="Our Story — Breanna & Eric">
   <PageTitle title="Our Story" />
 
   <Section>
-    <h2>Welcome</h2>
-    <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
-    <p><em>We can’t wait to celebrate with you!</em></p>
+    <Letter title="Welcome">
+      <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
+      <p><em>We can’t wait to celebrate with you!</em></p>
+    </Letter>
     <Collage rich wash="right" layout="cluster" overlap={64} items={[
       { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo: couple on trail', w: 80, tilt: -2 },
       { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 56, tilt: -3 },
@@ -19,7 +21,7 @@ import Collage from '../components/Collage.astro';
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split rows={7}>
     <p class="eyebrow">Chapter One</p>
     <h2 class="script">How We Met</h2>
     <p>All of Breanna’s friends were out of town when a random boy she’d been texting asked what she was doing that night.</p>
@@ -33,7 +35,7 @@ import Collage from '../components/Collage.astro';
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split flip rows={7}>
     <p class="eyebrow">Chapter Two</p>
     <h2 class="script">Life Together</h2>
     <p>After ZincHouse came a lot more dates, and then Eric got a dog.</p>
@@ -41,6 +43,7 @@ import Collage from '../components/Collage.astro';
     <p>There were weekends between Raleigh and Durham, Hurricanes games, good beer, little trips, and more and more time spent together simply because that was where they both wanted to be. Eventually, the back-and-forth gave way to moving in together.</p>
     <p>Travel became part of their rhythm too, whether it was somewhere new or just an excuse to get away, eat something good, and spend a few days together. Somewhere along the way, what had started as a last-minute date had become a shared home, a very loved dog, and a pretty great teammate.</p>
     <p><em>New places, good company, our favorite kind of adventure.</em></p>
+    <div class="media">
     <Collage rich wash="left" overlap={254} items={[
       { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 62, side: 'right', tilt: 2, z: 5 },
       { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 62, side: 'left', tilt: -2 },
@@ -50,9 +53,10 @@ import Collage from '../components/Collage.astro';
       { src: 'images/story/troll.jpg', ratio: '4 / 3', label: 'Troll sculpture', w: 56, tilt: 3 },
       { src: 'images/story/hockey.jpg', ratio: '4 / 3', label: 'Hockey game', w: 56, tilt: -2 },
     ]} />
+    </div>
   </Section>
 
-  <Section>
+  <Section wide split rows={8}>
     <p class="eyebrow">Chapter Three</p>
     <h2 class="script">Engagement</h2>
     <p>By the time Eric was ready to propose, he knew one thing for certain: Breanna needed to be surprised.</p>
@@ -62,13 +66,13 @@ import Collage from '../components/Collage.astro';
     <p>Instead, she walked into the backyard to find Eric, a ring, and their family and friends waiting to surprise her.</p>
     <p>The Canes would have to wait.</p>
     <Collage wash="right" overlap={96} items={[
-      { src: 'images/story/proposal.jpg', ratio: '3 / 2', label: 'Photo: proposal arch', w: 76, side: 'left', tilt: -2 },
-      { src: 'images/story/reaction.jpg', ratio: '5 / 4', label: 'Photo: reaction', w: 56, side: 'right', tilt: 3 },
-      { src: 'images/story/group.jpg', ratio: '3 / 2', label: 'Photo: family & friends', w: 72, side: 'left', tilt: -2 },
+      { src: 'images/story/proposal.jpg', ratio: '3 / 2', label: 'Photo: proposal arch', w: 76, wd: 100, side: 'left', tilt: -2 },
+      { src: 'images/story/reaction.jpg', ratio: '5 / 4', label: 'Photo: reaction', w: 56, wd: 74, side: 'right', tilt: 3 },
+      { src: 'images/story/group.jpg', ratio: '3 / 2', label: 'Photo: family & friends', w: 72, wd: 96, side: 'left', tilt: -2 },
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split flip rows={4}>
     <p class="eyebrow">Chapter Four</p>
     <h2 class="script">And Now, Tuscany.</h2>
     <p>All of these moments, the people, the places, the adventures, have brought us here. To a quieter chapter, filled with gratitude for what we’ve built and excitement for what’s ahead.</p>
@@ -79,3 +83,10 @@ import Collage from '../components/Collage.astro';
   </Section>
 </Base>
 
+<style>
+  /* Desktop: the two collages stacked in Chapter Two sit closer together (their own 72px margins were adding to the blank fade space) */
+  @media (min-width: 1024px) {
+    .media > :global(.collage.collage) { margin-block: 0; }
+    .media > :global(.collage.collage + .collage.collage) { margin-top: -24px; }
+  }
+</style>

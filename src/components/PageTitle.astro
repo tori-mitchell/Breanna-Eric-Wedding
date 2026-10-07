@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 </header>
 
 <style>
-  .title { display: grid; place-items: center; padding: var(--space-2) 0 0; }
+  .title { display: grid; place-items: center; padding: var(--space-2) 0 0; max-width: 960px; margin-inline: auto; }   /* the banner stops growing on wide screens */
   .title > * { grid-area: 1 / 1; }
   /* Paper in the image is pure white, so multiply leaves the page texture alone; edges fade out on all four sides. */
   .banner { width: 100%; height: auto; display: block; mix-blend-mode: multiply;
@@ -22,5 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
       -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 14%, rgba(0, 0, 0, 0.2) 28%, rgba(0, 0, 0, 0.2) 72%, #000 86%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
       mask-image: linear-gradient(to right, transparent, #000 6%, #000 14%, rgba(0, 0, 0, 0.2) 28%, rgba(0, 0, 0, 0.2) 72%, #000 86%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent); }
   }
+  /* Desktop: a larger script title to suit the larger banner (phones keep 40px) */
+  @media (min-width: 1024px) { h1 { font-size: 3.5rem; } }
   h1 { text-align: center; white-space: nowrap; position: relative; z-index: 1; }
 </style>
