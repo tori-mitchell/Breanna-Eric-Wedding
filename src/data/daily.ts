@@ -1,8 +1,7 @@
 // Daily schedules (one per day, timestamps instead of dates).
 // PLACEHOLDER DATA: every time and event below is a dummy example, not the real schedule. Replace before launch (docs/CONTENT-TODO.md).
-// Set to true to show the per-day schedules (and the arrows on the summary rows that jump to them).
-// Hidden for now: the page shows a "Details coming soon" message instead.
-export const showDaily = false;
+// Set to true to show each day's hourly rows. While false, each day shows its heading and image plus a "Details coming soon" note.
+export const showDailyRows = false;
 
 export const daily = [
   { title: 'Arrival', date: 'Thursday the 16th', img: 'images/art/arrival.jpg', imgLabel: 'Watercolor: villa arrival', rows: [
