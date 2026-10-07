@@ -28,7 +28,7 @@ const current = Astro.url.pathname;
 
 <style>
   /* Mobile: slim glass bar (brand + menu icon). The menu opens full-screen beneath it.
-     >= 1264px (the links physically fit from ~1216px; 1264px leaves room beside the brand): the same markup becomes one expanded row; narrower screens, tablets included, keep the hamburger. Without JS the menu is simply shown inline.
+     >= 1200px (the links physically fit from ~1160px; 1200px leaves ~80px beside the brand): the same markup becomes one expanded row; narrower screens, tablets included, keep the hamburger. Without JS the menu is simply shown inline.
      STRUCTURE NOTE: the bar is the sticky element and carries its own backdrop blur; the menu is a SIBLING of the bar,
      not a child. (Chromium won't blur what's behind a child of a sticky element.) */
   .bar {
@@ -111,7 +111,7 @@ const current = Astro.url.pathname;
   :global(html:not(.js)) .menu li a { min-height: 48px; font-size: var(--text-body); font-weight: 400; }
 
   /* Expanded desktop nav (tablets keep the hamburger) */
-  @media (min-width: 1264px) {
+  @media (min-width: 1200px) {
     /* Desktop glass: clearer (tint 55% -> 38%) and a little more blur (12px -> 16px). Phones keep their current glass. */
     :global(html.js) .bar.scrolled {
       background: color-mix(in srgb, var(--color-bg) 38%, transparent);
@@ -126,7 +126,7 @@ const current = Astro.url.pathname;
       -webkit-backdrop-filter: none; backdrop-filter: none; opacity: 1; visibility: visible;
     }
     :global(html.menu-open) { overflow: auto; }
-    ul { display: flex; gap: 32px; }   /* was 40px */
+    ul { display: flex; gap: var(--space-3); }   /* 24px (was 40, then 32) */
     .menu li a {
       min-height: 48px; min-width: 48px; padding-inline: 4px;
       font-family: var(--font-sans); font-size: var(--text-eyebrow); font-weight: 400; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; line-height: 24px;
@@ -145,7 +145,7 @@ const current = Astro.url.pathname;
   const menu = document.querySelector('.menu') as HTMLElement | null;
   if (bar && toggle && menu) {
     const root = document.documentElement;
-    const desktop = window.matchMedia('(min-width: 1264px)');
+    const desktop = window.matchMedia('(min-width: 1200px)');
     const isOpen = () => bar.classList.contains('open');
     const set = (open: boolean, focus = true) => {
       bar.classList.toggle('open', open);
