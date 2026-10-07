@@ -29,7 +29,7 @@ const { dow, date, time, title, href } = Astro.props;
   .what > p { margin: 4px 0 0; }
   /* Tappable summary: the whole title + description block jumps to that day's detailed schedule */
   .link { display: block; color: inherit; text-decoration: none; }
-  .arrow { margin-left: 4px; position: relative; top: -1px; color: var(--color-body); font-family: var(--font-body); font-weight: 400; font-variant-emoji: text; transition: transform 150ms var(--ease); } /* grid-exempt: optical arrow alignment */
+  .arrow { margin-left: 4px; position: relative; top: 0; color: var(--color-body); font-family: var(--font-body); font-weight: 400; font-variant-emoji: text; transition: transform 150ms var(--ease); } /* grid-exempt: optical arrow alignment */
   .link:hover .arrow, .link:active .arrow { transform: translateX(4px); }
   .link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 
