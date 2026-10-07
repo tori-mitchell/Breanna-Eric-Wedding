@@ -7,7 +7,7 @@ const { align = 'left', tight = false, id } = Astro.props;
 <style>
   /* One rhythm: --flow (16px) between text blocks, --block (48px) around sections and media,
      identical above and below so nothing looks bottom-heavy. */
-  .section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }   /* anchored sections clear the sticky nav */
+  .section[id] { scroll-margin-top: calc(var(--nav-h) + 32px); }   /* anchored sections clear the sticky nav */
   .section { position: relative; padding-inline: var(--gutter); margin-block: var(--block); }
   /* Under a page title the standard 48px section margin is the only gap (the title has no bottom padding). */
   .section.tight { margin-block: calc(var(--flow) * 2); }   /* 32px: denser lists, still symmetric */
