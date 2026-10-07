@@ -4,14 +4,16 @@ import PageTitle from '../components/PageTitle.astro';
 import Section from '../components/Section.astro';
 import Figure from '../components/Figure.astro';
 import Collage from '../components/Collage.astro';
+import Letter from '../components/Letter.astro';
 ---
 <Base title="Our Story — Breanna & Eric">
   <PageTitle title="Our Story" />
 
-  <Section wide split flip rows={3}>
-    <h2>Welcome</h2>
-    <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
-    <p><em>We can’t wait to celebrate with you!</em></p>
+  <Section wide split flip rows={1}>
+    <Letter title="Welcome">
+      <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
+      <p><em>We can’t wait to celebrate with you!</em></p>
+    </Letter>
     <Collage rich wash="right" layout="cluster" overlap={64} items={[
       { src: 'images/story/trail.jpg', ratio: '3 / 2', label: 'Photo: couple on trail', w: 80, tilt: -2 },
       { src: 'images/story/parade.jpg', ratio: '3 / 4', label: 'Photo: Hurricanes parade', w: 56, tilt: -3 },
@@ -64,9 +66,9 @@ import Collage from '../components/Collage.astro';
     <p>Instead, she walked into the backyard to find Eric, a ring, and their family and friends waiting to surprise her.</p>
     <p>The Canes would have to wait.</p>
     <Collage wash="right" overlap={96} items={[
-      { src: 'images/story/proposal.jpg', ratio: '3 / 2', label: 'Photo: proposal arch', w: 76, side: 'left', tilt: -2 },
-      { src: 'images/story/reaction.jpg', ratio: '5 / 4', label: 'Photo: reaction', w: 56, side: 'right', tilt: 3 },
-      { src: 'images/story/group.jpg', ratio: '3 / 2', label: 'Photo: family & friends', w: 72, side: 'left', tilt: -2 },
+      { src: 'images/story/proposal.jpg', ratio: '3 / 2', label: 'Photo: proposal arch', w: 76, wd: 100, side: 'left', tilt: -2 },
+      { src: 'images/story/reaction.jpg', ratio: '5 / 4', label: 'Photo: reaction', w: 56, wd: 74, side: 'right', tilt: 3 },
+      { src: 'images/story/group.jpg', ratio: '3 / 2', label: 'Photo: family & friends', w: 72, wd: 96, side: 'left', tilt: -2 },
     ]} />
   </Section>
 
@@ -81,3 +83,10 @@ import Collage from '../components/Collage.astro';
   </Section>
 </Base>
 
+<style>
+  /* Desktop: the two collages stacked in Chapter Two sit closer together (their own 72px margins were adding to the blank fade space) */
+  @media (min-width: 1024px) {
+    .media > :global(.collage.collage) { margin-block: 0; }
+    .media > :global(.collage.collage + .collage.collage) { margin-top: -24px; }
+  }
+</style>
