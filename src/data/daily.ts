@@ -1,22 +1,22 @@
 // Daily schedules (one per day, timestamps instead of dates).
 // PLACEHOLDER DATA: every time and event below is a dummy example, not the real schedule. Replace before launch (docs/CONTENT-TODO.md).
 export const daily = [
-  { day: 'Thursday', date: 'September 16', rows: [
+  { title: 'Arrival', date: 'Thursday the 16th', rows: [
     { time: '3:00 PM', title: 'Placeholder 1', desc: 'Dummy text. Not the real schedule.' },
     { time: '5:30 PM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
     { time: '7:30 PM', title: 'Placeholder 3', desc: 'Dummy text. Not the real schedule.' },
   ] },
-  { day: 'Friday', date: 'September 17', rows: [
+  { title: 'Relaxation', date: 'Friday the 17th', rows: [
     { time: '9:00 AM', title: 'Placeholder 1', desc: 'Dummy text. Not the real schedule.' },
     { time: '12:30 PM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
     { time: '6:00 PM', title: 'Placeholder 3', desc: 'Dummy text. Not the real schedule.' },
   ] },
-  { day: 'Saturday', date: 'September 18', rows: [
+  { title: 'Wedding Day', date: 'Saturday the 18th', rows: [
     { time: '10:00 AM', title: 'Placeholder 1', desc: 'Dummy text. Not the real schedule.' },
     { time: '4:00 PM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
     { time: '7:00 PM', title: 'Placeholder 3', desc: 'Dummy text. Not the real schedule.' },
   ] },
-  { day: 'Sunday', date: 'September 19', rows: [
+  { title: 'Departure', date: 'Sunday the 19th', rows: [
     { time: '8:30 AM', title: 'Placeholder 1', desc: 'Dummy text. Not the real schedule.' },
     { time: '11:00 AM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
   ] },
