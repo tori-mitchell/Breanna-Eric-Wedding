@@ -183,3 +183,8 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 - Received but not placed: "BE wine bottle" graphic, a second Sorrento-style terrace watercolor, the full-width "Ivory Watercolor Landscape Border" / valley strips.
 - Still a placeholder: Home hero background, Home couple photo.
 - Update: Home hero (`art/hero.jpg`) and couple photo (`art/couple.jpg`) are now final. No placeholder images remain in use.
+
+## Itinerary: daily schedules (placeholder)
+- Four per-day schedules (Thu–Sun) with timestamps live below the summary on `/itinerary/`, data in `src/data/daily.ts`. All times and events are dummy placeholders, labeled "Placeholder schedule". Each has a magenta placeholder image slot (blurred edges + wash) to replace.
+
+- Image swap: Itinerary daily schedules now use the watercolors (Arrival: villa, Relaxation: pool, Wedding Day: ceremony, Departure: coffee terrace). Accommodations has magenta placeholders in those slots (pool, doorway, terrace) to replace; its wide borgo header image is unchanged.

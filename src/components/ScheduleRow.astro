@@ -1,15 +1,22 @@
 ---
-// One itinerary row: day + date on one line in the left column, title + description on the right.
+// One itinerary row: day + date (or a `time` for the daily schedules) on one line in the left column, title + description on the right.
 // Below 360px wide there is no room for two columns, so the date stacks above the title.
-interface Props { dow: string; date: string; title: string; }
-const { dow, date, title } = Astro.props;
+interface Props { dow?: string; date?: string; time?: string; title: string; href?: string; }
+const { dow, date, time, title, href } = Astro.props;
 ---
 <div class="row">
-  <p class="when eyebrow">{dow} {date}</p>
-  <div class="what">
-    <h2 class="subhead-sm">{title}</h2>
-    <p class="small"><slot /></p>
-  </div>
+  <p class="when eyebrow">{time ?? `${dow} ${date}`}</p>
+  {href ? (
+    <a class="what link" href={href}>
+      <h2 class="subhead-sm">{title}<span class="arrow" aria-hidden="true">&#8594;&#xFE0E;</span></h2>
+      <p class="small"><slot /></p>
+    </a>
+  ) : (
+    <div class="what">
+      <h2 class="subhead-sm">{title}</h2>
+      <p class="small"><slot /></p>
+    </div>
+  )}
 </div>
 
 <style>
@@ -20,6 +27,11 @@ const { dow, date, title } = Astro.props;
   .when { margin: 0; padding-top: 4px; white-space: nowrap; color: var(--color-body); }
   .what > h2 { margin: 0; }
   .what > p { margin: 4px 0 0; }
+  /* Tappable summary: the whole title + description block jumps to that day's detailed schedule */
+  .link { display: block; color: inherit; text-decoration: none; }
+  .arrow { margin-left: 4px; position: relative; top: 0; color: var(--color-body); font-family: var(--font-body); font-weight: 400; font-variant-emoji: text; transition: transform 150ms var(--ease); } /* grid-exempt: optical arrow alignment */
+  .link:hover .arrow, .link:active .arrow { transform: translateX(4px); }
+  .link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 
   @media (max-width: 359px) {
     .row { grid-template-columns: 1fr; gap: 8px; }
