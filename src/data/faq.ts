@@ -24,5 +24,5 @@ export const faq = [
   { q: 'How do I RSVP?',
     a: 'Formal RSVP details will be shared with the invitation. If you already know you can’t make it, you’re welcome to let us know now.' },
   { q: 'Is there a registry?',
-    a: 'Yes. For those who have asked, we’ve put together a small registry. You’ll find the link on the <a href="{base}#registry">home page</a>.' },
+    a: 'Yes. For those who have asked, we’ve put together a small registry. You can <a href="https://withjoy.com/breanna-and-eric-sep-2027/registry" target="_blank" rel="noopener">view our registry here</a>.' },
 ];

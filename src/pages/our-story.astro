@@ -8,7 +8,7 @@ import Collage from '../components/Collage.astro';
 <Base title="Our Story — Breanna & Eric">
   <PageTitle title="Our Story" />
 
-  <Section>
+  <Section wide split flip rows={3}>
     <h2>Welcome</h2>
     <p>We’re so happy you’re here. More than anything, we wanted our wedding to feel like time set aside with the people we love most.</p>
     <p><em>We can’t wait to celebrate with you!</em></p>
@@ -19,7 +19,7 @@ import Collage from '../components/Collage.astro';
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split rows={7}>
     <p class="eyebrow">Chapter One</p>
     <h2 class="script">How We Met</h2>
     <p>All of Breanna’s friends were out of town when a random boy she’d been texting asked what she was doing that night.</p>
@@ -33,7 +33,7 @@ import Collage from '../components/Collage.astro';
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split flip rows={7}>
     <p class="eyebrow">Chapter Two</p>
     <h2 class="script">Life Together</h2>
     <p>After ZincHouse came a lot more dates, and then Eric got a dog.</p>
@@ -41,6 +41,7 @@ import Collage from '../components/Collage.astro';
     <p>There were weekends between Raleigh and Durham, Hurricanes games, good beer, little trips, and more and more time spent together simply because that was where they both wanted to be. Eventually, the back-and-forth gave way to moving in together.</p>
     <p>Travel became part of their rhythm too, whether it was somewhere new or just an excuse to get away, eat something good, and spend a few days together. Somewhere along the way, what had started as a last-minute date had become a shared home, a very loved dog, and a pretty great teammate.</p>
     <p><em>New places, good company, our favorite kind of adventure.</em></p>
+    <div class="media">
     <Collage rich wash="left" overlap={254} items={[
       { src: 'images/story/door.jpg', ratio: '2 / 3', label: 'Photo: couple + dog at door', w: 62, side: 'right', tilt: 2, z: 5 },
       { src: 'images/story/strawberry.jpg', ratio: '2 / 3', label: 'Photo: strawberry field', w: 62, side: 'left', tilt: -2 },
@@ -50,9 +51,10 @@ import Collage from '../components/Collage.astro';
       { src: 'images/story/troll.jpg', ratio: '4 / 3', label: 'Troll sculpture', w: 56, tilt: 3 },
       { src: 'images/story/hockey.jpg', ratio: '4 / 3', label: 'Hockey game', w: 56, tilt: -2 },
     ]} />
+    </div>
   </Section>
 
-  <Section>
+  <Section wide split rows={8}>
     <p class="eyebrow">Chapter Three</p>
     <h2 class="script">Engagement</h2>
     <p>By the time Eric was ready to propose, he knew one thing for certain: Breanna needed to be surprised.</p>
@@ -68,7 +70,7 @@ import Collage from '../components/Collage.astro';
     ]} />
   </Section>
 
-  <Section>
+  <Section wide split flip rows={4}>
     <p class="eyebrow">Chapter Four</p>
     <h2 class="script">And Now, Tuscany.</h2>
     <p>All of these moments, the people, the places, the adventures, have brought us here. To a quieter chapter, filled with gratitude for what we’ve built and excitement for what’s ahead.</p>

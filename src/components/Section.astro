@@ -33,10 +33,11 @@ const { align = 'left', tight = false, id, wide = false, mid = false, split = fa
   @media (min-width: 1024px) {
     .section.split { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--col-gap); grid-template-rows: 1fr repeat(var(--rows), auto) 1fr; }
     .section.split::before { content: ''; grid-column: 1; grid-row: 1; }
-    .section.split > :not(:global(.fig)) { grid-column: 1; }
-    .section.split > :global(.fig) { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-block: 0; width: 100%; }
-    .section.split.flip > :not(:global(.fig)) { grid-column: 2; }
+    /* the media element: a single image (.fig), a collage, or several wrapped in .media */
+    .section.split > :not(:global(.fig)):not(:global(.collage)):not(:global(.media)) { grid-column: 1; }
+    .section.split > :global(.fig), .section.split > :global(.collage.collage), .section.split > :global(.media) { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-block: 0; width: 100%; }
+    .section.split.flip > :not(:global(.fig)):not(:global(.collage)):not(:global(.media)) { grid-column: 2; }
     .section.split.flip::before { grid-column: 2; }
-    .section.split.flip > :global(.fig) { grid-column: 1; }
+    .section.split.flip > :global(.fig), .section.split.flip > :global(.collage.collage), .section.split.flip > :global(.media) { grid-column: 1; }
   }
 </style>

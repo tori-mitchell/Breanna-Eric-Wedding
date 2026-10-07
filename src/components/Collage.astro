@@ -15,7 +15,7 @@ const rows: number[][] = layout === 'cluster'
   ? [[0], ...Array.from({ length: Math.ceil((items.length - 1) / 2) }, (_, r) => idx.slice(1 + r * 2, 3 + r * 2))]
   : idx.map((i) => [i]);
 ---
-<div class:list={['collage', wash, layout, { rich }]} data-accent={accent} style={`--wash:url(${base}images/wash-smudge.webp);--ov:${overlap}px`}>
+<div class:list={['collage', wash, layout, { rich }]} data-accent={accent} style={`--wash:url(${base}images/wash-smudge.webp);--ovn:${overlap}`}>
   {center && <i class="w w5" aria-hidden="true" />}
   {accent && !rich && <i class="w w4" aria-hidden="true" />}
   {rich && <><i class="w w3" aria-hidden="true" /><i class="w w4" aria-hidden="true" /></>}
@@ -51,7 +51,10 @@ const rows: number[][] = layout === 'cluster'
   .row.left { justify-content: flex-start; }
   .row.right { justify-content: flex-end; }
   .row.mid, .row.center { justify-content: center; }
-  .row + .row { margin-top: calc(-1 * var(--ov)); }   /* rows tuck over the one above */
+  /* Overlap is tuned on a 345px-wide collage (a phone). It scales with the collage's actual width (container query units), so
+     wider containers keep the same proportions instead of looking stretched apart. */
+  .collage { container-type: inline-size; }
+  .row + .row { margin-top: calc(var(--ovn) / 345 * -100cqw); }   /* rows tuck over the one above */
   .piece { width: var(--w); transform: rotate(var(--tilt)); position: relative; flex: none; }
   .row.mid .piece + .piece { margin-left: -12%; }      /* pairs overlap sideways, so the cluster stays one shape */
   .piece.piece :global(.fig) { margin-block: 0; }
