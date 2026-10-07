@@ -138,8 +138,8 @@ const current = Astro.url.pathname;
     :global(html.js) .menu a[aria-current='page'] span { border-bottom-color: transparent; }
     .ind { display: block; position: absolute; left: 0; top: 0; height: 1px; width: 0; background: var(--color-accent); pointer-events: none; opacity: 0; }
     .ind.on { opacity: 1; }
-    .ind.slide { transition: transform 450ms var(--ease), width 450ms var(--ease); }
-    @media (prefers-reduced-motion: reduce) { .ind.slide { transition: none; } }
+    .menu .ind.slide { transition: transform 450ms var(--ease), width 450ms var(--ease); }
+    @media (prefers-reduced-motion: reduce) { .menu .ind.slide { transition: none; } }
     .menu li a {
       min-height: 48px; min-width: 48px; padding-inline: 4px;
       font-family: var(--font-sans); font-size: var(--text-eyebrow); font-weight: 400; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; line-height: 24px;
@@ -167,10 +167,9 @@ const current = Astro.url.pathname;
         ind.classList.remove('slide');
         put(prev ? prev.x : t.x, prev ? prev.w : t.w, t.y);
         ind.classList.add('on');
-        void ind.offsetWidth;                      // commit the starting position before animating
-        ind.classList.add('slide');
-        put(t.x, t.w, t.y);
         try { sessionStorage.setItem('navInd', JSON.stringify({ x: t.x, w: t.w })); } catch {}
+        // paint the starting position for a frame, then glide to the current link
+        requestAnimationFrame(() => requestAnimationFrame(() => { ind.classList.add('slide'); put(t.x, t.w, t.y); }));
       };
       (document.fonts?.ready ?? Promise.resolve()).then(run);
       window.addEventListener('resize', () => { if (!desktop.matches) return; const t = where(); ind.classList.remove('slide'); put(t.x, t.w, t.y); try { sessionStorage.setItem('navInd', JSON.stringify({ x: t.x, w: t.w })); } catch {} });
