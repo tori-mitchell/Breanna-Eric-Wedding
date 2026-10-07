@@ -1,8 +1,8 @@
 ---
-interface Props { align?: 'left' | 'center'; tight?: boolean; id?: string; wide?: boolean; mid?: boolean; }
-const { align = 'left', tight = false, id, wide = false, mid = false } = Astro.props;
+interface Props { align?: 'left' | 'center'; tight?: boolean; id?: string; wide?: boolean; mid?: boolean; split?: boolean; flip?: boolean; rows?: number; }
+const { align = 'left', tight = false, id, wide = false, mid = false, split = false, flip = false, rows = 3 } = Astro.props;
 ---
-<section id={id} class:list={['section', 'reveal', { tight, wide, mid }]} data-align={align}><slot /></section>
+<section id={id} class:list={['section', 'reveal', { tight, wide, mid, split, flip }]} style={split ? `--rows:${rows}` : undefined} data-align={align}><slot /></section>
 
 <style>
   /* One rhythm: --flow (16px) between text blocks, --block (48px) around sections and media,
@@ -24,5 +24,17 @@ const { align = 'left', tight = false, id, wide = false, mid = false } = Astro.p
   @media (min-width: 1024px) {
     .section.wide { max-width: var(--column-wide); }
     .section.mid { max-width: var(--column-mid); }   /* single column, 480px */
+  }
+  /* split: desktop (>= 1024px) puts the section's last element (its image) beside the text instead of below it.
+     Text is one column and vertically centered against the image; `flip` puts the image on the left. `rows` = number of text blocks.
+     Phones are untouched: the section stays a single stacked column. */
+  @media (min-width: 1024px) {
+    .section.split { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; grid-template-rows: 1fr repeat(var(--rows), auto) 1fr; }
+    .section.split::before { content: ''; grid-column: 1; grid-row: 1; }
+    .section.split > :not(:global(.fig)) { grid-column: 1; }
+    .section.split > :global(.fig) { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-block: 0; width: 100%; }
+    .section.split.flip > :not(:global(.fig)) { grid-column: 2; }
+    .section.split.flip::before { grid-column: 2; }
+    .section.split.flip > :global(.fig) { grid-column: 1; }
   }
 </style>

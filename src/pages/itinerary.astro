@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <Base title="Itinerary — Breanna & Eric">
   <PageTitle title="Itinerary" />
-  <Section mid>
+  <Section wide split rows={5}>
     {itinerary.map((d, i) => <ScheduleRow dow={d.dow} date={d.date} title={d.title} href={`#day-${i + 1}`}>{d.desc}</ScheduleRow>)}
     <p class="after"><em>Times will be added here as they’re finalized. More questions? See the <a href={`${base}faq/`}>FAQ</a>.</em></p>
     <Figure narrow wash="right" accent="sage" ratio="2 / 3" label="Placeholder image" />
@@ -20,7 +20,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   <Flourish spaced />
 
   {daily.map((d, i) => (
-    <Section mid id={`day-${i + 1}`}>
+    <Section wide split flip={i % 2 === 0} rows={3} id={`day-${i + 1}`}>
       <p class="eyebrow">{d.title}</p>
       <h2 class="subhead">{d.date}</h2>
       {showDailyRows ? (
