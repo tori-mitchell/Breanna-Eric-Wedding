@@ -186,3 +186,5 @@ Confirm for each: Canva library element (can't be extracted) vs. your own upload
 
 ## Itinerary: daily schedules (placeholder)
 - Four per-day schedules (Thu–Sun) with timestamps live below the summary on `/itinerary/`, data in `src/data/daily.ts`. All times and events are dummy placeholders, labeled "Placeholder schedule". Each has a magenta placeholder image slot (blurred edges + wash) to replace.
+
+- Image swap: Itinerary daily schedules now use the watercolors (Arrival: villa, Relaxation: pool, Wedding Day: ceremony, Departure: coffee terrace). Accommodations has magenta placeholders in those slots (pool, doorway, terrace) to replace; its wide borgo header image is unchanged.
