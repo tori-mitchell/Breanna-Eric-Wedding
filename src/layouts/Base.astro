@@ -29,17 +29,45 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     </svg>
     <Nav />
     <main><slot /></main>
-    <p class="to-top"><a class="more to-top-link" href="#top">Back to top &#8593;&#xFE0E;</a></p>
+    <p class="to-top"><a class="more" href="#top">Back to top &#8593;&#xFE0E;</a></p>
     <Footer />
     <script>
-      const els = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-        }, { threshold: 0.15 });
-        els.forEach((el) => io.observe(el));
-      } else els.forEach((el) => el.classList.add('is-visible'));
-    </script>
+  // Anchor links (#day-1, #top, ...): a slow, eased glide (about 0.7-1.4s, cubic in-out) instead of an instant jump.
+  // Honors each section's scroll-margin-top so headings land clear of the sticky nav. Reduced-motion users jump.
+  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const glideTo = (y: number, done?: () => void) => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const start = window.scrollY;
+    const dist = y - start;
+    if (reduce || Math.abs(dist) < 4) { window.scrollTo(0, y); done?.(); return; }
+    const dur = Math.min(1400, 700 + Math.abs(dist) * 0.1);
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const t = Math.min(1, (now - t0) / dur);
+      window.scrollTo(0, start + dist * ease(t));
+      if (t < 1) requestAnimationFrame(step); else done?.();
+    };
+    requestAnimationFrame(step);
+  };
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || (e as MouseEvent).button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const a = (e.target as HTMLElement).closest('a[href*="#"]') as HTMLAnchorElement | null;
+    if (!a || a.target === '_blank') return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || url.pathname !== location.pathname) return;   // other pages load normally
+    e.preventDefault();
+    const id = decodeURIComponent(url.hash.slice(1));
+    const target = id && id !== 'top' ? document.getElementById(id) : null;
+    if (id && id !== 'top' && !target) return;
+    const margin = target ? parseFloat(getComputedStyle(target).scrollMarginTop) || 0 : 0;
+    const y = target ? target.getBoundingClientRect().top + window.scrollY - margin : 0;
+    glideTo(Math.max(0, y), () => {
+      history.replaceState(null, '', id && id !== 'top' ? '#' + id : location.pathname + location.search);
+      (target ?? document.querySelector('.bar .brand') as HTMLElement | null)?.setAttribute('tabindex', '-1');
+      ((target ?? document.querySelector('.bar .brand')) as HTMLElement | null)?.focus({ preventScroll: true });
+    });
+  });
+</script>
   </body>
 </html>
 <style>
