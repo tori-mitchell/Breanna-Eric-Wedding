@@ -1,11 +1,11 @@
 ---
-// One itinerary row: day + date on one line in the left column, title + description on the right.
+// One itinerary row: day + date (or a `time` for the daily schedules) on one line in the left column, title + description on the right.
 // Below 360px wide there is no room for two columns, so the date stacks above the title.
-interface Props { dow: string; date: string; title: string; }
-const { dow, date, title } = Astro.props;
+interface Props { dow?: string; date?: string; time?: string; title: string; }
+const { dow, date, time, title } = Astro.props;
 ---
 <div class="row">
-  <p class="when eyebrow">{dow} {date}</p>
+  <p class="when eyebrow">{time ?? `${dow} ${date}`}</p>
   <div class="what">
     <h2 class="subhead-sm">{title}</h2>
     <p class="small"><slot /></p>
