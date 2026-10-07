@@ -107,4 +107,5 @@
   --dur: 600ms;
 }
 
-@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
+@media (min-width: 1264px) { :root { --nav-h: 88px; } }   /* expanded nav: see Nav.astro */
+@media (min-width: 1024px) { :root { --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
