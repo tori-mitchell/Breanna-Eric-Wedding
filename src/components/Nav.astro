@@ -13,6 +13,7 @@ const current = Astro.url.pathname;
   </button>
 </header>
 <nav class="menu" id="menu" aria-label="Main">
+  <span class="ind" aria-hidden="true"></span>
   <ul>
     {nav.map((item) => {
       const href = base + item.path;
@@ -103,6 +104,7 @@ const current = Astro.url.pathname;
   @media (hover: hover) { .menu a:hover span { border-bottom-color: var(--color-accent); } }
   .menu span { transition: border-color 150ms var(--ease); }
   .stamp { margin: 0; }
+  .ind { display: none; }
 
   /* No JS: menu is a plain centered list under the bar */
   :global(html:not(.js)) .toggle { display: none; }
@@ -132,6 +134,12 @@ const current = Astro.url.pathname;
     .menu li a[aria-current='page'] { color: var(--color-text); }
     @media (hover: hover) { .menu li a:hover { color: var(--color-text); } }
     .menu a span { padding-bottom: 0; line-height: 16px; display: inline-block; }
+    /* The current-page underline is one element that slides between links (and between pages: its last position is remembered). */
+    :global(html.js) .menu a[aria-current='page'] span { border-bottom-color: transparent; }
+    .ind { display: block; position: absolute; left: 0; top: 0; height: 1px; width: 0; background: var(--color-accent); pointer-events: none; opacity: 0; }
+    .ind.on { opacity: 1; }
+    .ind.slide { transition: transform 450ms var(--ease), width 450ms var(--ease); }
+    @media (prefers-reduced-motion: reduce) { .ind.slide { transition: none; } }
     .menu li a {
       min-height: 48px; min-width: 48px; padding-inline: 4px;
       font-family: var(--font-sans); font-size: var(--text-eyebrow); font-weight: 400; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; line-height: 24px;
@@ -142,6 +150,32 @@ const current = Astro.url.pathname;
 </style>
 
 <script>
+  // Sliding current-page underline (desktop row only): start where it sat on the previous page, then glide to the current link.
+  {
+    const menu = document.querySelector('.menu') as HTMLElement | null;
+    const ind = menu?.querySelector('.ind') as HTMLElement | null;
+    const cur = menu?.querySelector("a[aria-current='page'] span") as HTMLElement | null;
+    const desktop = window.matchMedia('(min-width: 1200px)');
+    const where = () => { const m = menu!.getBoundingClientRect(); const r = cur!.getBoundingClientRect(); return { x: r.left - m.left, w: r.width, y: r.bottom - m.top - 1 }; };
+    const put = (x: number, w: number, y: number) => { ind!.style.width = w + 'px'; ind!.style.transform = `translate(${x}px, ${y}px)`; };
+    if (menu && ind && cur) {
+      const run = () => {
+        if (!desktop.matches) return;
+        const t = where();
+        let prev: { x: number; w: number } | null = null;
+        try { prev = JSON.parse(sessionStorage.getItem('navInd') || 'null'); } catch {}
+        ind.classList.remove('slide');
+        put(prev ? prev.x : t.x, prev ? prev.w : t.w, t.y);
+        ind.classList.add('on');
+        void ind.offsetWidth;                      // commit the starting position before animating
+        ind.classList.add('slide');
+        put(t.x, t.w, t.y);
+        try { sessionStorage.setItem('navInd', JSON.stringify({ x: t.x, w: t.w })); } catch {}
+      };
+      (document.fonts?.ready ?? Promise.resolve()).then(run);
+      window.addEventListener('resize', () => { if (!desktop.matches) return; const t = where(); ind.classList.remove('slide'); put(t.x, t.w, t.y); try { sessionStorage.setItem('navInd', JSON.stringify({ x: t.x, w: t.w })); } catch {} });
+    }
+  }
   const bar = document.querySelector('.bar') as HTMLElement | null;
   const setScrolled = () => bar?.classList.toggle('scrolled', window.scrollY > 8);
   setScrolled();
