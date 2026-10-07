@@ -92,6 +92,7 @@
   --block: 3rem;                  /* 48px: THE standard gap between sections, images and collages (phones). Desktop value below. */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
+  --column-mid: 45rem;            /* 720px: the in-between single column (opt-in per section via `mid`) */
   --column-wide: 60rem;           /* 960px: two-column sections on desktop */
   --column: 40rem;                /* 640px: width of the centered content column on wide screens (phones are narrower, so unaffected) */
 
