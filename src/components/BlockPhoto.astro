@@ -32,6 +32,6 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     .bp .photo :global(.fig) { margin-block: 0; }
     /* The painting's pale sky fades in, so its visible top edge sits ~24px below its box. Take that back from the top gap so the
        visible gap above the image matches the one below it. */
-    .bp.bp { margin-top: calc(var(--block) - 56px); margin-bottom: calc(var(--block) - 40px); }   /* 40px above, 56px below: visible gaps ~80px each */
+    .bp.bp { margin-top: calc(var(--block) - 32px); margin-bottom: calc(var(--block) - 16px); }   /* 40px above, 56px below: visible gaps ~80px each */
   }
 </style>

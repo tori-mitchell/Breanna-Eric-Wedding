@@ -107,4 +107,4 @@
   --dur: 600ms;
 }
 
-@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
+@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 4.5rem; /* 72px: the same standard gap, roomier on desktop (was 96; 72 keeps header-to-content gaps tighter) */ } }
