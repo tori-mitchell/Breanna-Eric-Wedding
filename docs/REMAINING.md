@@ -23,7 +23,7 @@ Last updated with the desktop-layout release. Detailed history lives in `CONTENT
 - Done: custom domain is connected on Cloudflare Pages.
 - Decided: no branch protection needed; the dev -> prod workflow in `AGENTS.md` is the guard rail (rollback is always available via GitHub revert or Cloudflare Deployments).
 - Search indexing: the site is `noindex, nofollow` with a `robots.txt` disallow. Not a priority; leave as is unless it matters later.
-- [ ] Decide whether to keep the **GitHub Pages** deploy or use Cloudflare only.
+- Decided: Cloudflare only. The GitHub Pages workflow was removed; turn Pages off in the repo's GitHub Settings -> Pages if it's still enabled.
 
 ## Polish ideas (optional)
 - [ ] Re-check the 1024-1200px desktop range (two-column layouts with the hamburger nav).

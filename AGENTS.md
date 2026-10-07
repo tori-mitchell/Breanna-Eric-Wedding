@@ -1,6 +1,6 @@
 # Working agreement (humans and AI agents)
 
-Public wedding site for Breanna & Eric: Astro, plain CSS tokens, deployed on Cloudflare Pages (and GitHub Pages).
+Public wedding site for Breanna & Eric: Astro, plain CSS tokens, deployed on Cloudflare Pages only (the old GitHub Pages workflow was removed).
 
 ## Branches and releasing — READ FIRST
 - **`dev`** is where all work happens. Commit and push to `dev` first.
@@ -26,4 +26,4 @@ Public wedding site for Breanna & Eric: Astro, plain CSS tokens, deployed on Clo
 
 ## Handy
 - Dev server: `npm run dev`; production build check: `npm run build` then `npx astro preview`.
-- Base path is automatic: `/` on Cloudflare, `/Breanna-Eric-Wedding` on GitHub Pages.
+- The site is served from the root (`/`) everywhere, locally too (`http://localhost:4321/`).

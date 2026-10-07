@@ -1,14 +1,10 @@
 import { defineConfig } from 'astro/config';
 
-// Hosting is auto-detected:
-//  - Cloudflare Pages sets CF_PAGES: served from the site root.
-//  - Otherwise (GitHub Pages) the site lives under /Breanna-Eric-Wedding.
-// SITE_URL / BASE_PATH override either (e.g. a custom domain: SITE_URL=https://example.com BASE_PATH=/).
-const onCloudflare = Boolean(process.env.CF_PAGES);
-
+// Hosted on Cloudflare Pages only: always served from the site root.
+// SITE_URL (full address, e.g. the custom domain) and BASE_PATH can still be set to override.
 export default defineConfig({
-  site: process.env.SITE_URL || (onCloudflare ? process.env.CF_PAGES_URL : 'https://tori-mitchell.github.io'),
-  base: process.env.BASE_PATH ?? (onCloudflare ? '/' : '/Breanna-Eric-Wedding'),
+  site: process.env.SITE_URL || process.env.CF_PAGES_URL || 'http://localhost:4321',
+  base: process.env.BASE_PATH ?? '/',
   trailingSlash: 'always',
   // Clean, unhashed asset URLs: /assets/Base.css, /assets/<font>.woff2
   build: { assets: 'assets' },
