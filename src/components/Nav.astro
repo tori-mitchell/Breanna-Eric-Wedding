@@ -136,9 +136,10 @@ const current = Astro.url.pathname;
     .menu a span { padding-bottom: 0; line-height: 16px; display: inline-block; }
     /* The current-page underline is one element that slides between links (and between pages: its last position is remembered). */
     :global(html.js) .menu a[aria-current='page'] span { border-bottom-color: transparent; }
-    .ind { display: block; position: absolute; left: 0; top: 0; height: 1px; width: 0; background: var(--color-accent); pointer-events: none; opacity: 0; }
+    /* A fixed 96px bar scaled to the link's width: transform-only, so the glide runs on the compositor and stays smooth even while the page is busy loading */
+    .ind { display: block; position: absolute; left: 0; top: 0; height: 1px; width: 96px; transform-origin: 0 0; will-change: transform; background: var(--color-accent); pointer-events: none; opacity: 0; }
     .ind.on { opacity: 1; }
-    .menu .ind.slide { transition: transform 450ms var(--ease), width 450ms var(--ease); }
+    .menu .ind.slide { transition: transform 500ms var(--ease); }
     @media (prefers-reduced-motion: reduce) { .menu .ind.slide { transition: none; } }
     .menu li a {
       min-height: 48px; min-width: 48px; padding-inline: 4px;
@@ -157,7 +158,7 @@ const current = Astro.url.pathname;
     const cur = menu?.querySelector("a[aria-current='page'] span") as HTMLElement | null;
     const desktop = window.matchMedia('(min-width: 1200px)');
     const where = () => { const m = menu!.getBoundingClientRect(); const r = cur!.getBoundingClientRect(); return { x: r.left - m.left, w: r.width, y: r.bottom - m.top - 1 }; };
-    const put = (x: number, w: number, y: number) => { ind!.style.width = w + 'px'; ind!.style.transform = `translate(${x}px, ${y}px)`; };
+    const put = (x: number, w: number, y: number) => { ind!.style.transform = `translate(${x}px, ${y}px) scaleX(${w / 96})`; };
     if (menu && ind && cur) {
       const run = () => {
         if (!desktop.matches) return;
