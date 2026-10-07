@@ -26,4 +26,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   .right .photo { left: 16px; right: 64px; }
   .right .wash { right: -8px; top: 40px; width: 192px; opacity: 0.45; transform: scaleX(-1); }   /* smaller and lower, so it sits beside the art instead of above it */
+  /* Desktop only: the section's generic image margin (--block) was being applied to this photo too, pushing it down
+     past its own box and into the next section. Cancel it here. (Phones keep their current layout.) */
+  @media (min-width: 1024px) { .bp .photo :global(.fig) { margin-block: 0; } }
 </style>

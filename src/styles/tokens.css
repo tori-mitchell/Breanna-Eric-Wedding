@@ -89,7 +89,7 @@
   --space-6: 6rem;
   /* Vertical rhythm: 16px between blocks of text; 48px around sections and media, same above and below */
   --flow: 1rem;                   /* 16px */
-  --block: 3rem;                  /* 48px */
+  --block: 3rem;                  /* 48px: THE standard gap between sections, images and collages (phones). Desktop value below. */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
   --column-wide: 65rem;           /* 1040px: two-column sections on desktop */
@@ -106,4 +106,4 @@
   --dur: 600ms;
 }
 
-@media (min-width: 1024px) { :root { --nav-h: 88px; } }
+@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
