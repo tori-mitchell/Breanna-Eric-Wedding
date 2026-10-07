@@ -1,8 +1,8 @@
 ---
-interface Props { align?: 'left' | 'center'; tight?: boolean; id?: string; }
-const { align = 'left', tight = false, id } = Astro.props;
+interface Props { align?: 'left' | 'center'; tight?: boolean; id?: string; wide?: boolean; }
+const { align = 'left', tight = false, id, wide = false } = Astro.props;
 ---
-<section id={id} class:list={['section', 'reveal', { tight }]} data-align={align}><slot /></section>
+<section id={id} class:list={['section', 'reveal', { tight, wide }]} data-align={align}><slot /></section>
 
 <style>
   /* One rhythm: --flow (16px) between text blocks, --block (48px) around sections and media,
@@ -20,4 +20,6 @@ const { align = 'left', tight = false, id } = Astro.props;
   .section :global(.fig + .fig), .section :global(.fig + .frame), .section :global(.frame + .fig) { margin-top: 0; }
   .section > :global(:first-child) { margin-top: 0; }
   .section > :global(:last-child) { margin-bottom: 0; }
+  /* wide: a two-column section on desktop (the column widens to 1040px at >= 1024px; phones unaffected) */
+  @media (min-width: 1024px) { .section.wide { max-width: var(--column-wide); } }
 </style>

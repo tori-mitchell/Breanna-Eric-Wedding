@@ -99,6 +99,9 @@ const current = Astro.url.pathname;
   }
   .menu a span { border-bottom: 1px solid transparent; padding-bottom: 4px; }
   .menu a[aria-current='page'] span { border-bottom-color: var(--color-accent); }
+  /* Hover (mouse devices only, so phones don't get a stuck underline): the same underline as the active page */
+  @media (hover: hover) { .menu a:hover span { border-bottom-color: var(--color-accent); } }
+  .menu span { transition: border-color 150ms var(--ease); }
   .stamp { margin: 0; }
 
   /* No JS: menu is a plain centered list under the bar */

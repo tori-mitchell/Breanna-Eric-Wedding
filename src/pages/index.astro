@@ -20,7 +20,8 @@ import Flourish from '../components/Flourish.astro';
     </div>
   </section>
 
-  <Section>
+  <Section wide>
+    <div class="duo">
     <BlockPhoto src="images/art/couple.jpg" label="Photo: couple" variant="left" />
     <div class="letter" style={`--wash:url(${base}images/wash-smudge.webp)`}>
       <Flourish />
@@ -30,6 +31,7 @@ import Flourish from '../components/Flourish.astro';
       <p>With all our love,</p>
       <p class="script sig">Breanna &amp; Eric</p>
       <Flourish />
+    </div>
     </div>
   </Section>
 
@@ -131,4 +133,14 @@ import Flourish from '../components/Flourish.astro';
   .sprig { position: absolute; width: 96px; height: auto; pointer-events: none; }
   .tr { right: 0; top: -48px; }
   .br { right: 0; bottom: -72px; }
+
+  /* Desktop only (>= 1024px): the couple photo and the letter sit side by side, photo left, letter right.
+     Phones keep the stacked layout. */
+  @media (min-width: 1024px) {
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .duo :global(.bp.bp) { margin-block: 0; }
+    .letter.letter { margin-top: 0; }
+    /* more air between the ceremony painting and the RSVP block below it */
+    :global(.bp.bp.bp.bp) { margin-bottom: 96px; }   /* repeated class: outranks the component's own .bp.bp rule */
+  }
 </style>
