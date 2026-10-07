@@ -127,6 +127,11 @@ const current = Astro.url.pathname;
     }
     :global(html.menu-open) { overflow: auto; }
     ul { display: flex; gap: var(--space-3); }   /* 24px (was 40, then 32) */
+    /* Desktop row: links are the secondary text color, the primary (darker) ink on hover and for the current page; the underline sits closer to the text */
+    .menu li a { color: var(--color-body); transition: color 150ms var(--ease); }
+    .menu li a[aria-current='page'] { color: var(--color-text); }
+    @media (hover: hover) { .menu li a:hover { color: var(--color-text); } }
+    .menu a span { padding-bottom: 0; line-height: 16px; display: inline-block; }
     .menu li a {
       min-height: 48px; min-width: 48px; padding-inline: 4px;
       font-family: var(--font-sans); font-size: var(--text-eyebrow); font-weight: 400; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; line-height: 24px;
