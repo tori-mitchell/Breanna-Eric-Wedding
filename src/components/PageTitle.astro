@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 </header>
 
 <style>
-  .title { display: grid; place-items: center; padding: var(--space-2) 0 0; }
+  .title { display: grid; place-items: center; padding: var(--space-2) 0 0; max-width: 960px; margin-inline: auto; }   /* the banner stops growing on wide screens */
   .title > * { grid-area: 1 / 1; }
   /* Paper in the image is pure white, so multiply leaves the page texture alone; edges fade out on all four sides. */
   .banner { width: 100%; height: auto; display: block; mix-blend-mode: multiply;

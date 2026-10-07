@@ -92,6 +92,7 @@
   --block: 3rem;                  /* 48px */
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
+  --column: 40rem;                /* 640px: width of the centered content column on wide screens (phones are narrower, so unaffected) */
 
   /* Temporary screenshot placeholders get this outline. Set to `none` to hide. */
   --temp-outline: none;
