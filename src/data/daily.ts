@@ -16,7 +16,7 @@ export const daily = [
     { time: '4:00 PM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
     { time: '7:00 PM', title: 'Placeholder 3', desc: 'Dummy text. Not the real schedule.' },
   ] },
-  { title: 'Departure', date: 'Sunday the 19th', img: 'images/art/terrace-cafe.jpg', imgLabel: 'Watercolor: morning coffee on the terrace', rows: [
+  { title: 'Departure', date: 'Sunday the 19th', img: 'images/art/terrace-cafe-crop.jpg', soft: true, imgLabel: 'Watercolor: morning coffee on the terrace', rows: [
     { time: '8:30 AM', title: 'Placeholder 1', desc: 'Dummy text. Not the real schedule.' },
     { time: '11:00 AM', title: 'Placeholder 2', desc: 'Dummy text. Not the real schedule.' },
   ] },
