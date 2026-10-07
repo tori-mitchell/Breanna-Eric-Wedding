@@ -22,6 +22,8 @@ const { align = 'left', tight = false, id, wide = false, mid = false, split = fa
   .section > :global(:last-child) { margin-bottom: 0; }
   /* wide: a two-column section on desktop (the column widens to 1040px at >= 1024px; phones unaffected) */
   @media (min-width: 1024px) {
+    /* Desktop: the first section under a page title sits closer to it (48px, instead of the 72px section gap) */
+    :global(.title) + .section { margin-top: 3rem; }
     .section.wide { max-width: var(--column-wide); }
     .section.mid { max-width: var(--column-mid); }   /* single column, 480px */
   }
