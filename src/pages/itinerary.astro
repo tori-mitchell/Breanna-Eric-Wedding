@@ -20,8 +20,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   {daily.map((d, i) => (
     <Section id={`day-${i + 1}`}>
+      <p class="eyebrow">{d.date}</p>
       <h2 class="subhead">{d.title}</h2>
-      <p class="eyebrow dayline">{d.date}</p>
       <div class="day">
         {d.rows.map((r) => <ScheduleRow time={r.time} title={r.title}>{r.desc}</ScheduleRow>)}
       </div>
@@ -32,7 +32,6 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 <style>
   .day { margin-top: var(--flow); }
-  .dayline.dayline { margin-top: var(--space-1); }   /* date line sits 8px under the heading */
   p a { text-decoration: underline; text-underline-offset: 4px; }
   /* The closing note is its own block: 48px below the list (never closer than 24px). */
   p.after { margin-top: var(--block); }
