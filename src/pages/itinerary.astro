@@ -6,7 +6,7 @@ import ScheduleRow from '../components/ScheduleRow.astro';
 import Figure from '../components/Figure.astro';
 import Flourish from '../components/Flourish.astro';
 import { itinerary } from '../data/itinerary';
-import { daily } from '../data/daily';
+import { daily, showDailyRows } from '../data/daily';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <Base title="Itinerary — Breanna & Eric">
@@ -23,9 +23,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <Section id={`day-${i + 1}`}>
       <p class="eyebrow">{d.title}</p>
       <h2 class="subhead">{d.date}</h2>
-      <div class="day">
-        {d.rows.map((r) => <ScheduleRow time={r.time} title={r.title}>{r.desc}</ScheduleRow>)}
-      </div>
+      {showDailyRows ? (
+        <div class="day">
+          {d.rows.map((r) => <ScheduleRow time={r.time} title={r.title}>{r.desc}</ScheduleRow>)}
+        </div>
+      ) : (
+        <p class="soon"><em>Details coming soon. We’ll share the hour-by-hour plan for this day closer to the wedding.</em></p>
+      )}
       <Figure narrow wash={i % 2 ? 'right' : 'left'} accent={i % 2 ? 'peach' : 'sage'} soft={d.soft} src={d.img} ratio="4 / 5" label={d.imgLabel} />
     </Section>
   ))}
