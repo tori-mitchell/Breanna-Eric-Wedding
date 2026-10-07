@@ -77,7 +77,7 @@
   --tracking-eyebrow: 3px;
 
   /* Shared layout heights (grid-aligned) */
-  --nav-h: 64px;                  /* nav bar height: the same on phones and desktop */
+  --nav-h: 64px;                  /* nav bar height on phones; 88px from 1024px up (hamburger or full row alike, below) */
   --footer-h: 48px;
 
   /* Spacing */
@@ -107,4 +107,4 @@
   --dur: 600ms;
 }
 
-@media (min-width: 1024px) { :root { --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
+@media (min-width: 1024px) { :root { --nav-h: 88px; --block: 6rem; /* 96px: the same standard gap, roomier on desktop */ } }
