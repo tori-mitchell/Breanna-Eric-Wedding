@@ -29,7 +29,7 @@ const { align = 'left', tight = false, id, wide = false, mid = false, split = fa
      Text is one column and vertically centered against the image; `flip` puts the image on the left. `rows` = number of text blocks.
      Phones are untouched: the section stays a single stacked column. */
   @media (min-width: 1024px) {
-    .section.split { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; grid-template-rows: 1fr repeat(var(--rows), auto) 1fr; }
+    .section.split { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--col-gap); grid-template-rows: 1fr repeat(var(--rows), auto) 1fr; }
     .section.split::before { content: ''; grid-column: 1; grid-row: 1; }
     .section.split > :not(:global(.fig)) { grid-column: 1; }
     .section.split > :global(.fig) { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-block: 0; width: 100%; }

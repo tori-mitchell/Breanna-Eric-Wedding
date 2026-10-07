@@ -93,6 +93,7 @@
   --gutter: 1.5rem;               /* 24px — page side padding on mobile (generous breathing room) */
   --measure: 38rem;               /* max text width */
   --column-mid: 30rem;            /* 480px: the narrower single column (opt-in per section via `mid`) */
+  --col-gap: 1.5rem;              /* 24px: the gap between the two columns of EVERY two-column layout (Home, Itinerary, schedule rows) */
   --column-wide: 51.5rem;         /* 824px: two-column sections on desktop (two 400px columns + 24px gap) */
   --column: 34.5rem;              /* 552px (was 640): width of the centered single content column on wide screens (phones are narrower, so unaffected) */
 
