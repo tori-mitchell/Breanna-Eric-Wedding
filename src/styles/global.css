@@ -111,6 +111,7 @@ h1, h2, h3 { --ink-gap0: 13px; }                          /* grid-exempt: optica
   .reveal.is-visible { opacity: 1; transform: none; }
 }
 
-/* Text link ("Learn more →"): bold body text, underlined, accent on hover/tap/focus */
-.more { font-variant-emoji: text; color: var(--color-body); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; transition: color 150ms var(--ease); }
-.more:hover, .more:active, .more:focus-visible { color: var(--color-accent); }
+/* Text link ("Learn more →", "Back to top", "Official photo gallery"): bold, underlined, dark ink; secondary text color on hover/tap/focus */
+.more { font-variant-emoji: text; color: var(--color-text); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; transition: color 150ms var(--ease); }
+.more:active, .more:focus-visible { color: var(--color-body); }
+@media (hover: hover) { .more:hover { color: var(--color-body); } }   /* hover: the secondary text color (default is the darker ink) */
