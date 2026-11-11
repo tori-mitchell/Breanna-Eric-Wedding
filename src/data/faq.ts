@@ -1,6 +1,8 @@
 // FAQ items. The FAQ is the authority: every answer stands on its own and never sends guests to another page,
 // even where it repeats what's elsewhere on the site. Keep answers short. `a` may contain simple inline HTML.
 // (The registry answer links out to the registry itself, which is the actual answer.)
+import { registry } from './links';
+
 export const faq = [
   { q: 'What are the dates and where is it?',
     a: 'Thursday, September 16 through Sunday, September 19, 2027, at Borgo Laticastelli, a restored 12th-century village near Rapolano Terme in Tuscany.' },
@@ -27,5 +29,5 @@ export const faq = [
   { q: 'How do I RSVP?',
     a: 'Formal RSVP details will come with the invitation. If you already know you can’t make it, you’re welcome to let us know now.' },
   { q: 'Is there a registry?',
-    a: 'Yes. For those who have asked, we’ve put together a small registry. You can <a href="https://withjoy.com/breanna-and-eric-sep-2027/registry" target="_blank" rel="noopener">view it here</a>.' },
+    a: `Yes. For those who have asked, we’ve put together a small registry. You can <a href="${registry}" target="_blank" rel="noopener">view it here</a>.` },
 ];

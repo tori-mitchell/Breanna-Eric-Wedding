@@ -6,7 +6,7 @@ import Button from '../components/Button.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const art = (n) => `${base}images/art/${n}.jpg`;
 import Flourish from '../components/Flourish.astro';
-import { registry } from '../data/links';
+import { registry, rsvp } from '../data/links';
 ---
 <Base title="Breanna & Eric">
   <section class="page hero" data-align="center">
@@ -49,7 +49,7 @@ import { registry } from '../data/links';
     <p class="eyebrow">RSVP</p>
     <h2 class="subhead">Already know you can’t make it?</h2>
     <p>We completely understand that traveling to Tuscany won’t be possible for everyone. If you already know you won’t be able to join us, you’re welcome to let us know now. For everyone else, formal RSVP details will be shared with the invitation.</p>
-    <p><Button href="#">Let us Know</Button></p>
+    <p><Button href={rsvp}>Let us Know</Button></p>
   </Section>
 
   <Section id="registry">
