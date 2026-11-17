@@ -17,6 +17,23 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <meta name="theme-color" content="#f7f3ee" />
     <script is:inline>document.documentElement.classList.add('js')</script>
     <title>{title}</title>
+    <!-- Google Analytics. Silent on localhost and Cloudflare previews; live site and the custom domain still report. -->
+    <script is:inline>
+      (function () {
+        var host = location.hostname;
+        var isLocal = host === 'localhost' || host === '127.0.0.1';
+        var isPreview = host.endsWith('.pages.dev') && host !== 'breanna-eric-wedding.pages.dev';
+        if (isLocal || isPreview) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XHVQ7XWMX5';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-XHVQ7XWMX5');
+      })();
+    </script>
     <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
     <link rel="icon" href={`${base}favicon-32.png`} type="image/png" sizes="32x32" />
     <link rel="icon" href={`${base}icon-192.png`} type="image/png" sizes="192x192" />
